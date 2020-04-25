@@ -12,6 +12,7 @@ cc.Class({
         player_button:cc.Button,
         pa_back_button:cc.Button,
         stuty_button:cc.Button,
+        yule_button:cc.Button
         //rest_button:cc.Button,
         //work_button:cc.Button,
         //next_button:cc.Button,
@@ -38,7 +39,12 @@ cc.Class({
             //self.ShowPage(false);
             self.scheduleOnce(function(){
                 cc.director.loadScene("Study");
-            },0.5);
+            });
+        });
+
+        this.yule_button.node.on('click', function(){
+            //self.ShowPage(false);
+            cc.director.loadScene("YuLe_CangGou");
         });
     },
 

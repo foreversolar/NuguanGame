@@ -20,7 +20,6 @@ cc.Class({
             {url:'/picture/bg_shufang.png', name:'书房'},
         ];
  
-        this.resource = null;
         this.progressBar.progress = 0;
         this.total=this._urls.length;
         this.count=0;
@@ -31,7 +30,6 @@ cc.Class({
             this.count=this.count+1;
             cc.loader.loadRes(element.url,this._progressCallback.bind(this),
                 this._completeCallback.bind(this))
-                console.log(element.name+"加载完成！")
             });
     },
  
@@ -49,12 +47,12 @@ cc.Class({
  
     _progressCallback: function(completeCount, totalCount, res) {
         //加载进度回调 
-        this.progress = this.count / this.total;
-        this.resource = res;
     },
  
     _completeCallback: function(err, texture) {
         //加载完成回调
+        this.progress = this.count / this.total;
+        console.log("complete one: err:"+err)
     },
  
     update (dt) {

@@ -172,7 +172,7 @@
       "array": [
         0,
         0,
-        341.2681356788054,
+        343.8039086451423,
         0,
         0,
         0,
@@ -319,7 +319,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        331,
+        299.432,
         -170,
         0,
         0,
@@ -420,8 +420,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -655,
-        342,
+        -615.539,
+        349.892,
         0,
         0,
         0,
@@ -489,7 +489,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        4,
         0,
         0,
         0,
@@ -551,8 +551,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        0,
+        23.676,
+        -7.892,
         0,
         0,
         0,
@@ -651,8 +651,8 @@
     "alignMode": 0,
     "_target": null,
     "_alignFlags": 45,
-    "_left": 6.5,
-    "_right": 6.5,
+    "_left": 10.5,
+    "_right": 2.5,
     "_top": 11,
     "_bottom": 11,
     "_verticalCenter": 0,
@@ -829,8 +829,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -769,
-        -340,
+        -725.593,
+        -336.054,
         0,
         0,
         0,
@@ -1234,7 +1234,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -504,
+        -476.378,
         -340,
         0,
         0,
@@ -1639,7 +1639,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -239,
+        -215.324,
         -340,
         0,
         0,
@@ -2041,8 +2041,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        733,
-        -298,
+        673.809,
+        -301.946,
         0,
         0,
         0,
@@ -3004,7 +3004,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
+      "width": 99.96,
       "height": 56.7
     },
     "_anchorPoint": {
@@ -3098,7 +3098,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
+      "width": 99.96,
       "height": 56.7
     },
     "_anchorPoint": {
@@ -3279,6 +3279,9 @@
     },
     "stuty_button": {
       "__id__": 31
+    },
+    "yule_button": {
+      "__id__": 40
     },
     "_id": "2eLPmrcF9Afb3CfyFJUa05"
   },

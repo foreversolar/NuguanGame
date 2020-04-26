@@ -1,0 +1,82 @@
+{
+	"Background": [{
+			"name": "Yuanzi",
+			"url": "https://api.recovermaker.cn/res/bg_yuanzi.png"
+		},
+		{
+			"name": "Dating",
+			"url": "https://api.recovermaker.cn/res/bg_dating.png"
+		},
+		{
+			"name":"Shufang",
+			"url":"https://api.recovermaker.cn/res/bg_shufang.png"
+		}
+	],
+	"Figure": [{
+			"name": "Nuli",
+			"url": "https://api.recovermaker.cn/res/figure_nuli.png"
+		},
+		{
+			"name": "Gugu",
+			"url": "https://api.recovermaker.cn/res/figure_gugu.png"
+		},
+		{
+			"name": "Dianshan",
+			"url": "https://api.recovermaker.cn/res/figure_dianshan.png"
+		},
+		{
+			"name": "Shangshi",
+			"url": "https://api.recovermaker.cn/res/figure_shangshi.png"
+		},
+		{
+			"name": "Sishan",
+			"url": "https://api.recovermaker.cn/res/figure_sishan.png"
+		},
+		{
+			"name": "Zhangshan",
+			"url": "https://api.recovermaker.cn/res/figure_zhangshan.png"
+		}
+	],
+	"UI": [{
+			"name": "Duihuakuangyou",
+			"url": "https://api.recovermaker.cn/res/ui_duihuakuangyou.png"
+		},
+		{
+			"name": "Duihuakuangzuo",
+			"url": "https://api.recovermaker.cn/res/ui_duihuakuangzuo.png"
+		},
+		{
+			"name": "Xinhuihemianban",
+			"url": "https://api.recovermaker.cn/res/ui_xinhuihemianban.png"
+		},
+		{
+			"name":"Attribute_panel",
+			"url":"https://api.recovermaker.cn/res/ui_renwushuxingmianban.png"
+		}
+	],
+	"Button":[{
+				"name":"Gouwu",
+				"url":"https://api.recovermaker.cn/res/btn_gongwu.png"
+			},
+			{
+				"name":"Quxiao",
+				"url":"https://api.recovermaker.cn/res/btn_quxiao.png"
+			},
+			{
+				"name":"Shuxingkuang",
+				"url":"https://api.recovermaker.cn/res/btn_shuxingkuang.png"
+			},
+			{
+				"name":"Xiayihuihe",
+				"url":"https://api.recovermaker.cn/res/btn_xiayihuihe.png"
+			},
+			{
+				"name":"Yanxi",
+				"url":"https://api.recovermaker.cn/res/btn_yanxi.png"
+			},
+			{
+				"name":"Yule",
+				"url":"https://api.recovermaker.cn/res/btn_yule.png"
+			}
+		]
+}

@@ -34,7 +34,7 @@ cc.Class({
 
     //update (dt) {},
 
-    showText:function(button){
+    showText(button){
         var str = this.Json_word.json.StartText;
         var index= 0;
         var interval = 0.05;

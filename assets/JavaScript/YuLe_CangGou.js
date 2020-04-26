@@ -28,16 +28,38 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    //onLoad () {},
+    onLoad () {
+
+    },
 
     start () {
+        
         var bg=this.node.getChildByName("background");
         var hand1 = bg.getChildByName("hand1");
         var hand2 = bg.getChildByName("hand2");
         var hand3 = bg.getChildByName("hand3");
 
+        var ux=bg.getChildByName("ux");
+        var ux_end=bg.getChildByName("ux_end");
+        var start=ux.getChildByName("btn");
+        var back=ux_end.getChildByName("btn");
+        var text=ux_end.getChildByName("text");
+        var happy=Math.ceil(Math.random()*3); 
+        
 
-        hand1.on('click',function(){            
+
+        // var ux_end=this.node.getChildByName("ux_end");
+        // var text=ux_end.getChildByName("text").getComponent('Button');
+        // var back=ux_end.getChildByName("btn").getComponent('Button');
+
+
+        start.on('click',function(){    
+            console.log("emmmm")
+            ux.opacity=0
+
+        });
+
+        hand1.on('click',function(){    
             cc.loader.loadRes('/picture/btn_张开的手', function (err, texture) { 
                 if(err){
                     console.log("Load btn_张开的手 failed!");
@@ -45,8 +67,14 @@ cc.Class({
                 var sprite  = new cc.SpriteFrame(texture);
                 hand1.getComponent(cc.Sprite).spriteFrame = sprite;
             });
-            hand2.getComponent(cc.Button).interactable = false;
-            hand3.getComponent(cc.Button).interactable = false;
+
+            if(happy==1){
+                text.getComponent(cc.Label).string="哇，你怎么猜到的！（金币+5）";
+            }else{
+                text.getComponent(cc.Label).string="哈哈，不在这里！";
+            }
+            ux_end.opacity=255;
+
         });
 
         hand2.on('click',function(){            
@@ -57,8 +85,14 @@ cc.Class({
                 var sprite  = new cc.SpriteFrame(texture);
                 hand2.getComponent(cc.Sprite).spriteFrame = sprite;
             });
-            hand1.getComponent(cc.Button).interactable = false;
-            hand3.getComponent(cc.Button).interactable = false;
+
+            if(happy==2){
+                text.getComponent(cc.Label).string="哇，你怎么猜到的！（金币+5）";
+            }else{
+                text.getComponent(cc.Label).string="哈哈，不在这里！";
+            }
+            ux_end.opacity=255;
+
         });
 
 
@@ -70,18 +104,27 @@ cc.Class({
                 var sprite  = new cc.SpriteFrame(texture);
                 hand3.getComponent(cc.Sprite).spriteFrame = sprite;
             });
-            hand1.getComponent(cc.Button).interactable = false;
-            hand2.getComponent(cc.Button).interactable = false;
+
+            if(happy==2){
+                text.getComponent(cc.Label).string="哇，你怎么猜到的！（金币+5）";
+            }else{
+                text.getComponent(cc.Label).string="哈哈，不在这里！";
+            }
+            ux_end.opacity=255;
+
         });
 
 
+        back.on('click',function(){       
+            cc.director.loadScene("Game");     
 
-
+        });
     },
 
     callback: function (button) {
 
-    }
+    },
+
 
     // update (dt) {},
 });

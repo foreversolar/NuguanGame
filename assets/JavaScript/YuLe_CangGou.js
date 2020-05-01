@@ -31,6 +31,7 @@ cc.Class({
     //onLoad () {},
 
     start () {
+        var self = this;
         var bg=this.node.getChildByName("background");
         var hand1 = bg.getChildByName("hand1").getComponent(cc.Button);
         var hand2 = bg.getChildByName("hand2").getComponent(cc.Button);
@@ -65,6 +66,7 @@ cc.Class({
 
             if(happy==1){
                 text.getComponent(cc.Label).string="哇，你怎么猜到的！（金币+5）";
+                self.AddScore(1);
             }else{
                 text.getComponent(cc.Label).string="哈哈，不在这里！";
             }
@@ -84,6 +86,7 @@ cc.Class({
 
             if(happy==2){
                 text.getComponent(cc.Label).string="哇，你怎么猜到的！（金币+5）";
+                self.AddScore(1);
             }else{
                 text.getComponent(cc.Label).string="哈哈，不在这里！";
             }
@@ -104,6 +107,7 @@ cc.Class({
 
             if(happy==3){
                 text.getComponent(cc.Label).string="哇，你怎么猜到的！（金币+5）";
+                self.AddScore(1);
             }else{
                 text.getComponent(cc.Label).string="哈哈，不在这里！";
             }
@@ -121,6 +125,21 @@ cc.Class({
 
     callback: function (button) {
 
+    },
+    AddScore:function(right){
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+        .get({
+            success(res) {
+                DB.collection('UserData').doc(res.data[0]._id).update({
+                    data:{
+                        money:res.data[0].money+right*5,
+                    }
+                })
+            }
+        });
     }
 
     // update (dt) {},

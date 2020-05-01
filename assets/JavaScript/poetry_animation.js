@@ -119,6 +119,7 @@ cc.Class({
             else {
                 correct_button.getChildByName("right").opacity = 255;
                 Question_text.string = "恭喜你，你果然是才貌双全，魅力值增加20，学识增加15。\n点击右上角退出！";
+                self.AddScore(1);
             }
             Answer1.getComponent(cc.Button).interactable = false;
             Answer2.getComponent(cc.Button).interactable = false;
@@ -142,6 +143,7 @@ cc.Class({
             else {
                 correct_button.getChildByName("right").opacity = 255;
                 Question_text.string = "恭喜你，你果然是才貌双全，魅力值增加20，学识增加15。\n点击右上角退出！";
+                self.AddScore(1);
             }
             Answer1.getComponent(cc.Button).interactable = false;
             Answer2.getComponent(cc.Button).interactable = false;
@@ -164,6 +166,7 @@ cc.Class({
             else {
                 correct_button.getChildByName("right").opacity = 255;
                 Question_text.string = "恭喜你，你果然是才貌双全，魅力值增加20，学识增加15。\n点击右上角退出！";
+                self.AddScore(1);
             }
             Answer1.getComponent(cc.Button).interactable = false;
             Answer2.getComponent(cc.Button).interactable = false;
@@ -171,4 +174,20 @@ cc.Class({
             choose_button = Answer3;
         });
     },
+    AddScore:function(right){
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+        .get({
+            success(res) {
+                DB.collection('UserData').doc(res.data[0]._id).update({
+                    data:{
+                        charm:res.data[0].charm+right*20,
+                        knowledge:res.data[0].knowledge+right*15,
+                    }
+                })
+            }
+        });
+    }
 });

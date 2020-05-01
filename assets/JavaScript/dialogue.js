@@ -21,6 +21,18 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
+        //初始化云服务器
+        wx.cloud.init({
+            traceUser: true,
+             env: 'ltc-eyfvh'
+        });
+    
+        //调用云函数
+        wx.cloud.callFunction({
+            name: 'getopenid',complete: res => {
+                cc.sys.localStorage.setItem('openid', res.result.openid);
+            }
+        });
     },
 
     start () {

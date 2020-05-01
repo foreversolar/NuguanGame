@@ -48,6 +48,7 @@ cc.Class({
     //update (dt) {},
     LoadQuestion:function(index,QuestionAsset){
         //设置题目信息
+        var right = 0;
         var Question_text = this.node.getChildByName("Question").getComponent(cc.Label);
         var correct_button;
         var choose_button;
@@ -95,6 +96,9 @@ cc.Class({
             if(Answer1!=correct_button){
                     Answer1.getChildByName("false").opacity = 255;
             }
+            else{
+                right++;
+            }
             self.turn(1);
             Answer1.getComponent(cc.Button).interactable = false;
             Answer2.getComponent(cc.Button).interactable = false;
@@ -120,6 +124,9 @@ cc.Class({
             if(Answer2!=correct_button){
                 Answer2.getChildByName("false").opacity = 255;
             }
+            else{
+                right++;
+            }
             self.turn(1);
             Answer1.getComponent(cc.Button).interactable = false;
             Answer2.getComponent(cc.Button).interactable = false;
@@ -144,6 +151,9 @@ cc.Class({
             });
             if(Answer3!=correct_button){
                 Answer3.getChildByName("false").opacity = 255;
+            }
+            else{
+                right++;
             }
             self.turn(1);
             Answer1.getComponent(cc.Button).interactable = false;
@@ -220,7 +230,8 @@ cc.Class({
                 Back_Button.opacity = 255;
                 head.opacity = 0;
                 B_Button.interactable = true;
-                Question_text.string = "点击右上角返回";
+                self.AddScore(right);
+                Question_text.string = "你答对了"+right+"道题目，获得经验"+right*30+",点击右上角返回";
                 next.opacity = 0;
                 next.getComponent(cc.Button).interactable = false;
                 change.opacity = 0;
@@ -246,23 +257,6 @@ cc.Class({
             head.getComponent(cc.Sprite).spriteFrame = sprite;
         })
     },
-    resetQA:function(){
-        
-        this.getChildByName("Question").getComponent(cc.Label).string = "这里是研习环节，通过回答相关问题即可增长你的学识，提升等级。开始之后会出现相应的题目和选项，请在右边选择你认为正确的选项，回答正确即可增长学识。";
-        var start = this.getChildByName("Start");
-        var Answer1 = this.getChildByName("Answer1");
-        var Answer2 = this.getChildByName("Answer2");
-        var Answer3 = this.getChildByName("Answer3");
-        var Change = this.getChildByName("Change");
-        var Next = this.getChildByName("Next");
-        this.setButton(start,true);
-        this.setButton(Answer1,false);
-        this.setButton(Answer2,false);
-        this.setButton(Answer3,false);
-        this.setButton(Change,false);
-        this.setButton(Next,false);
-
-    },
 
     setButton:function(Button,t_f){
         Button.getComponent(cc.Button).interactable = t_f;
@@ -272,5 +266,21 @@ cc.Class({
         else{
             Button.opacity = 0;
         }
+    },
+
+    AddScore:function(right){
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+        .get({
+            success(res) {
+                DB.collection('UserData').doc(res.data[0]._id).update({
+                    data:{
+                        knowledge:res.data[0].knowledge+right*30,
+                    }
+                })
+            }
+        });
     }
 });

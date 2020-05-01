@@ -15,8 +15,6 @@ cc.Class({
         yule_button:cc.Button,
         work_button:cc.Button,
         next_button:cc.Button,
-        //UA:cc.JsonAsset,
-        
     },
 
     
@@ -44,10 +42,17 @@ cc.Class({
             });
         });
         this.yule_button.node.on('click', function(){
-            cc.director.loadScene("YuLe_CangGou");
+            self.scheduleOnce(function(){
+                cc.director.loadScene("YuLe_CangGou");
+            });
         });
         this.work_button.node.on('click', function(){
-            cc.director.loadScene("Gongwu_Kapian");
+            self.scheduleOnce(function(){
+                cc.director.loadScene("Gongwu_Kapian");
+            });
+        });
+        this.next_button.node.on('click', function () {
+            cc.director.loadScene("YuLe_QuShuiLiuShang");
         });
         this.next_button.node.on('click', function () {
             cc.director.loadScene("YuLe_QuShuiLiuShang");

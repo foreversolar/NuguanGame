@@ -174,7 +174,6 @@ cc.Class({
             choose_button = Answer3;
         });
     },
-
     AddScore:function(right){
         const DB = wx.cloud.database();
         DB.collection('UserData').where({

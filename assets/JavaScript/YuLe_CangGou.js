@@ -31,13 +31,31 @@ cc.Class({
     //onLoad () {},
 
     start () {
+        var self = this;
         var bg=this.node.getChildByName("background");
-        var hand1 = bg.getChildByName("hand1");
-        var hand2 = bg.getChildByName("hand2");
-        var hand3 = bg.getChildByName("hand3");
+        var hand1 = bg.getChildByName("hand1").getComponent(cc.Button);
+        var hand2 = bg.getChildByName("hand2").getComponent(cc.Button);
+        var hand3 = bg.getChildByName("hand3").getComponent(cc.Button);
 
+        var ux=bg.getChildByName("ux");
+        var ux_end=bg.getChildByName("ux_end");
+        var start=ux.getChildByName("btn").getComponent(cc.Button);
+        var back=ux_end.getChildByName("btn").getComponent(cc.Button);
+        var text=ux_end.getChildByName("text");
 
-        hand1.on('click',function(){            
+        var happy=Math.ceil(Math.random()*3); 
+
+        start.node.on('click',function(){    
+            ux.opacity=0
+            console.log("click start")
+            start.interactable = false;
+            hand1.interactable = true;
+            hand2.interactable = true;
+            hand3.interactable = true;
+
+        });
+
+        hand1.node.on('click',function(){            
             cc.loader.loadRes('/picture/btn_张开的手', function (err, texture) { 
                 if(err){
                     console.log("Load btn_张开的手 failed!");
@@ -45,11 +63,19 @@ cc.Class({
                 var sprite  = new cc.SpriteFrame(texture);
                 hand1.getComponent(cc.Sprite).spriteFrame = sprite;
             });
-            hand2.getComponent(cc.Button).interactable = false;
-            hand3.getComponent(cc.Button).interactable = false;
+
+            if(happy==1){
+                text.getComponent(cc.Label).string="哇，你怎么猜到的！（金币+5）";
+                self.AddScore(1);
+            }else{
+                text.getComponent(cc.Label).string="哈哈，不在这里！";
+            }
+            ux_end.opacity=255;
+            back.interactable=true;
+
         });
 
-        hand2.on('click',function(){            
+        hand2.node.on('click',function(){            
             cc.loader.loadRes('/picture/btn_张开的手', function (err, texture) { 
                 if(err){
                     console.log("Load btn_张开的手 failed!");
@@ -57,12 +83,20 @@ cc.Class({
                 var sprite  = new cc.SpriteFrame(texture);
                 hand2.getComponent(cc.Sprite).spriteFrame = sprite;
             });
-            hand1.getComponent(cc.Button).interactable = false;
-            hand3.getComponent(cc.Button).interactable = false;
+
+            if(happy==2){
+                text.getComponent(cc.Label).string="哇，你怎么猜到的！（金币+5）";
+                self.AddScore(1);
+            }else{
+                text.getComponent(cc.Label).string="哈哈，不在这里！";
+            }
+            ux_end.opacity=255;
+            back.interactable=true;
+
         });
 
 
-        hand3.on('click',function(){            
+        hand3.node.on('click',function(){            
             cc.loader.loadRes('/picture/btn_张开的手', function (err, texture) { 
                 if(err){
                     console.log("Load btn_张开的手 failed!");
@@ -70,17 +104,42 @@ cc.Class({
                 var sprite  = new cc.SpriteFrame(texture);
                 hand3.getComponent(cc.Sprite).spriteFrame = sprite;
             });
-            hand1.getComponent(cc.Button).interactable = false;
-            hand2.getComponent(cc.Button).interactable = false;
+
+            if(happy==3){
+                text.getComponent(cc.Label).string="哇，你怎么猜到的！（金币+5）";
+                self.AddScore(1);
+            }else{
+                text.getComponent(cc.Label).string="哈哈，不在这里！";
+            }
+            ux_end.opacity=255;
+            back.interactable=true;
+
         });
 
-
-
+        back.node.on('click',function(){       
+            cc.director.loadScene("Game");  
+            console.log("click end")   
+        });
 
     },
 
     callback: function (button) {
 
+    },
+    AddScore:function(right){
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+        .get({
+            success(res) {
+                DB.collection('UserData').doc(res.data[0]._id).update({
+                    data:{
+                        money:res.data[0].money+right*5,
+                    }
+                })
+            }
+        });
     }
 
     // update (dt) {},

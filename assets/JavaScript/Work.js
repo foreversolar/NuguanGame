@@ -88,11 +88,12 @@ cc.Class({
                 var Intro = self.node.getChildByName("Intro");
                 var content = Intro.getChildByName("content").getComponent(cc.Label);
                 if(self.Get == 3){
-                    content.string = "恭喜你已经挑出了所有坏掉的食物！";
+                    content.string = "恭喜你已经挑出了所有坏掉的食物！经验增加120";
                 }
                 else{
-                    content.string = "很遗憾，有坏掉的食物被送到了餐桌上，总管很生气！";
+                    content.string = "你挑出了"+self.Get+"道坏掉的食物,很遗憾，有坏掉的食物被送到了餐桌上，总管很生气！";
                 }
+                self.AddScore(self.Get);
                 Intro.opacity = 255;
                 var back = Intro.getChildByName("back");
                 back.opacity = 255;
@@ -130,4 +131,20 @@ cc.Class({
             }    
         });
     },
+
+    AddScore:function(right){
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+        .get({
+            success(res) {
+                DB.collection('UserData').doc(res.data[0]._id).update({
+                    data:{
+                        experience:res.data[0].experience+right*40,
+                    }
+                })
+            }
+        });
+    }
 });

@@ -42,28 +42,10 @@ cc.Class({
             });
         });
         this.yule_button.node.on('click', function(){
-            var choices=self.yule_button.node.getChildByName("choices");
-            if(choices.opacity==255){
-                choices.opacity=0;
-            }else{
-                choices.opacity=255;
-            }
-        });
-
-        var menu=this.yule_button.node.getChildByName("choices");
-        menu.getChildByName("liushangqushui").on('click',function(){
-            self.scheduleOnce(function(){
-                cc.director.loadScene("YuLe_QuShuiLiuShang");
-            });
-        });
-
-        
-        menu.getChildByName("canggou").on('click',function(){
             self.scheduleOnce(function(){
                 cc.director.loadScene("YuLe_CangGou");
             });
         });
-        
         this.work_button.node.on('click', function(){
             self.scheduleOnce(function(){
                 cc.director.loadScene("Gongwu_Kapian");

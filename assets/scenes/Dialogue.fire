@@ -172,7 +172,7 @@
       "array": [
         0,
         0,
-        341.2681356788054,
+        252.8794179050561,
         0,
         0,
         0,
@@ -367,7 +367,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 138.56,
+      "width": 159.92,
       "height": 100.8
     },
     "_anchorPoint": {
@@ -559,7 +559,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 138.56,
+      "width": 159.92,
       "height": 100.8
     },
     "_anchorPoint": {
@@ -929,8 +929,10 @@
     "_fontSize": 40,
     "_lineHeight": 45,
     "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
+    "_N$file": {
+      "__uuid__": "788696e8-f890-429f-8be5-20a72f32dd2e"
+    },
+    "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_styleFlags": 0,

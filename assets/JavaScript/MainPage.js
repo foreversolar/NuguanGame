@@ -69,11 +69,9 @@ cc.Class({
                 cc.director.loadScene("Gongwu_Kapian");
             });
         });
+
         this.next_button.node.on('click', function () {
-            cc.director.loadScene("YuLe_QuShuiLiuShang");
-        });
-        this.next_button.node.on('click', function () {
-            cc.director.loadScene("YuLe_QuShuiLiuShang");
+            cc.director.loadScene("Next");
         });
     },
 

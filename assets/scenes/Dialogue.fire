@@ -929,10 +929,8 @@
     "_fontSize": 40,
     "_lineHeight": 45,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "788696e8-f890-429f-8be5-20a72f32dd2e"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_styleFlags": 0,
@@ -984,15 +982,6 @@
       "__id__": 4
     },
     "_enabled": true,
-    "Character_left": {
-      "__id__": 14
-    },
-    "Character_right": {
-      "__id__": 16
-    },
-    "Dialogue": {
-      "__id__": 8
-    },
     "DialogueList": {
       "__uuid__": "665f2ed7-fd88-4d61-8090-355203a9e6a7"
     },

@@ -86,13 +86,22 @@ cc.Class({
         
         Answer1.on('click',function(){            
             correct_button.getChildByName("right").opacity = 255;
-            cc.loader.loadRes('/picture/btn_xuanzhongdaan', function (err, texture) { 
+            // cc.loader.loadRes('/picture/btn_xuanzhongdaan', function (err, texture) { 
+            //     if(err){
+            //         console.log("Load xuanzhong failed!");
+            //     }
+            //     var sprite  = new cc.SpriteFrame(texture);
+            //     Answer1.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
+            // });
+
+            cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                 if(err){
                     console.log("Load xuanzhong failed!");
                 }
-                var sprite  = new cc.SpriteFrame(texture);
+                var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer1.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
             });
+
             if(Answer1!=correct_button){
                     Answer1.getChildByName("false").opacity = 255;
             }
@@ -114,13 +123,22 @@ cc.Class({
 
         Answer2.on('click',function(){
             correct_button.getChildByName("right").opacity = 255;
-            cc.loader.loadRes('/picture/btn_xuanzhongdaan', function (err, texture) { 
+            // cc.loader.loadRes('/picture/btn_xuanzhongdaan', function (err, texture) { 
+            //     if(err){
+            //         console.log("Load xuanzhong failed!");
+            //     }
+            //     var sprite  = new cc.SpriteFrame(texture);
+            //     Answer2.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
+            // });
+
+            cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                 if(err){
                     console.log("Load xuanzhong failed!");
                 }
-                var sprite  = new cc.SpriteFrame(texture);
+                var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer2.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
             });
+
             if(Answer2!=correct_button){
                 Answer2.getChildByName("false").opacity = 255;
             }
@@ -142,13 +160,23 @@ cc.Class({
 
         Answer3.on('click',function(){
             correct_button.getChildByName("right").opacity = 255;
-            cc.loader.loadRes('/picture/btn_xuanzhongdaan', function (err, texture) { 
+            // cc.loader.loadRes('/picture/btn_xuanzhongdaan', function (err, texture) { 
+            //     if(err){
+            //         console.log("Load xuanzhong failed!");
+            //     }
+            //     var sprite  = new cc.SpriteFrame(texture);
+            //     Answer3.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
+            // });
+
+            cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                 if(err){
                     console.log("Load xuanzhong failed!");
                 }
-                var sprite  = new cc.SpriteFrame(texture);
+                var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer3.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
             });
+
+
             if(Answer3!=correct_button){
                 Answer3.getChildByName("false").opacity = 255;
             }
@@ -180,11 +208,19 @@ cc.Class({
 
         next.on('click',function(){
             if(index == 0){
-                cc.loader.loadRes('/picture/btn_weixuanzhongdaan', function (err, texture) { 
+                // cc.loader.loadRes('/picture/btn_weixuanzhongdaan', function (err, texture) { 
+                //     if(err){
+                //         console.log("Load xuanzhong failed!");
+                //     }
+                //     var sprite  = new cc.SpriteFrame(texture);
+                //     choose_button.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
+                // });
+
+                cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                     if(err){
                         console.log("Load xuanzhong failed!");
                     }
-                    var sprite  = new cc.SpriteFrame(texture);
+                    var sprite = atlas.getSpriteFrame('btn_weixuanzhongdaan');
                     choose_button.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 });
                 self.turn(0);
@@ -214,13 +250,23 @@ cc.Class({
                 }
             }
             else{
-                cc.loader.loadRes('/picture/btn_weixuanzhongdaan', function (err, texture) { 
+                // cc.loader.loadRes('/picture/btn_weixuanzhongdaan', function (err, texture) { 
+                //     if(err){
+                //         console.log("Load xuanzhong failed!");
+                //     }
+                //     var sprite  = new cc.SpriteFrame(texture);
+                //     choose_button.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
+                // });
+
+                cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                     if(err){
                         console.log("Load xuanzhong failed!");
                     }
-                    var sprite  = new cc.SpriteFrame(texture);
+                    var sprite = atlas.getSpriteFrame('btn_weixuanzhongdaan');
                     choose_button.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 });
+
+
                 Answer1.opacity = 0;
                 Answer2.opacity = 0;
                 Answer3.opacity = 0;
@@ -242,20 +288,30 @@ cc.Class({
 
     turn:function(q_a){
         var head = this.node.getChildByName("headline");
-        var address = '/picture/';
+        var address = "";
         if(q_a == 1){
             address += 'ui_答案解析';
         }
         else{
             address +='ui_知识卡片标题';
         }
-        cc.loader.loadRes(address,function(err,texture){
+
+        cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
             if(err){
-                console.log("Turn failed!");
+                console.log("Load xuanzhong failed!");
             }
-            var sprite = new cc.SpriteFrame(texture);
+            var sprite = atlas.getSpriteFrame(address);
             head.getComponent(cc.Sprite).spriteFrame = sprite;
-        })
+        });
+
+        // cc.loader.loadRes(address,function(err,texture){
+        //     if(err){
+        //         console.log("Turn failed!");
+        //     }
+        //     console.log(address)
+        //     var sprite = new cc.SpriteFrame(texture);
+        //     head.getComponent(cc.Sprite).spriteFrame = sprite;
+        // })
     },
 
     setButton:function(Button,t_f){

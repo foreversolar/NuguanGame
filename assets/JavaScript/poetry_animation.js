@@ -105,7 +105,7 @@ cc.Class({
         }
 
         Answer1.on('click', function () {
-            cc.loader.loadRes('/picture/btn_xuanzhongdaan', function (err, texture) {
+            cc.loader.loadRes('/picture/KnowledgeCard/btn_xuanzhongdaan', function (err, texture) {
                 if (err) {
                     console.log("Load xuanzhong failed!");
                 }
@@ -129,7 +129,7 @@ cc.Class({
         });
 
         Answer2.on('click', function () {
-            cc.loader.loadRes('/picture/btn_xuanzhongdaan', function (err, texture) {
+            cc.loader.loadRes('/picture/KnowledgeCard/btn_xuanzhongdaan', function (err, texture) {
                 if (err) {
                     console.log("Load xuanzhong failed!");
                 }
@@ -152,13 +152,14 @@ cc.Class({
         });
 
         Answer3.on('click', function () {
-            cc.loader.loadRes('/picture/btn_xuanzhongdaan', function (err, texture) {
+            cc.loader.loadRes('/picture/KnowledgeCard/btn_xuanzhongdaan', function (err, texture) {
                 if (err) {
                     console.log("Load xuanzhong failed!");
                 }
                 var sprite = new cc.SpriteFrame(texture);
                 Answer3.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
             });
+
             if (Answer3 != correct_button) {
                 Answer3.getChildByName("false").opacity = 255;
                 Question_text.string = "很遗憾，你在众人面前失了颜面，魅力值扣除10。\n点击右上角退出！";

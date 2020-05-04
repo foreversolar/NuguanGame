@@ -967,8 +967,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -9.229,
-        20.267,
+        -1.367,
+        -7.249,
         0,
         0,
         0,
@@ -1242,10 +1242,8 @@
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "788696e8-f890-429f-8be5-20a72f32dd2e"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_styleFlags": 0,
@@ -1608,10 +1606,8 @@
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "788696e8-f890-429f-8be5-20a72f32dd2e"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_styleFlags": 0,
@@ -1739,6 +1735,9 @@
       "__id__": 2
     },
     "_enabled": true,
+    "text": "测试",
+    "ux_end": null,
+    "back": null,
     "_id": "84sybhXbxItYYO6+RG9XEx"
   }
 ]

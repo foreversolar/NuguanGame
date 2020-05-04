@@ -121,16 +121,18 @@ cc.Class({
             cards[i] = c + (bad[i]+1).toString();
             Card[i] = this.node.getChildByName(cards[i]).getComponent(cc.Button);
         }
-        cc.loader.loadRes('/picture/btn_xuanzhongdaan', function (err, texture) { 
+
+        cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
             if(err){
                 console.log("Load xuanzhong failed!");
             }
-            var sprite  = new cc.SpriteFrame(texture);
+            var sprite = atlas.getSpriteFrame("btn_xuanzhongdaan");
             for(var i=0;i<3;i++){
                 Card[i].disabledSprite = sprite;
-            }    
+            }   
         });
     },
+
 
     AddScore:function(right){
         const DB = wx.cloud.database();

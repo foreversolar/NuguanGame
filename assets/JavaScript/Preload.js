@@ -13,11 +13,11 @@ cc.Class({
  
     onLoad () {
         this._urls = [
-            {url:'/picture/bg_dating.png', name:'大庭'},
-            {url:'/picture/bg_yuanzi.png', name:'院子'},
-            {url:'/picture/figure_nuli.png', name:'女吏'},
-            {url:'/picture/figure_gugu.png', name:'姑姑'},
-            {url:'/picture/bg_shufang.png', name:'书房'},
+            {url:'/picture/Background/bg_dating.png', name:'大庭'},
+            {url:'/picture/Background/bg_yuanzi.png', name:'院子'},
+            {url:'/picture/Dialogue/figure_nuli.png', name:'女吏'},
+            {url:'/picture/Dialogue/figure_gugu.png', name:'姑姑'},
+            {url:'/picture/Background/bg_shufang.png', name:'书房'},
         ];
  
         this.progressBar.progress = 0;

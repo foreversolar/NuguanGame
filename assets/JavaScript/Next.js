@@ -36,10 +36,13 @@ cc.Class({
 
 
     onLoad () {
-        this.getRounds();
+        console.log("onload end");
+
     },
 
     start () {
+        this.getRounds();
+        console.log(this.rounds);
         this.next.node.on("click",function(){
           cc.director.loadScene("Game");   
         })
@@ -48,15 +51,30 @@ cc.Class({
 
     getRounds:function(){
         var that=this;
+        // const DB = wx.cloud.database();
+        // DB.collection('UserData').where({
+        //     _openid: cc.sys.localStorage.getItem('openid'),
+        // })
+        // .get({
+        //     success(res) {
+        //         that.rounds=res.data[0].rounds+1;
+        //         console.log(that.rounds);
+        //         that.getNums();
+        //         DB.collection('UserData').doc(res.data[0]._id).update({
+        //             data:{
+        //                 rounds:that.rounds,
+        //             }
+        //         })
+        //     }
+        // });
+        that.rounds=cc.sys.localStorage.getItem('rounds')+1;
+        cc.sys.localStorage.setItem('rounds', that.rounds);
         const DB = wx.cloud.database();
         DB.collection('UserData').where({
             _openid: cc.sys.localStorage.getItem('openid'),
         })
         .get({
             success(res) {
-                that.rounds=res.data[0].rounds+1;
-                console.log(that.rounds);
-                that.getNums();
                 DB.collection('UserData').doc(res.data[0]._id).update({
                     data:{
                         rounds:that.rounds,
@@ -64,6 +82,7 @@ cc.Class({
                 })
             }
         });
+        that.getNums();
     },
 
     getNums:function(){
@@ -94,6 +113,7 @@ cc.Class({
 
     showNum:function(num,node){
         var url=num+"";
+        console.log("url");console.log(url)
         cc.loader.loadRes("/picture/MainPage/MainPage", cc.SpriteAtlas, function (err, atlas) {
             if (err) {
                 console.log("Load mainpage atlas failed!");

@@ -124,6 +124,7 @@ cc.Class({
                     User.knowledge = res.data[0].knowledge;
                     User.charm = res.data[0].charm;
                     User.money = res.data[0].money;
+                    cc.sys.localStorage.setItem('rounds', res.data[0].rounds);
                     //console.log("1.0"+User);
                     //self.setAttribute(User); 
                 }

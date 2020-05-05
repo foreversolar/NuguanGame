@@ -24,18 +24,92 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
-        next:cc.Button
+        next:cc.Button,
+        rounds:2,
+        firstP:cc.Node,
+        secondP:cc.Node,
+        thirdP:cc.Node,
     },
 
-    // LIFE-CYCLE CALLBACKS:
+    // 渲染下一回合的页面效果
+    // 目前渲染还有一点延迟：估计主要来自于数据库的查询问题，待优化。
 
-    // onLoad () {},
+
+    onLoad () {
+        this.getRounds();
+    },
 
     start () {
         this.next.node.on("click",function(){
           cc.director.loadScene("Game");   
         })
 
+    },
+
+    getRounds:function(){
+        var that=this;
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+        .get({
+            success(res) {
+                that.rounds=res.data[0].rounds+1;
+                console.log(that.rounds);
+                that.getNums();
+                DB.collection('UserData').doc(res.data[0]._id).update({
+                    data:{
+                        rounds:that.rounds,
+                    }
+                })
+            }
+        });
+    },
+
+    getNums:function(){
+        var self=this;
+        var first=self.rounds/10;
+        var second=0;
+        var third=0;
+        console.log(self.rounds);
+        if(first>1 && self.rounds%10!=0){
+            third=self.rounds%10;
+            first=(self.rounds-third)/10;   
+            second=10; 
+        }else if(self.rounds%10==0){
+            self.firstP.opacity=0;
+            second=self.rounds/10;
+            self.secondP.x=self.firstP.x;
+            third=10;
+        }
+         else{
+            self.firstP.opacity=0;
+            second=self.rounds;
+            self.thirdP.opacity=0;
+        }
+        self.showNum(first,self.firstP);
+        self.showNum(second,self.secondP);
+        self.showNum(third,self.thirdP);
+    },
+
+    showNum:function(num,node){
+        var url=num+"";
+        cc.loader.loadRes("/picture/MainPage/MainPage", cc.SpriteAtlas, function (err, atlas) {
+            if (err) {
+                console.log("Load mainpage atlas failed!");
+            }
+            var sprite = atlas.getSpriteFrame(url);
+            node.getComponent(cc.Sprite).spriteFrame = sprite;
+        });
+
+        //测试使用
+        // console.log(url)
+        // cc.loader.loadRes(url,cc.SpriteFrame,function (err, spriteFrame) {
+        //     if (err) {
+        //         console.log("Load number failed!");
+        //     }
+        //     node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+        // });
     },
 
     // update (dt) {},

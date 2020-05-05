@@ -10,7 +10,6 @@ cc.Class({
     },
  
     // LIFE-CYCLE CALLBACKS:
-
     //进度条使用有待考究
  
     onLoad () {

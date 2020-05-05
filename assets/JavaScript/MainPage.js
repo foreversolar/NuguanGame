@@ -22,6 +22,9 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
     onLoad () {
         this.loadData();
+        cc.director.preloadScene("Next", function () {
+            cc.log("Next Preloaded");
+        });    
     },
 
     start () {

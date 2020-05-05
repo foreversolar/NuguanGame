@@ -82,6 +82,7 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame("btn_有钩子的手");
                 button.node.getComponent(cc.Sprite).spriteFrame = sprite;
             });
+            self.AddScore(1);
             this.text.string = "哇，你怎么猜到的！（金币+5）";
         } else {
             cc.loader.loadRes("/picture/WorkAndFun/WorkAndFun", cc.SpriteAtlas, function (err, atlas) {
@@ -102,6 +103,21 @@ cc.Class({
         
     },
 
+    AddScore:function(right){
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+        .get({
+            success(res) {
+                DB.collection('UserData').doc(res.data[0]._id).update({
+                    data:{
+                        money:res.data[0].money+right*5,
+                    }
+                })
+            }
+        });
+    }
 
     // update (dt) {},
 });

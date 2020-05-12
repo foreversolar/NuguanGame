@@ -186,6 +186,7 @@ cc.Class({
                     data:{
                         charm:res.data[0].charm+right*20,
                         knowledge:res.data[0].knowledge+right*15,
+                        playing_times:res.data[0].playing_times+1,
                     }
                 })
             }

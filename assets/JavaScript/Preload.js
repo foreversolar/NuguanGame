@@ -10,49 +10,35 @@ cc.Class({
     },
  
     // LIFE-CYCLE CALLBACKS:
+    //进度条使用有待考究
  
     onLoad () {
-        this._urls = [
-            {url:'/picture/Background/bg_dating.png', name:'大庭'},
-            {url:'/picture/Background/bg_yuanzi.png', name:'院子'},
-            {url:'/picture/Dialogue/figure_nuli.png', name:'女吏'},
-            {url:'/picture/Dialogue/figure_gugu.png', name:'姑姑'},
-            {url:'/picture/Background/bg_shufang.png', name:'书房'},
-        ];
- 
-        this.progressBar.progress = 0;
-        this.total=this._urls.length;
-        this.count=0;
- 
-        this._clearAll();
-
-        this._urls.forEach(element => {
-            this.count=this.count+1;
-            cc.loader.loadRes(element.url,this._progressCallback.bind(this),
-                this._completeCallback.bind(this))
-            });
+        cc.director.preloadScene("Gongwu_Kapian", function () {
+            cc.log("Gongwu_Kapian preloaded");
+        });
+        cc.director.preloadScene("YuLe_CangGou", function () {
+            cc.log("YuLe_CangGou preloaded");
+        });
+        cc.director.preloadScene("YuLe_QuShuiLiuShang", function () {
+            cc.log("YuLe_QuShuiLiuS preloaded");
+        });
+        //初始化云服务器
+        wx.cloud.init({
+            traceUser: true,
+             env: 'ltc-eyfvh'
+        });
+    
+        //调用云函数
+        wx.cloud.callFunction({
+            name: 'getopenid',complete: res => {
+                cc.sys.localStorage.setItem('openid', res.result.openid);
+            }
+        });
     },
  
     start () {
-        cc.director.loadScene("Start");
- 
-    },
- 
-    _clearAll: function() {
-        for(var i = 0; i < this._urls.length; ++i) {
-            var url = this._urls[i];
-            cc.loader.release(url);
-        }
-    },
- 
-    _progressCallback: function(completeCount, totalCount, res) {
-        //加载进度回调 
-    },
- 
-    _completeCallback: function(err, texture) {
-        //加载完成回调
-        this.progress = this.count / this.total;
-        console.log("complete one: err:"+err)
+        this.choose();
+        //cc.director.loadScene("Start");
     },
  
     update (dt) {
@@ -75,4 +61,21 @@ cc.Class({
         this.progressBar.progress = progress;
  
     },
+
+    choose:function(){
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+        .get({
+            success(res) {
+                if(res.data.length>0){
+                    cc.director.loadScene("Game");
+                }
+                else{
+                    cc.director.loadScene("Start");
+                }
+            },
+        });
+    }
 });

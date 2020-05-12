@@ -10,8 +10,7 @@ cc.Class({
 
     properties: {
         DialogueList:cc.JsonAsset,
-        text:cc.Label,
-
+        text:cc.RichText,
         ifplaying:1
     },
 
@@ -19,18 +18,6 @@ cc.Class({
 
     onLoad () {
         cc.director.preloadScene('Game');
-        //初始化云服务器
-        wx.cloud.init({
-            traceUser: true,
-             env: 'ltc-eyfvh'
-        });
-    
-        //调用云函数
-        wx.cloud.callFunction({
-            name: 'getopenid',complete: res => {
-                cc.sys.localStorage.setItem('openid', res.result.openid);
-            }
-        });
     },
 
     start () {
@@ -40,6 +27,7 @@ cc.Class({
         var self = this;
         var textjson = this.DialogueList.json;
         var str = textjson.StartDialogue[i];
+        var colors = textjson.ifcolor[i];
 
         var Character_left = this.node.getChildByName("Character_left");
         var Character_right = this.node.getChildByName("Character_right");
@@ -50,19 +38,37 @@ cc.Class({
         var repeat=str.length-1;
         var delay = 0;
 
+        var if_color = false;
+        var len = 0;
         var nextDialogue = function(){
-            this.text.string += str[j];
-            if((j-28)%29 == 0&&j!=0)
+            len++;
+            if(str[j]=='<'){
+                if_color = true;
+                j++;    
+            }
+            else if(str[j]=='>'){
+                if_color = false;
+                j++;    
+            }
+            if(if_color){
+                this.text.string += "<color=#ff0000>"+str[j]+"</color>";
+            }   
+            else{
+                this.text.string += str[j]; 
+            }  
+            if(len%29 == 0&&len!=0){
                 this.text.string += '\n';
+            }
             j++;
             if(j == str.length){
                 i++;
                 this.ifplaying = 1;
             }
         };
+        
 
-        this.node.on('touchend',function(){            
-            if(i >= textjson.StartDialogue.length-1)
+        this.node.on('touchend',function(){
+            if(i == textjson.StartDialogue.length)
                 cc.director.loadScene('Game');
             else{
                 if(Character_left.opacity == 0&&Dialogue_L.opacity == 0&&k!=0){
@@ -84,24 +90,29 @@ cc.Class({
                 self.text.string = "";
                 if(i < textjson.StartDialogue.length){
                     str = textjson.StartDialogue[i];
-                    repeat=str.length-1;
+                    colors = textjson.ifcolor[i];
+                    repeat=str.length-1-colors*2;
                 }
                 self.schedule(nextDialogue,interval,repeat,delay);
                 j = 0;
+                len = 0;
             }
             else{
                 self.unschedule(nextDialogue);  
                 j = 0;
+                len = 0;
+                if_color = false;
                 self.text.string = "";
                 i++;
                 if(i<self.DialogueList.json.StartDialogue.length){
                     str = textjson.StartDialogue[i];
-                    repeat=str.length-1;
+                    colors = textjson.ifcolor[i];
+                    repeat=str.length-1-colors*2;
                 }
                 self.schedule(nextDialogue,interval,repeat,delay);
             }
-            
         },this);
     },
+
     //update (dt) {},
 });

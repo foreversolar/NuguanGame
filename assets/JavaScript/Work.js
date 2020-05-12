@@ -144,6 +144,7 @@ cc.Class({
                 DB.collection('UserData').doc(res.data[0]._id).update({
                     data:{
                         experience:res.data[0].experience+right*40,
+                        work_times:res.data[0].work_times+1,
                     }
                 })
             }

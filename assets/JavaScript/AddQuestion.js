@@ -334,6 +334,7 @@ cc.Class({
                 DB.collection('UserData').doc(res.data[0]._id).update({
                     data:{
                         knowledge:res.data[0].knowledge+right*30,
+                        study_times:res.data[0].study_times+1,
                     }
                 })
             }

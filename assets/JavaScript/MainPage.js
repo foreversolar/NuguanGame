@@ -161,6 +161,7 @@ cc.Class({
                     self.playing_times = res.data[0].playing_times;
                     self.study_times = res.data[0].study_times;
                     self.work_times = res.data[0].work_times;
+
                 }
                 else{
                     DB.collection('UserData').add({
@@ -217,10 +218,6 @@ cc.Class({
 
         var charm = Player_Attribute.getChildByName("charmbar").getComponent(cc.Sprite);
         charm.fillRange = 0.1 + this.charm/1000;
-
-        
-        
-        console.log("1."+experience.fillRange+"2."+this.experience);
     },
 
     ResetRound:function(){

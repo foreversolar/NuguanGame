@@ -61,7 +61,6 @@ cc.Class({
         this.progressBar.progress = progress;
  
     },
-
     choose:function(){
         const DB = wx.cloud.database();
         DB.collection('UserData').where({

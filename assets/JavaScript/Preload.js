@@ -19,13 +19,26 @@ cc.Class({
         cc.director.preloadScene("YuLe_CangGou", function () {
             cc.log("YuLe_CangGou preloaded");
         });
-       cc.director.preloadScene("YuLe_QuShuiLiuShang", function () {
+        cc.director.preloadScene("YuLe_QuShuiLiuShang", function () {
             cc.log("YuLe_QuShuiLiuS preloaded");
+        });
+        //初始化云服务器
+        wx.cloud.init({
+            traceUser: true,
+             env: 'ltc-eyfvh'
+        });
+    
+        //调用云函数
+        wx.cloud.callFunction({
+            name: 'getopenid',complete: res => {
+                cc.sys.localStorage.setItem('openid', res.result.openid);
+            }
         });
     },
  
     start () {
-        cc.director.loadScene("Start");
+        this.choose();
+        //cc.director.loadScene("Start");
     },
  
     update (dt) {
@@ -48,5 +61,20 @@ cc.Class({
         this.progressBar.progress = progress;
  
     },
-
+    choose:function(){
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+        .get({
+            success(res) {
+                if(res.data.length>0){
+                    cc.director.loadScene("Game");
+                }
+                else{
+                    cc.director.loadScene("Start");
+                }
+            },
+        });
+    }
 });

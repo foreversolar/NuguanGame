@@ -113,6 +113,7 @@ cc.Class({
                 DB.collection('UserData').doc(res.data[0]._id).update({
                     data:{
                         money:res.data[0].money+right*5,
+                        playing_times:res.data[0].playing_times+1,
                     }
                 })
             }

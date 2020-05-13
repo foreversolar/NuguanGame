@@ -164,11 +164,12 @@ cc.Class({
 
         this.op1.node.on("click", function () {
             console.log("click");
-            cc.loader.loadRes("/picture/KnowledgeCard/btn_xuanzhongdaan",cc.SpriteFrame,function (err, spriteFrame) {
+            cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                 if (err) {
-                    console.log("Load number failed!");
+                    console.log("Load 张开的手 failed!");
                 }
-                op1.node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+                var sprite = atlas.getSpriteFrame("btn_xuanzhongdaan");
+                op1.node.getComponent(cc.Sprite).spriteFrame = sprite;
                 var label = op1.node.getChildByName("tip");
                 op1.node.x += 30;
                 op1.node.y -= 20;
@@ -179,17 +180,17 @@ cc.Class({
                 op3.interactable=false;   
                 op1.interactable = false; 
                 that.continueDialogue2(that, false);
-                console.log("函数");
             });
         })
 
         this.op2.node.on("click",function(){
-            cc.loader.loadRes("/picture/KnowledgeCard/btn_xuanzhongdaan",cc.SpriteFrame,function (err, spriteFrame) {
+            cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                 if (err) {
-                    console.log("Load number failed!");
+                    console.log("Load 张开的手 failed!");
                 }
-                op2.node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-                var label = op2.node.getChildByName("tip");
+                var sprite = atlas.getSpriteFrame("btn_xuanzhongdaan");
+                op2.node.getComponent(cc.Sprite).spriteFrame = sprite;
+                var label = op1.node.getChildByName("tip");
                 op2.node.x += 30;
                 op2.node.y -= 20;
                 label.x -= 45;
@@ -199,16 +200,17 @@ cc.Class({
                 op3.interactable=false;   
                 op1.interactable=false; 
                 that.continueDialogue2(that,true);
-
             });
         })
 
         this.op3.node.on("click",function(){
-            cc.loader.loadRes("/picture/KnowledgeCard/btn_xuanzhongdaan",cc.SpriteFrame,function (err, spriteFrame) {
+
+            cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                 if (err) {
-                    console.log("Load number failed!");
+                    console.log("Load 张开的手 failed!");
                 }
-                op3.node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+                var sprite = atlas.getSpriteFrame("btn_xuanzhongdaan");
+                op3.node.getComponent(cc.Sprite).spriteFrame = sprite;
                 var label = op3.node.getChildByName("tip");
                 op3.node.x += 30;
                 op3.node.y -= 20;
@@ -221,7 +223,6 @@ cc.Class({
                 that.continueDialogue2(that,false);
             });
         })
-
     },
 
     continueDialogue1: function (self, flag) {

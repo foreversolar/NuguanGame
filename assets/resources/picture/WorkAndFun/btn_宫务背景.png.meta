@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "8c0703bb-d9f5-4686-81d7-241f9af19c4b",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1739,
+  "height": 874,
+  "platformSettings": {},
+  "subMetas": {
+    "btn_宫务背景": {
+      "ver": "1.0.4",
+      "uuid": "aeee3842-4510-4a4d-a2a6-09cce4b72e0b",
+      "rawTextureUuid": "8c0703bb-d9f5-4686-81d7-241f9af19c4b",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1739,
+      "height": 874,
+      "rawWidth": 1739,
+      "rawHeight": 874,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

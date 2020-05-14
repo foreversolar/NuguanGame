@@ -27,16 +27,19 @@ cc.Class({
         work_times:0,
         study_times:0,
         playing_times:0,
-        test_times:0,
+        storyP:0,
     },
 
+    
 
     // LIFE-CYCLE CALLBACKS:
     onLoad () {
         this.loadData();
         cc.director.preloadScene("Next", function () {
             cc.log("Next Preloaded");
-        });    
+        });
+        this.StoryPlay();    
+        //this.rounds=cc.sys.localStorage.getItem('rounds');
     },
 
     start () {
@@ -82,7 +85,7 @@ cc.Class({
 
         var menu=this.yule_button.node.getChildByName("choices");
         menu.getChildByName("liushangqushui").on('click',function(){
-            if(self.playing_times<2){
+            if(self.playing_times<4){
                 self.scheduleOnce(function(){
                     cc.director.loadScene("YuLe_QuShuiLiuShang");
                 });
@@ -94,9 +97,23 @@ cc.Class({
                 notice_label.string = "这个回合你已经进行过足够多的娱乐了，娱乐需适度！";
             }
         });
+
+        menu.getChildByName("qiancengsu").on('click',function(){
+            if(self.playing_times<4){
+                self.scheduleOnce(function(){
+                    cc.director.loadScene("Work_QianCengSu");
+                });
+            }
+            else{
+                //弹窗
+                notice.opacity = 255;
+                notice_back_button.interactable = true;
+                notice_label.string = "这个回合你已经进行过足够多的娱乐了，娱乐需适度！";
+            }
+        });
         
         menu.getChildByName("canggou").on('click',function(){
-            if(self.playing_times<2){
+            if(self.playing_times<4){
                 self.scheduleOnce(function(){
                     cc.director.loadScene("YuLe_CangGou");
                 });
@@ -110,7 +127,7 @@ cc.Class({
         });
         
         this.work_button.node.on('click', function(){
-            if(self.work_times < 1){
+            if(self.work_times == 0){
                 self.scheduleOnce(function(){
                     cc.director.loadScene("Gongwu_Kapian");
                 });
@@ -124,16 +141,11 @@ cc.Class({
         });
 
         this.next_button.node.on('click', function () {
-            self.ResetRound();
-            switch(self.rounds){
-            case 5:
+            if(self.rounds == 4&&self.level == 1){
                 cc.director.loadScene("Test");
-                break;
-            
-            default:
-                cc.director.loadScene("Next");
-                break;
             }
+            self.ResetRound();
+            cc.director.loadScene("Next");
         });
     },
 
@@ -167,7 +179,7 @@ cc.Class({
                     self.playing_times = res.data[0].playing_times;
                     self.study_times = res.data[0].study_times;
                     self.work_times = res.data[0].work_times;
-                    cc.sys.localStorage.setItem('rounds',res.data[0].rounds);
+                    cc.sys.localStorage.setItem('rounds', self.rounds);
                 }
                 else{
                     DB.collection('UserData').add({
@@ -186,11 +198,14 @@ cc.Class({
                             work_times:self.work_times,
                         },
                         success(res) {
+                            //self.setAttribute(User);
+                            // cc.sys.localStorage. setItem(' rounds',res.data[0].rounds); 
                         }
                     });
-                    self.Username = "AddName-new";
+                    //self.Username = "AddName-new";
                 }  
                 self.setAttribute();  
+                //self.StoryPlay();
             }
         });
     },
@@ -244,4 +259,20 @@ cc.Class({
             }
         });
     },
+    StoryPlay:function () {
+        var storyP=cc.sys.localStorage.getItem('story');
+        if (storyP== undefined){
+            storyP=0;
+        }
+        console.log(storyP)
+        if(this.rounds==4 && storyP<4){
+            console.log("load story4")
+            cc.sys.localStorage. setItem('story',4); 
+            cc.director.loadScene("Story4");
+        }else if(this.rounds==1 && storyP<1){
+            console.log("load story1")
+            cc.sys.localStorage. setItem('story',1); 
+            cc.director.loadScene("Story1");
+        }
+    }
 });

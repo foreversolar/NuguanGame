@@ -81,7 +81,7 @@ cc.Class({
     },
 
     update (dt) {
-        console.log(this.status)
+        //console.log(this.status)
         if(this.status==2 && this.times<8){
             this.spawnNewBing();
             this.times=this.times+1;

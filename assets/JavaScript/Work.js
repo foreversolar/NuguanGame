@@ -16,6 +16,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
     
     onLoad () {
+        //选定3个坏的
         var bad = new Array(3);
         for(var i = 0;i<3;i++){
             var index;
@@ -33,15 +34,16 @@ cc.Class({
             }
             bad[i] = index;
         }
-        this.SetBad(bad);
+        this.SetBad(bad);//要改
+
         var self = this;
         var Intro = this.node.getChildByName("Intro");
-        var start = Intro.getChildByName("start");
-        var startButton = start.getComponent(cc.Button);
+        var startButton = Intro.getChildByName("start").getComponent(cc.Button);
         startButton.node.on('click',function(){
             Intro.opacity = 0;
+            self.node.getChildByName("TouMing").opacity = 255;
+            startButton.node.opacity = 0;
             startButton.interactable = false;
-            start.opacity = 0;
             self.Select("Card1",bad);
             self.Select("Card2",bad);
             self.Select("Card3",bad);
@@ -57,31 +59,48 @@ cc.Class({
         var back = this.node.getChildByName("Intro").getChildByName("back").getComponent(cc.Button);
         back.node.on('click',function(){
             cc.director.loadScene("Game");
-        })
-
+        });
     },
 
     //update (dt) {},
     
     Select:function(Button,bad){
         var Bad_flag = false;
-        for(var i = 0;i<3;i++){
+        var i = 0;
+        for(i = 0;i<3;i++){
             if(Button == "Card"+(bad[i]+1).toString()){
                 Bad_flag = true;
                 break;
             }
         }
-        var card = this.node.getChildByName(Button);
+        var bad1 = this.node.getChildByName("TouMing").getChildByName("Bad1");
+        var bad2 = this.node.getChildByName("TouMing").getChildByName("Bad2");
+        var bad3 = this.node.getChildByName("TouMing").getChildByName("Bad3");
+        var card = this.node.getChildByName("TouMing").getChildByName(Button);
         var cardButton = card.getComponent(cc.Button);
         var self = this;
         this.scheduleOnce(function(){
             cardButton.interactable = true;
-        },5);
+            bad1.opacity = 0;
+            bad2.opacity = 0;
+            bad3.opacity = 0;
+        },3);
         cardButton.node.on('click',function(){
             cardButton.interactable = false;
             self.Opened++;
             if(Bad_flag){
                 self.Get++;
+                switch(i){
+                case 0:
+                    bad1.opacity = 255;
+                    break;
+                case 1:
+                    bad2.opacity = 255;
+                    break;
+                case 2:
+                    bad3.opacity = 255;
+                    break;
+                }
             }
             if(self.Opened==3){
                 self.closeAll();
@@ -103,36 +122,38 @@ cc.Class({
     },
 
     closeAll:function(){
-        this.node.getChildByName("Card1").getComponent(cc.Button).interactable = false;
-        this.node.getChildByName("Card2").getComponent(cc.Button).interactable = false;
-        this.node.getChildByName("Card3").getComponent(cc.Button).interactable = false;
-        this.node.getChildByName("Card4").getComponent(cc.Button).interactable = false;
-        this.node.getChildByName("Card5").getComponent(cc.Button).interactable = false;
-        this.node.getChildByName("Card6").getComponent(cc.Button).interactable = false;
-        this.node.getChildByName("Card7").getComponent(cc.Button).interactable = false;
-        this.node.getChildByName("Card8").getComponent(cc.Button).interactable = false;
+        var Panel = this.node.getChildByName("TouMing");
+        Panel.getChildByName("Card1").getComponent(cc.Button).interactable = false;
+        Panel.getChildByName("Card2").getComponent(cc.Button).interactable = false;
+        Panel.getChildByName("Card3").getComponent(cc.Button).interactable = false;
+        Panel.getChildByName("Card4").getComponent(cc.Button).interactable = false;
+        Panel.getChildByName("Card5").getComponent(cc.Button).interactable = false;
+        Panel.getChildByName("Card6").getComponent(cc.Button).interactable = false;
+        Panel.getChildByName("Card7").getComponent(cc.Button).interactable = false;
+        Panel.getChildByName("Card8").getComponent(cc.Button).interactable = false;
     },
 
     SetBad:function(bad){
         var c = "Card";
         var cards = new Array(3);
         var Card = new Array(3);
+        var bad1 = this.node.getChildByName("TouMing").getChildByName("Bad1");
+        var bad2 = this.node.getChildByName("TouMing").getChildByName("Bad2");
+        var bad3 = this.node.getChildByName("TouMing").getChildByName("Bad3");
         for(var i = 0;i<3;i++){
             cards[i] = c + (bad[i]+1).toString();
-            Card[i] = this.node.getChildByName(cards[i]).getComponent(cc.Button);
+            Card[i] = this.node.getChildByName("TouMing").getChildByName(cards[i]);
         }
-
-        cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
-            if(err){
-                console.log("Load xuanzhong failed!");
-            }
-            var sprite = atlas.getSpriteFrame("btn_xuanzhongdaan");
-            for(var i=0;i<3;i++){
-                Card[i].disabledSprite = sprite;
-            }   
-        });
+        cc.tween(bad1)
+        .to(0,{ position: Card[0].position})
+        .start();
+        cc.tween(bad2)
+        .to(0,{ position: Card[1].position})
+        .start();
+        cc.tween(bad3)
+        .to(0,{ position: Card[2].position})
+        .start();
     },
-
 
     AddScore:function(right){
         const DB = wx.cloud.database();

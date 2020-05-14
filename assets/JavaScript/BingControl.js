@@ -78,10 +78,10 @@ cc.Class({
             var left=this.node.x-this.node.width/2;
             var right=this.node.x+this.node.width/2;
             if(left<this.baseleft ||right > this.baseright){
-                console.log("bad")
+                //console.log("bad")
                 this.gameControl.updateStatus(3);
             }else{
-                console.log("good")
+                //console.log("good")
                 this.gameControl.addScore(1);
                 this.bg.getComponent("Work_QianCengSu").status=2;
             }

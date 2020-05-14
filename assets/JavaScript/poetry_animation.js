@@ -114,11 +114,11 @@ cc.Class({
             });
             if (Answer1 != correct_button) {
                 Answer1.getChildByName("false").opacity = 255;
-                Question_text.string = "很遗憾，你在众人面前失了颜面，魅力值扣除10。";
+                Question_text.string = "很遗憾，你在众人面前失了颜面，魅力值扣除10。\n点击右上角退出！";
             }
             else {
                 correct_button.getChildByName("right").opacity = 255;
-                Question_text.string = "恭喜你，你果然是才貌双全，魅力值增加20，学识增加15。";
+                Question_text.string = "恭喜你，你果然是才貌双全，魅力值增加20，学识增加15。\n点击右上角退出！";
                 self.AddScore(1);
             }
             Answer1.getComponent(cc.Button).interactable = false;
@@ -138,11 +138,11 @@ cc.Class({
             });
             if (Answer2 != correct_button) {
                 Answer2.getChildByName("false").opacity = 255;
-                Question_text.string = "很遗憾，你在众人面前失了颜面，魅力值扣除10。";
+                Question_text.string = "很遗憾，你在众人面前失了颜面，魅力值扣除10。\n点击右上角退出！";
             }
             else {
                 correct_button.getChildByName("right").opacity = 255;
-                Question_text.string = "恭喜你，你果然是才貌双全，魅力值增加20，学识增加15。";
+                Question_text.string = "恭喜你，你果然是才貌双全，魅力值增加20，学识增加15。\n点击右上角退出！";
                 self.AddScore(1);
             }
             Answer1.getComponent(cc.Button).interactable = false;
@@ -152,22 +152,21 @@ cc.Class({
         });
 
         Answer3.on('click', function () {
-            
-            cc.loader.loadRes("/picture/WorkAndFun/WorkAndFun", cc.SpriteAtlas, function (err, atlas) {
+            cc.loader.loadRes('/picture/KnowledgeCard/btn_xuanzhongdaan', function (err, texture) {
                 if (err) {
                     console.log("Load xuanzhong failed!");
                 }
-                var sprite = atlas.getSpriteFrame("btn_xuanzhongdaan");
+                var sprite = new cc.SpriteFrame(texture);
                 Answer3.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
             });
 
             if (Answer3 != correct_button) {
                 Answer3.getChildByName("false").opacity = 255;
-                Question_text.string = "很遗憾，你在众人面前失了颜面，魅力值扣除10。";
+                Question_text.string = "很遗憾，你在众人面前失了颜面，魅力值扣除10。\n点击右上角退出！";
             }
             else {
                 correct_button.getChildByName("right").opacity = 255;
-                Question_text.string = "恭喜你，你果然是才貌双全，魅力值增加20，学识增加15。";
+                Question_text.string = "恭喜你，你果然是才貌双全，魅力值增加20，学识增加15。\n点击右上角退出！";
                 self.AddScore(1);
             }
             Answer1.getComponent(cc.Button).interactable = false;

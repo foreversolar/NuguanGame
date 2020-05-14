@@ -118,7 +118,6 @@ cc.Class({
             next.opacity = 255;
             choose_button = Answer1;
             Question_text.string = text.explain;
-            console.log(Question_text.string);
         });
 
         Answer2.on('click',function(){
@@ -304,14 +303,6 @@ cc.Class({
             head.getComponent(cc.Sprite).spriteFrame = sprite;
         });
 
-        // cc.loader.loadRes(address,function(err,texture){
-        //     if(err){
-        //         console.log("Turn failed!");
-        //     }
-        //     console.log(address)
-        //     var sprite = new cc.SpriteFrame(texture);
-        //     head.getComponent(cc.Sprite).spriteFrame = sprite;
-        // })
     },
 
     setButton:function(Button,t_f){

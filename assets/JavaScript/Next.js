@@ -36,11 +36,13 @@ cc.Class({
 
 
     onLoad () {
+        console.log("onload end");
 
     },
 
     start () {
         this.getRounds();
+        console.log(this.rounds);
         this.next.node.on("click",function(){
           cc.director.loadScene("Game");   
         })
@@ -88,6 +90,7 @@ cc.Class({
         var first=self.rounds/10;
         var second=0;
         var third=0;
+        console.log(self.rounds);
         if(first>1 && self.rounds%10!=0){
             third=self.rounds%10;
             first=(self.rounds-third)/10;   
@@ -110,6 +113,7 @@ cc.Class({
 
     showNum:function(num,node){
         var url=num+"";
+        console.log("url");console.log(url)
         cc.loader.loadRes("/picture/MainPage/MainPage", cc.SpriteAtlas, function (err, atlas) {
             if (err) {
                 console.log("Load mainpage atlas failed!");

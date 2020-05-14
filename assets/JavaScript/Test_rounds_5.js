@@ -37,7 +37,8 @@ cc.Class({
             Study.opacity = 255;
             self.Study_Test();
             self.start_test.interactable = false;
-            cc.tween(self.start_test.node)
+            self.start_test.node.opacity = 0;
+            cc.tween(Notice)
             .to(0.1, { position: cc.v2(0, 1000)})
             .start();
         });
@@ -132,14 +133,27 @@ cc.Class({
                 self.node.getChildByName("Work").opacity = 255;
                 //加载工作考核
                 self.loadWork();
-                /*cc.tween(Study)
-                .to(0.1, { position: cc.v2(0, -1000)})
-                .start();*/
+                cc.tween(Study)
+                .to(0.5, { position: cc.v2(0, -1000)})
+                .start();
             }
             else{
+                //修改下一题信息
                 index++;
                 text = self.QuestionJson.json.Question[index];
                 sentence =  text.Question +'\n'+ text.Answer[0] +'\n'+ text.Answer[1] +'\n'+ text.Answer[2];
+                Content.string = sentence;
+                switch(text.correct){
+                    case 1:
+                        correct_button = Answer1;
+                        break;
+                    case 2:
+                        correct_button = Answer2;
+                        break;
+                    case 3:
+                        correct_button = Answer3;
+                        break;
+                }
                 cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                     if(err){
                         console.log("Load xuanzhong failed!");
@@ -194,9 +208,7 @@ cc.Class({
         this.Select("Card5",bad);
         this.Select("Card6",bad);
         this.Select("Card7",bad);
-        this.Select("Card8",bad);
-        //移开答题，不然会遮挡
-        
+        this.Select("Card8",bad);       
     },
 
     SetBad:function(bad){
@@ -204,65 +216,92 @@ cc.Class({
         var c = "Card";
         var cards = new Array(3);
         var Card = new Array(3);
+        var bad1 = Work.getChildByName("Bad1");
+        var bad2 = Work.getChildByName("Bad2");
+        var bad3 = Work.getChildByName("Bad3");
         for(var i = 0;i<3;i++){
             cards[i] = c + (bad[i]+1).toString();
-            Card[i] = Work.getChildByName(cards[i]).getComponent(cc.Button);
+            Card[i] = Work.getChildByName(cards[i]);
         }
-
-        cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
-            if(err){
-                console.log("Load xuanzhong failed!");
-            }
-            var sprite = atlas.getSpriteFrame("btn_xuanzhongdaan");
-            for(var i=0;i<3;i++){
-                Card[i].disabledSprite = sprite;
-            }   
-        });
+        cc.tween(bad1)
+        .to(0,{ position: Card[0].position})
+        .start();
+        cc.tween(bad2)
+        .to(0,{ position: Card[1].position})
+        .start();
+        cc.tween(bad3)
+        .to(0,{ position: Card[2].position})
+        .start();
     },
 
     Select:function(Button,bad){
         var Work = this.node.getChildByName("Work");
         var Bad_flag = false;
-        for(var i = 0;i<3;i++){
+        var i = 0;
+        for(i = 0;i<3;i++){
             if(Button == "Card"+(bad[i]+1).toString()){
                 Bad_flag = true;
                 break;
             }
         }
+        var bad1 = Work.getChildByName("Bad1");
+        var bad2 = Work.getChildByName("Bad2");
+        var bad3 = Work.getChildByName("Bad3");
         var card = Work.getChildByName(Button);
         var cardButton = card.getComponent(cc.Button);
         var self = this;
         this.scheduleOnce(function(){
             cardButton.interactable = true;
-        },5);
+            bad1.opacity = 0;
+            bad2.opacity = 0;
+            bad3.opacity = 0;
+        },3);
         cardButton.node.on('click',function(){
             cardButton.interactable = false;
             self.Opened++;
             if(Bad_flag){
                 self.Get++;
+                switch(i){
+                case 0:
+                    bad1.opacity = 255;
+                    break;
+                case 1:
+                    bad2.opacity = 255;
+                    break;
+                case 2:
+                    bad3.opacity = 255;
+                    break;
+                }
             }
             if(self.Opened==3){
-                self.closeAll(self);
-                self.Result();
+                self.closeALL();
+                self.scheduleOnce(function(){
+                    self.Result();
+                },2);
             }
         });
     },
 
-    closeAll:function(self){
-        self.node.getChildByName("Card1").getComponent(cc.Button).interactable = false;
-        self.node.getChildByName("Card2").getComponent(cc.Button).interactable = false;
-        self.node.getChildByName("Card3").getComponent(cc.Button).interactable = false;
-        self.node.getChildByName("Card4").getComponent(cc.Button).interactable = false;
-        self.node.getChildByName("Card5").getComponent(cc.Button).interactable = false;
-        self.node.getChildByName("Card6").getComponent(cc.Button).interactable = false;
-        self.node.getChildByName("Card7").getComponent(cc.Button).interactable = false;
-        self.node.getChildByName("Card8").getComponent(cc.Button).interactable = false;
+    closeALL:function(){
+        var Work = this.node.getChildByName("Work");
+        Work.getChildByName("Card1").getComponent(cc.Button).interactable = false;
+        Work.getChildByName("Card2").getComponent(cc.Button).interactable = false;
+        Work.getChildByName("Card3").getComponent(cc.Button).interactable = false;
+        Work.getChildByName("Card4").getComponent(cc.Button).interactable = false;
+        Work.getChildByName("Card5").getComponent(cc.Button).interactable = false;
+        Work.getChildByName("Card6").getComponent(cc.Button).interactable = false;
+        Work.getChildByName("Card7").getComponent(cc.Button).interactable = false;
+        Work.getChildByName("Card8").getComponent(cc.Button).interactable = false;        
     },
     // update (dt) {},
 
     Result:function(){
+        cc.tween(this.node.getChildByName("Notice"))
+            .to(0, { position: cc.v2(0, 0)})
+            .start();
         this.node.getChildByName("Work").opacity = 0;
         this.node.getChildByName("Notice").opacity = 255;
+        console.log( " "+this.right+" "+this.Get);
         if(this.right == 3&&this.Get == 3){
             this.node.getChildByName("Notice").getChildByName("Words").getComponent(cc.Label).string = "恭喜你成功通过了考核！皇天不负有心人，你靠着自己的努力成功晋升为掌膳，负责辅佐典膳，完成部分菜品的烹饪。在接下来的日子里，希望你认真练习烹饪技艺，升得典膳后方可进行精品菜肴的烹饪，加油！";
             this.addScore(1);
@@ -271,7 +310,7 @@ cc.Class({
             this.node.getChildByName("Notice").getChildByName("Words").getComponent(cc.Label).string =  "很遗憾你未能通过考核！宫中制度严格，容不得半分马虎，希望你能打起十二分的精气神，认真研习，吃得苦中苦，方为人上人，希望下次考核的时候不要再错失良机。";
         }
         this.node.getChildByName("Notice").on('touchend',function(){
-            cc.director.loadScene('Game');
+            cc.director.loadScene('Next');
         });
     },
 

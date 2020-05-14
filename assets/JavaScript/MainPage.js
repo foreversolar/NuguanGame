@@ -36,6 +36,9 @@ cc.Class({
         this.loadData();
         cc.director.preloadScene("Next", function () {
             cc.log("Next Preloaded");
+
+        });
+        this.StoryPlay();    
         });    
         cc.director.preloadScene("YuLe_CangGou", function () {
             cc.log("canggou scene preloaded");
@@ -131,11 +134,10 @@ cc.Class({
         });
         
         this.work_button.node.on('click', function(){
-            if(self.work_times < 1){
+            if(self.work_times == 0){
                 self.scheduleOnce(function(){
                     cc.director.loadScene("Gongwu_Kapian");
                 });
-
             }
             else{
                 //弹窗
@@ -146,6 +148,9 @@ cc.Class({
         });
 
         this.next_button.node.on('click', function () {
+            if(self.rounds == 4&&self.level == 1){
+                cc.director.loadScene("Test");
+            }
             self.ResetRound();
             cc.director.loadScene("Next");
         });
@@ -204,17 +209,16 @@ cc.Class({
                             // cc.sys.localStorage. setItem(' rounds',res.data[0].rounds); 
                         }
                     });
-                    self.Username = "AddName-new";
+                    //self.Username = "AddName-new";
                 }  
                 self.setAttribute();  
-                self.StoryPlay();
+                //self.StoryPlay();
             }
         });
     },
 
     setAttribute:function(){
         //添加属性值
-        console.log("2."+this.Username); 
         var Player_Attribute = this.node.getChildByName("Player_Attribute").getChildByName("Main_Player");
         
         var username = Player_Attribute.getChildByName("username").getComponent(cc.Label);

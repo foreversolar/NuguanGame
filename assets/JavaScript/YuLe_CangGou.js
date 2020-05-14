@@ -34,7 +34,15 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    //onLoad () {},
+    onLoad () {
+        cc.loader.loadRes("/picture/WorkAndFun/WorkAndFun", cc.SpriteAtlas, function (err, atlas) {
+            if (err) {
+                console.log("Load 有钩子的手 failed!");
+            }
+            atlas.getSpriteFrame("btn_有钩子的手");
+        });
+    },
+
 
     start () {
         var self = this;

@@ -63,7 +63,11 @@ cc.Class({
 
         //xunhauntou
         var text = QuestionAsset.Question[index];
-        sentence = text.Question +'\n'+ text.Answer[0] +'\n'+ text.Answer[1] +'\n'+ text.Answer[2];
+        //sentence = text.Question +'\n'+ text.Answer[0] +'\n'+ text.Answer[1] +'\n'+ text.Answer[2];
+        sentence = text.Question;
+        Answer1.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).string = text.Answer[0];
+        Answer2.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).string = text.Answer[1];
+        Answer3.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).string = text.Answer[2];
         Question_text.string = sentence;
         Answer1.opacity = 255;
         Answer2.opacity = 255;
@@ -100,6 +104,8 @@ cc.Class({
                 }
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer1.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
+                Answer1.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
+                Answer1.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 65;
             });
 
             if(Answer1!=correct_button){
@@ -137,6 +143,8 @@ cc.Class({
                 }
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer2.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
+                Answer2.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
+                Answer2.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 65;
             });
 
             if(Answer2!=correct_button){
@@ -174,6 +182,8 @@ cc.Class({
                 }
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer3.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
+                Answer3.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
+                Answer3.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 65;
             });
 
 
@@ -222,6 +232,8 @@ cc.Class({
                     }
                     var sprite = atlas.getSpriteFrame('btn_weixuanzhongdaan');
                     choose_button.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
+                    choose_button.getChildByName("Background").getChildByName("Label").color = cc.color(138,51,51);
+                    choose_button.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 80;
                 });
                 self.turn(0);
                 correct_button.getChildByName("right").opacity = 0;
@@ -232,7 +244,11 @@ cc.Class({
                 next.opacity = 0;
                 index++;
                 text = QuestionAsset.Question[index];
-                sentence = text.Question +'\n'+ text.Answer[0] +'\n'+ text.Answer[1] +'\n'+ text.Answer[2];
+                //sentence = text.Question +'\n'+ text.Answer[0] +'\n'+ text.Answer[1] +'\n'+ text.Answer[2];
+                sentence = text.Question;
+                Answer1.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).string = text.Answer[0];
+                Answer2.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).string = text.Answer[1];
+                Answer3.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).string = text.Answer[2];
                 Question_text.string = sentence;
                 Answer1.getComponent(cc.Button).interactable = true;
                 Answer2.getComponent(cc.Button).interactable = true;

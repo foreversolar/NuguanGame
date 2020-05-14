@@ -138,7 +138,7 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer1.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 Answer1.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
-                Answer1.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 65;
+                Answer1.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 30;
             });
             if (Answer1 != correct_button) {
                 Answer1.getChildByName("false").opacity = 255;
@@ -167,7 +167,7 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer2.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 Answer2.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
-                Answer2.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 65;
+                Answer2.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 30;
             });
             if (Answer2 != correct_button) {
                 Answer2.getChildByName("false").opacity = 255;
@@ -197,7 +197,7 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer3.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 Answer3.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
-                Answer3.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 65;
+                Answer3.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 30;
             });
 
             if (Answer3 != correct_button) {

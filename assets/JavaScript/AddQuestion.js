@@ -105,7 +105,9 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer1.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 Answer1.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
-                Answer1.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 65;
+                Answer1.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 35;
+                Answer1.width=Answer1.width*2.5;
+                Answer1.height=Answer1.height*2.5;
             });
 
             if(Answer1!=correct_button){
@@ -144,7 +146,9 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer2.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 Answer2.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
-                Answer2.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 65;
+                Answer2.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 35;
+                Answer2.width=Answer2.width*2;
+                Answer2.height=Answer2.height*2;
             });
 
             if(Answer2!=correct_button){
@@ -183,7 +187,9 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer3.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 Answer3.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
-                Answer3.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 65;
+                Answer3.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 35;
+                Answer3.width=Answer3.width*3;
+                Answer3.height=Answer3.height*3;
             });
 
 

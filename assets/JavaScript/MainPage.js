@@ -30,14 +30,19 @@ cc.Class({
         storyP:0,
     },
 
-    
-
     // LIFE-CYCLE CALLBACKS:
     onLoad () {
+        console.log("loading main game");
         this.loadData();
         cc.director.preloadScene("Next", function () {
             cc.log("Next Preloaded");
         });    
+        cc.director.preloadScene("YuLe_CangGou", function () {
+            cc.log("canggou scene preloaded");
+        });
+        cc.director.preloadScene("YuLe_QuShuiLiuShang", function () {
+            cc.log("qushuiliusahng scene preloaded");
+        });
         //this.rounds=cc.sys.localStorage.getItem('rounds');
     },
 

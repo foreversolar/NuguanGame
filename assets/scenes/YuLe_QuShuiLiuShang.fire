@@ -178,7 +178,7 @@
       "array": [
         0,
         0,
-        209.57814771583418,
+        286.6544086526492,
         0,
         0,
         0,
@@ -962,8 +962,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        8.659,
-        -140.696,
+        0.774,
+        -132.81,
         0,
         0,
         0,
@@ -1068,7 +1068,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "975f90fc-289b-4d91-877c-5266d799affb"
+      "__uuid__": "f9df34b1-9664-4cc4-ba02-867289c26c93"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -1446,7 +1446,7 @@
     "_useOriginalSize": false,
     "_string": "一只黄鹂鸣翠柳",
     "_N$string": "一只黄鹂鸣翠柳",
-    "_fontSize": 80,
+    "_fontSize": 50,
     "_lineHeight": 80,
     "_enableWrapText": false,
     "_N$file": null,
@@ -2012,7 +2012,7 @@
     "_useOriginalSize": false,
     "_string": "隔水问樵夫",
     "_N$string": "隔水问樵夫",
-    "_fontSize": 80,
+    "_fontSize": 50,
     "_lineHeight": 80,
     "_enableWrapText": false,
     "_N$file": null,
@@ -2578,7 +2578,7 @@
     "_useOriginalSize": false,
     "_string": "叁",
     "_N$string": "叁",
-    "_fontSize": 80,
+    "_fontSize": 50,
     "_lineHeight": 80,
     "_enableWrapText": false,
     "_N$file": null,

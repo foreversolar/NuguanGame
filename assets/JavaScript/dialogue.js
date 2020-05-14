@@ -18,6 +18,15 @@ cc.Class({
 
     onLoad () {
         cc.director.preloadScene('Game');
+        cc.director.preloadScene("Game", function () {
+            cc.log("game scene preloaded");
+        });
+        cc.director.preloadScene("Work_QianCengSu", function () {
+            cc.log("work_qiancengsu scene preloaded");
+        });
+        cc.director.preloadScene("Gongwu_Kapian", function () {
+            cc.log("work_qiancengsu scene preloaded");
+        });
     },
 
     start () {

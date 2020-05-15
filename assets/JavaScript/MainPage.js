@@ -38,8 +38,6 @@ cc.Class({
             cc.log("Next Preloaded");
 
         });
-        this.StoryPlay();    
-        });    
         cc.director.preloadScene("YuLe_CangGou", function () {
             cc.log("canggou scene preloaded");
         });
@@ -199,20 +197,22 @@ cc.Class({
                             knowledge:self.knowledge,
                             charm:self.charm,
                             money:self.money,
-                            rounds:self.rounds,
+                            rounds:1,//self.rounds,
                             playing_times:self.playing_times,
                             study_times:self.study_times,
                             work_times:self.work_times,
                         },
                         success(res) {
                             //self.setAttribute(User);
-                            // cc.sys.localStorage. setItem(' rounds',res.data[0].rounds); 
+                            // cc.sys.localStorage. setItem(' rounds',res.data[0].rounds);
                         }
                     });
                     //self.Username = "AddName-new";
-                }  
+                } 
+                //需要重置对话时启用 
+                //cc.sys.localStorage.setItem('story',0); 
                 self.setAttribute();  
-                //self.StoryPlay();
+                self.StoryPlay();
             }
         });
     },
@@ -271,7 +271,7 @@ cc.Class({
         if (storyP== undefined){
             storyP=0;
         }
-        console.log(storyP)
+        console.log(storyP);
         if(this.rounds==4 && storyP<4){
             console.log("load story4")
             cc.sys.localStorage. setItem('story',4); 
@@ -280,6 +280,10 @@ cc.Class({
             console.log("load story1")
             cc.sys.localStorage. setItem('story',1); 
             cc.director.loadScene("Story1");
-        }
+        }else if(this.rounds==2 && storyP<2){
+            console.log("load story2")
+            cc.sys.localStorage. setItem('story',2); 
+            cc.director.loadScene("Anlushan");
+        }else{console.log(this.rounds+' 11 '+storyP);}
     }
 });

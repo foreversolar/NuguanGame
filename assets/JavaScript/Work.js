@@ -42,6 +42,7 @@ cc.Class({
         startButton.node.on('click',function(){
             Intro.opacity = 0;
             self.node.getChildByName("TouMing").opacity = 255;
+            Intro.getChildByName("back").getComponent(cc.Button).interactable = false;
             startButton.node.opacity = 0;
             startButton.interactable = false;
             self.Select("Card1",bad);

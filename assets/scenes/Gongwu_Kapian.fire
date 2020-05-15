@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        268.3594434671251,
+        223.5444295342025,
         0,
         0,
         0,
@@ -4162,8 +4162,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "开始",
-    "_N$string": "开始",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 20,
     "_lineHeight": 40,
     "_enableWrapText": false,
@@ -4196,7 +4196,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "f9df34b1-9664-4cc4-ba02-867289c26c93"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -4342,7 +4342,7 @@
       }
     ],
     "_prefab": null,
-    "_opacity": 0,
+    "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -4352,8 +4352,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 200,
-      "height": 200
+      "width": 100,
+      "height": 100
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4364,13 +4364,13 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        500,
-        -250,
+        696.515,
+        396.713,
+        0,
         0,
         0,
         0,
         1,
-        6.123233995736766e-17,
         1,
         1,
         1
@@ -4380,7 +4380,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 180
+      "z": 0
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -4421,8 +4421,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 200,
-      "height": 200
+      "width": 100,
+      "height": 100
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4442,7 +4442,7 @@
         1,
         1,
         1,
-        1
+        0
       ]
     },
     "_eulerAngles": {
@@ -4568,7 +4568,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "b183fa1c-ae79-4dc9-b930-ce3f2862f598"
+      "__uuid__": "cb52ae77-3182-4b4d-b5c3-cfb9a88a5b37"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -4626,7 +4626,7 @@
     "duration": 0.1,
     "zoomScale": 1.2,
     "clickEvents": [],
-    "_N$interactable": false,
+    "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 3,
     "transition": 3,

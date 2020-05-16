@@ -60,7 +60,7 @@ cc.Class({
                 j++;    
             }
             if(if_color){
-                this.text.string += "<color=#ff0000>"+str[j]+"</color>";
+                this.text.string += "<color=#FEFB57>"+str[j]+"</color>";
             }   
             else{
                 this.text.string += str[j]; 

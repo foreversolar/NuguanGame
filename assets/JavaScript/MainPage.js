@@ -36,7 +36,6 @@ cc.Class({
         this.loadData();
         cc.director.preloadScene("Next", function () {
             cc.log("Next Preloaded");
-
         });
         cc.director.preloadScene("YuLe_CangGou", function () {
             cc.log("canggou scene preloaded");
@@ -203,15 +202,18 @@ cc.Class({
                             work_times:self.work_times,
                         },
                         success(res) {
+                            cc.sys.localStorage.setItem('story',0);
+                            self.rounds = 1;
+                            self.setAttribute(); 
+                            self.StoryPlay();
                             //self.setAttribute(User);
-                            // cc.sys.localStorage. setItem(' rounds',res.data[0].rounds);
+                            //cc.sys.localStorage. setItem(' rounds',res.data[0].rounds);
                         }
                     });
-                    //self.Username = "AddName-new";
                 } 
-                //需要重置对话时启用 
-                //cc.sys.localStorage.setItem('story',0); 
-                self.setAttribute();  
+                //这里是比上面的两个数据库操作优先处理的，在第一次创建的时候会读不到数据，所以在上面再写入一次，对话加载同理
+                //console.log(cc.sys.localStorage.getItem('story'));
+                self.setAttribute();
                 self.StoryPlay();
             }
         });
@@ -266,12 +268,13 @@ cc.Class({
             }
         });
     },
+
     StoryPlay:function () {
         var storyP=cc.sys.localStorage.getItem('story');
         if (storyP== undefined){
             storyP=0;
         }
-        console.log(storyP);
+        //this.rounds = 1;
         if(this.rounds==4 && storyP<4){
             console.log("load story4")
             cc.sys.localStorage. setItem('story',4); 
@@ -284,6 +287,10 @@ cc.Class({
             console.log("load story2")
             cc.sys.localStorage. setItem('story',2); 
             cc.director.loadScene("Anlushan");
+        }else if(this.rounds==6 && storyP<6){
+            console.log("load story6")
+            cc.sys.localStorage. setItem('story',6); 
+            cc.director.loadScene("Story6");
         }else{console.log(this.rounds+' 11 '+storyP);}
     }
 });

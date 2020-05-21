@@ -181,7 +181,7 @@
       "array": [
         0,
         0,
-        286.6544086526492,
+        268.7709893503001,
         0,
         0,
         0,
@@ -1334,7 +1334,7 @@
       "width": 2048,
       "height": 946
     },
-    "_fitWidth": false,
+    "_fitWidth": true,
     "_fitHeight": true,
     "_id": "59Cd0ovbdF4byw5sbjJDx7"
   },

@@ -58,7 +58,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "autoReleaseAssets": false,
-    "_id": "db9baf24-7e40-48f0-8675-3a6f128c9dec"
+    "_id": "42c08827-3681-4cbc-92b3-a41f7660acb6"
   },
   {
     "__type__": "cc.Node",
@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        285.78838324886476,
+        268.7709893503001,
         0,
         0,
         0,
@@ -3871,7 +3871,7 @@
       "width": 2048,
       "height": 946
     },
-    "_fitWidth": false,
+    "_fitWidth": true,
     "_fitHeight": true,
     "_id": "59Cd0ovbdF4byw5sbjJDx7"
   },

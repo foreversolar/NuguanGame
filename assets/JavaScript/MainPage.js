@@ -186,6 +186,7 @@ cc.Class({
                     cc.sys.localStorage.setItem('rounds', self.rounds);
                 }
                 else{
+                    
                     DB.collection('UserData').add({
                         data: {
                             name:"AddName",
@@ -200,6 +201,7 @@ cc.Class({
                             playing_times:self.playing_times,
                             study_times:self.study_times,
                             work_times:self.work_times,
+                            nickName:cc.sys.localStorage.getItem('nickName')
                         },
                         success(res) {
                             cc.sys.localStorage.setItem('story',0);

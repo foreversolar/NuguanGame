@@ -2,6 +2,6 @@
   "appid": "wx54b73803c3cb4cd3",
   "orientation": "landscape",
   "separate_engine": false,
-  "REMOTE_SERVER_ROOT": "https://api.recovermaker.cn/res",
+  "REMOTE_SERVER_ROOT": "https://nuguan-1257335115.cos.ap-chengdu.myqcloud.com/test",
   "subContext": ""
 }

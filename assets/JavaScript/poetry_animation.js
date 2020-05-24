@@ -138,7 +138,6 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer1.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 Answer1.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
-                Answer1.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 30;
             });
             if (Answer1 != correct_button) {
                 Answer1.getChildByName("false").opacity = 255;
@@ -150,7 +149,7 @@ cc.Class({
                 correct_button.getChildByName("right").opacity = 255;
                 question.active = false;
                 tishi.active = true;
-                tishi_text.string.string = "恭喜你，你果然是才貌双全，魅力值增加20，学识增加15。";
+                tishi_text.string = "恭喜你，你果然是才貌双全，魅力值增加20，学识增加15。";
                 self.AddScore(1);
             }
             Answer1.getComponent(cc.Button).interactable = false;
@@ -167,7 +166,6 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer2.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 Answer2.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
-                Answer2.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 30;
             });
             if (Answer2 != correct_button) {
                 Answer2.getChildByName("false").opacity = 255;
@@ -185,6 +183,7 @@ cc.Class({
             Answer1.getComponent(cc.Button).interactable = false;
             Answer2.getComponent(cc.Button).interactable = false;
             Answer3.getComponent(cc.Button).interactable = false;
+            console.log("2");
             choose_button = Answer2;
         });
 
@@ -197,7 +196,6 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer3.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 Answer3.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
-                Answer3.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 30;
             });
 
             if (Answer3 != correct_button) {
@@ -219,7 +217,8 @@ cc.Class({
             choose_button = Answer3;
         });
     },
-    AddScore:function(right){
+    AddScore: function (right) {
+        console.log("1");
         const DB = wx.cloud.database();
         DB.collection('UserData').where({
             _openid: cc.sys.localStorage.getItem('openid'),

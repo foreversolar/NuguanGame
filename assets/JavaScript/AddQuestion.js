@@ -105,7 +105,6 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer1.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 Answer1.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
-                //Answer1.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 35;
                 Answer1.width=Answer1.width*2.5;
                 Answer1.height=Answer1.height*2.5;
             });
@@ -146,7 +145,6 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer2.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 Answer2.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
-                Answer2.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 35;
                 Answer2.width=Answer2.width*2;
                 Answer2.height=Answer2.height*2;
             });
@@ -187,7 +185,6 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
                 Answer3.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 Answer3.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
-                Answer3.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 35;
                 Answer3.width=Answer3.width*3;
                 Answer3.height=Answer3.height*3;
             });
@@ -239,7 +236,6 @@ cc.Class({
                     var sprite = atlas.getSpriteFrame('btn_weixuanzhongdaan');
                     choose_button.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                     choose_button.getChildByName("Background").getChildByName("Label").color = cc.color(138,51,51);
-                    choose_button.getChildByName("Background").getChildByName("Label").getComponent(cc.Label).fontSize = 80;
                 });
                 self.turn(0);
                 correct_button.getChildByName("right").opacity = 0;

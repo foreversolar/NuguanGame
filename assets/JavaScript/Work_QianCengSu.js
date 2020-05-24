@@ -59,7 +59,7 @@ cc.Class({
 
     getNewPosition: function () {
         var randX = -this.node.width/2;
-        var randY = Math.random()*600 -300;
+        var randY = Math.random()*600 +this.minHeight; //(-300,300)
         // // 根据屏幕宽度，随机得到一个 x 坐标
         // var maxX = this.node.width/2;
         // randX = (Math.random() - 0.5) * 2 * maxX;
@@ -82,11 +82,12 @@ cc.Class({
 
     update (dt) {
 
-        if(this.status==2 && this.times<8){
+        if(this.status==2 && this.times<20){
             this.spawnNewBing();
             this.times=this.times+1;
+            this.minHeight+=30;
         }
-        if(this.times==8){
+        if(this.times==20){
             this.status=3;
             this.times=this.times+1;
         }

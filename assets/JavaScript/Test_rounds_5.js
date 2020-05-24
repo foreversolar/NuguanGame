@@ -50,13 +50,20 @@ cc.Class({
         var self = this;
         var index = 0;
         var text = this.QuestionJson.json.Question[index];
-        var sentence =  text.Question +'\n'+ text.Answer[0] +'\n'+ text.Answer[1] +'\n'+ text.Answer[2];
+        //var sentence =  text.Question +'\n'+ text.Answer[0] +'\n'+ text.Answer[1] +'\n'+ text.Answer[2];
+        var sentence =  text.Question;
+        var sentence1 = text.Answer[0];
+        var sentence2 = text.Answer[1];
+        var sentence3 = text.Answer[2];
         
         var Study = this.node.getChildByName("Study");
         var Content = Study.getChildByName("Question").getComponent(cc.Label);
         var Answer1 = Study.getChildByName("Answer1");
+        var Content1 = Answer1.getChildByName("Background").getChildByName("Label").getComponent(cc.Label);
         var Answer2 = Study.getChildByName("Answer2");
+        var Content2 = Answer2.getChildByName("Background").getChildByName("Label").getComponent(cc.Label);
         var Answer3 = Study.getChildByName("Answer3");
+        var Content3 = Answer3.getChildByName("Background").getChildByName("Label").getComponent(cc.Label);
         var Button = Study.getChildByName("Start");
         var Next = Study.getChildByName("Next");
         var choose_button;
@@ -66,6 +73,9 @@ cc.Class({
             Button.opacity = 0;
             Button.getComponent(cc.Button).interactable = false;
             Content.string = sentence;
+            Content1.string = sentence1;
+            Content2.string = sentence2;
+            Content3.string = sentence3;
             Answer1.opacity = 255;
             Answer2.opacity = 255;
             Answer3.opacity = 255;
@@ -141,8 +151,15 @@ cc.Class({
                 //修改下一题信息
                 index++;
                 text = self.QuestionJson.json.Question[index];
-                sentence =  text.Question +'\n'+ text.Answer[0] +'\n'+ text.Answer[1] +'\n'+ text.Answer[2];
+                //sentence =  text.Question +'\n'+ text.Answer[0] +'\n'+ text.Answer[1] +'\n'+ text.Answer[2];
+                sentence =  text.Question;
+                sentence1 =  text.Answer[0];
+                sentence2 =  text.Answer[1];
+                sentence3 =  text.Answer[2];
                 Content.string = sentence;
+                Content1.string = sentence1;
+                Content2.string = sentence2;
+                Content3.string = sentence3;
                 switch(text.correct){
                     case 1:
                         correct_button = Answer1;

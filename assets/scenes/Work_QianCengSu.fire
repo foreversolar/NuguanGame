@@ -181,7 +181,7 @@
       "array": [
         0,
         0,
-        286.6544086526492,
+        273.54286020177153,
         0,
         0,
         0,
@@ -1003,7 +1003,7 @@
     "_prefab": {
       "__id__": 24
     },
-    "_opacity": 0,
+    "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -1034,7 +1034,7 @@
         1,
         1.14679,
         1.14679,
-        1
+        0
       ]
     },
     "_eulerAngles": {
@@ -1097,7 +1097,7 @@
     "duration": 0.1,
     "zoomScale": 1.2,
     "clickEvents": [],
-    "_N$interactable": false,
+    "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 3,
     "transition": 3,
@@ -1334,7 +1334,7 @@
       "width": 2048,
       "height": 946
     },
-    "_fitWidth": false,
+    "_fitWidth": true,
     "_fitHeight": true,
     "_id": "59Cd0ovbdF4byw5sbjJDx7"
   },

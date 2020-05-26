@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        268.7709893503001,
+        273.54286020177153,
         0,
         0,
         0,
@@ -912,7 +912,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 320,
+      "width": 1150,
       "height": 56.7
     },
     "_anchorPoint": {
@@ -1010,7 +1010,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "showInEditor": false,
-    "_id": "2bJj4wBq9GWbe9szly/1A6"
+    "_id": "69yCCC8CBJaYiBl3CCKsVh"
   },
   {
     "__type__": "cc.Label",
@@ -1042,7 +1042,7 @@
     "_N$fontFamily": "华文楷体",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "0fB/lQhM1I1JxH9u80GPjx"
+    "_id": "12aqBdATpC271cKtioUjDk"
   },
   {
     "__type__": "cc.RichText",
@@ -1059,7 +1059,7 @@
     "_N$fontSize": 40,
     "_N$font": null,
     "_N$cacheMode": 0,
-    "_N$maxWidth": 0,
+    "_N$maxWidth": 1150,
     "_N$lineHeight": 45,
     "_N$imageAtlas": null,
     "_N$handleTouchEvent": true,

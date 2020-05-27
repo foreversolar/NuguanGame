@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        268.7709893503001,
+        819.260031980079,
         0,
         0,
         0,
@@ -1220,7 +1220,7 @@
     "_active": true,
     "_components": [],
     "_prefab": null,
-    "_opacity": 0,
+    "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -2114,7 +2114,9 @@
     "friend": {
       "__id__": 6
     },
-    "playerName": null,
+    "playerName": {
+      "__id__": 21
+    },
     "option": {
       "__id__": 24
     },

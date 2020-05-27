@@ -41,7 +41,8 @@ cc.Class({
 
     },
 
-    start () {
+    start() {
+        this.option.active = false
         var that=this
         this.Dialogue=[
             "XX，为什么我连‘糖粥’这样简单的食物都做不好呀？",
@@ -57,12 +58,15 @@ cc.Class({
             if(i>5){
                 cc.director.loadScene("Game");
             }          
-            if(i==4){
+            if (i == 4) {
+                
                 this.me.opacity=0;
-                this.option.opacity=255;
+                this.option.active = true;
                 this.option1.interactable=true;
                 this.option2.interactable=true;
-                this.option3.interactable=true;
+                this.option3.interactable = true;
+                this.node.pauseSystemEvents(true);
+                console.log(i);
             }else{
                 if(this.me.opacity==0){
                     this.me.opacity=255;
@@ -70,7 +74,6 @@ cc.Class({
                     this.friend.opacity=0;
                 }else{
                     this.friend.opacity=255;
-                    console.log(i)
                     this.friendSay.string=this.Dialogue[i];
                     this.me.opacity=0;
                 }
@@ -176,13 +179,14 @@ cc.Class({
         var rightResp="是这样吗！哎，我就说怎么回事呢。"
         var wrongResp="我用了这个的呀，啊，我想起来了，是不是要加杏仁碎？对，就是它。"
 
-        self.option.opacity=0;
+        this.option.active = false;
         self.friend.opacity=255;
         if(flag){
             self.friendSay.string=rightResp
         }else{
             self.friendSay.string=wrongResp
         }
+        self.node.resumeSystemEvents(true);
     }
 
     // update (dt) {},

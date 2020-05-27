@@ -293,6 +293,10 @@ cc.Class({
             console.log("load story6")
             cc.sys.localStorage. setItem('story',6); 
             cc.director.loadScene("Story6");
+        }else if(this.rounds==7 && storyP<7) {
+            console.log("load story7")
+            cc.sys.localStorage.setItem('story', 7);
+            cc.director.loadScene("Story7");
         }else{console.log(this.rounds+' 11 '+storyP);}
     }
 });

@@ -175,7 +175,7 @@
       "array": [
         0,
         0,
-        268.7709893503001,
+        273.54286020177153,
         0,
         0,
         0,
@@ -392,8 +392,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
-      "height": 45
+      "width": 900,
+      "height": 400
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -457,7 +457,7 @@
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 0,
     "_N$fontFamily": "",
-    "_N$overflow": 0,
+    "_N$overflow": 1,
     "_N$cacheMode": 2,
     "_id": "622K/ecwJIjqMFmHUUDvTZ"
   },
@@ -990,6 +990,7 @@
     "Json_word": {
       "__uuid__": "665f2ed7-fd88-4d61-8090-355203a9e6a7"
     },
+    "flag": false,
     "_id": "2bhM/rDVdA6oEBnQ6wOaMC"
   },
   {

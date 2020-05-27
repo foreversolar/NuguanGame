@@ -77,6 +77,9 @@ cc.Class({
         //获取每个按钮
         var card = this.node.getChildByName("TouMing").getChildByName(Button);
         var cardButton = card.getComponent(cc.Button);
+        let tween = cc.tween()
+        .to(0.5, { scale: 1.05 })
+        .to(0.1, { opacity: 0 });
         var self = this;
         this.scheduleOnce(function(){
             cardButton.interactable = true;
@@ -85,8 +88,6 @@ cc.Class({
             cardButton.interactable = false;
             //第一张图是什么
             //card1-8对应choice0-7，同属于相邻数的card相同
-            //console.log("choose:"+index);
-            //console.log(choice[index-1]);
             if(self.choosed == false){
                 self.chooes1 = index;
                 switch(choice[index-1]){
@@ -162,112 +163,90 @@ cc.Class({
                 }
                 //console.log(self.choice);
                 //console.log(chooes2);                    
-                if(self.choice != chooes2*2&&self.choice != chooes2*2-1){
-                    self.scheduleOnce(function(){
-                        cardButton.interactable = true;
-                        self.node.getChildByName("TouMing").getChildByName("Card"+self.chooes1.toString()).getComponent(cc.Button).interactable = true;
-                    },1);
-                }
-                else{
+                if(self.choice == chooes2*2||self.choice == chooes2*2-1){
                     self.Get++;
+                    //对了放大然后消失
+                    tween.clone(card).start();
+                    tween.clone(self.node.getChildByName("TouMing").getChildByName("Card"+self.chooes1.toString())).start();
                 }
                 self.choosed = false;
+                self.chooes1 = 0;
                 self.choice = 0;
             }
-            //console.log(self.choosed+" "+self.choice);
-            if(self.Get==4){
-                self.AddScore();
+            self.Opened++;
+            if(self.Opened==8){
+                //self.AddScore(self.Get);
+                console.log(self.Get);
                 var Intro = self.node.getChildByName("Intro");
                 var content = Intro.getChildByName("content").getComponent(cc.Label);
-                content.string = "恭喜你已经挑出了所有相同的食物！经验增加120";
+                if(self.Get == 4){
+                    content.string = "恭喜你已经挑出了所有相同的食物！经验增加120";
+                }
+                else{
+                    content.string = "你挑出了"+self.Get+"道相同的食物！经验增加"+self.Get+"!请继续努力！";
+                }
                 Intro.opacity = 255;
                 var back = Intro.getChildByName("back");
                 back.opacity = 255;
                 back.getComponent(cc.Button).interactable = true; 
             }
+            //console.log(self.choosed+" "+self.choice);
         });
     },
 
     loadPicture(choice){
         var self = this;      
-        console.log(choice);
         var name = "Card";
         var bg = this.node.getChildByName("TouMing");
         for(var i = 0;i < 8;i++){
             var cardname = name + (i+1).toString();
             var card = bg.getChildByName(cardname);
-            console.log(cardname);
             switch(choice[i]){
                 case 0:
-                    console.log(1);
-                    console.log(card);
+                    //console.log(1);
                     card.getComponent(cc.Button).pressedSprite = this.sprite1;
                     card.getComponent(cc.Button).disabledSprite = this.sprite1;
                     card.getChildByName("Background").getComponent(cc.Sprite).SpriteFrame = this.sprite1;
-                    console.log(card.getChildByName("Background"));
                     break;
                 case 1:
-                    console.log(2);
+                    //console.log(2);
+                    card.getComponent(cc.Button).pressedSprite = this.sprite1;
                     card.getComponent(cc.Button).disabledSprite = this.sprite1;
                     card.getChildByName("Background").getComponent(cc.Sprite).SpriteFrame = this.sprite1;
                     break;
                 case 2:
-                    console.log(3);
+                    //console.log(3);
+                    card.getComponent(cc.Button).pressedSprite = this.sprite2;
                     card.getComponent(cc.Button).disabledSprite = this.sprite2;
                     card.getChildByName("Background").getComponent(cc.Sprite).SpriteFrame = this.sprite2;
                     break;
                 case 3:
-                    console.log(4);
-                    //加载图片2
-                    /*cc.loader.loadRes("/picture/WorkAndFun/WorkAndFun", cc.SpriteAtlas, function (err, atlas) {
-                        if (err) {
-                            console.log("Load picture2 failed!");
-                        }
-                        var sprite = atlas.getSpriteFrame("food_2");
-                        card.getComponent(cc.Button).disabledSprite = sprite;
-                    });*/
+                    //console.log(4);
+                    card.getComponent(cc.Button).pressedSprite = this.sprite2;
                     card.getComponent(cc.Button).disabledSprite = this.sprite2;
                     card.getChildByName("Background").getComponent(cc.Sprite).SpriteFrame = this.sprite2;
                     break;
                 case 4:
-                    console.log(5);
-                    /*cc.loader.loadRes("/picture/WorkAndFun/WorkAndFun", cc.SpriteAtlas, function (err, atlas) {
-                        if (err) {
-                            console.log("Load picture3 failed!");
-                        }
-                        var sprite = atlas.getSpriteFrame("food_3");
-                        card.getComponent(cc.Button).disabledSprite = sprite;
-                    });*/
+                    //console.log(5);
+                    card.getComponent(cc.Button).pressedSprite = this.sprite3;
                     card.getComponent(cc.Button).disabledSprite = this.sprite3;
                     card.getChildByName("Background").getComponent(cc.Sprite).SpriteFrame = this.sprite3;
                     break;
                 case 5:
-                    //加载图片3
-                    console.log(6);
-                    /*cc.loader.loadRes("/picture/WorkAndFun/WorkAndFun", cc.SpriteAtlas, function (err, atlas) {
-                        if (err) {
-                            console.log("Load picture3 failed!");
-                        }
-                        var sprite = atlas.getSpriteFrame("food_3");
-                        card.getComponent(cc.Button).disabledSprite = sprite;
-                    });*/
+                    //console.log(6);
+                    card.getComponent(cc.Button).pressedSprite = this.sprite3;
                     card.getComponent(cc.Button).disabledSprite = this.sprite3;
                     card.getChildByName("Background").getComponent(cc.Sprite).SpriteFrame = this.sprite3;
                     break;
                 case 6:
-                    console.log(7);
-                    /*cc.loader.loadRes("/picture/WorkAndFun/WorkAndFun", cc.SpriteAtlas, function (err, atlas) {
-                        if (err) {
-                            console.log("Load picture4 failed!");
-                        }
-                        var sprite = atlas.getSpriteFrame("food_4");
-                        card.getComponent(cc.Button).disabledSprite = sprite;
-                    });*/
+                    //console.log(7);
+                    card.getComponent(cc.Button).pressedSprite = this.sprite4;
                     card.getComponent(cc.Button).disabledSprite = this.sprite4;
                     card.getChildByName("Background").getComponent(cc.Sprite).SpriteFrame = this.sprite4;
                     break;
                 case 7:
-                    console.log(8);
+                    //console.log(8);
+                    card.getComponent(cc.Button).pressedSprite = this.sprite4;
                     card.getComponent(cc.Button).disabledSprite = this.sprite4;
                     card.getChildByName("Background").getComponent(cc.Sprite).SpriteFrame = this.sprite4;
                     break;
@@ -287,7 +266,7 @@ cc.Class({
             success(res) {
                 DB.collection('UserData').doc(res.data[0]._id).update({
                     data:{
-                        experience:res.data[0].experience+right*40,
+                        experience:res.data[0].experience+right*30,
                         work_times:res.data[0].work_times+1,
                     }
                 })

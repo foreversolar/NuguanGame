@@ -59,7 +59,9 @@ cc.Class({
 
     getNewPosition: function () {
         var randX = -this.node.width/2;
-        var randY = Math.random()*600 +this.minHeight; //(-300,300)
+        var height=500
+        var low=this.minHeight
+        var randY = Math.random()*(height-low)+low; //(-250,250)
         // // 根据屏幕宽度，随机得到一个 x 坐标
         // var maxX = this.node.width/2;
         // randX = (Math.random() - 0.5) * 2 * maxX;
@@ -73,9 +75,6 @@ cc.Class({
             that.ui.opacity=0;
             that.startGame.interactable=false;
             that.status=2;
-        })
-        this.end.node.on("click",function(){
-            cc.director.loadScene("Game");
         })
     
     },
@@ -113,8 +112,10 @@ cc.Class({
             this.text.string="你在这次的后厨争霸中叠了"+this.scores+"层的千层酥，要多多加油哦！"
         }
         this.startGame.node.opacity=0;
-        this.end.node.opacity=255;
-        this.end.interactable=true;
+        this.end.node.opacity=0;
         this.ui.opacity=255;
+        this.ui.on(cc.Node.EventType.TOUCH_END,function(){
+            cc.director.loadScene("Game");  
+        });
     }
 });

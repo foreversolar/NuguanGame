@@ -46,35 +46,31 @@ cc.Class({
 
     start () {
         var self = this;
-        var hand1 = this.bgCard.getChildByName("hand1").getComponent(cc.Button);
-        var hand2 = this.bgCard.getChildByName("hand2").getComponent(cc.Button);
-        var hand3 = this.bgCard.getChildByName("hand3").getComponent(cc.Button);
+        this.hand1 = this.bgCard.getChildByName("hand1").getComponent(cc.Button);
+        this.hand2 = this.bgCard.getChildByName("hand2").getComponent(cc.Button);
+        this.hand3 = this.bgCard.getChildByName("hand3").getComponent(cc.Button);
 
         this.startBtn.node.on('click',function(){ 
-            hand1.interactable = true;
-            hand2.interactable = true;
-            hand3.interactable = true; 
-            console.log("asdad");
+            self.hand1.interactable = true;
+            self.hand2.interactable = true;
+            self.hand3.interactable = true; 
             self.ux.opacity=0;
             self.bgCard.opacity=255;
             self.startBtn.interactable = false;
         });
+
     
         //回调函数不能有参数，只能在函数内部传参了
 
-        hand1.node.on("click", function () {
-            this.LuckDetermineAndShow(1, hand1);
+        this.hand1.node.on("click", function () {
+            this.LuckDetermineAndShow(1, this.hand1);
         }, this);
-        hand2.node.on("click", function () {
-            this.LuckDetermineAndShow(2, hand2);
+        this.hand2.node.on("click", function () {
+            this.LuckDetermineAndShow(2, this.hand2);
         }, this);
-        hand3.node.on("click", function () {
-            this.LuckDetermineAndShow(3, hand3);
+        this.hand3.node.on("click", function () {
+            this.LuckDetermineAndShow(3, this.hand3);
         }, this);
-
-        this.back.node.on('click',function(){       
-            cc.director.loadScene("Game");  
-        });
 
     },
 
@@ -106,7 +102,12 @@ cc.Class({
         this.scheduleOnce(function () {
             this.bgCard.opacity=0;
             this.ux_end.opacity = 255;
-            this.back.interactable = true;
+            this.hand1.interactable = false;
+            this.hand2.interactable = false;
+            this.hand3.interactable = false; 
+            this.ux_end.on(cc.Node.EventType.TOUCH_END,function(){
+                cc.director.loadScene("Game");  
+            });
         }, 0.5);
         
     },

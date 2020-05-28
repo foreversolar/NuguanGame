@@ -117,5 +117,6 @@ cc.Class({
         this.ui.on(cc.Node.EventType.TOUCH_END,function(){
             cc.director.loadScene("Game");  
         });
+        this.node.color=new cc.Color(121, 121, 121);
     }
 });

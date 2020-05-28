@@ -59,6 +59,9 @@ cc.Class({
             self.startBtn.interactable = false;
         });
 
+        this.back.node.on('click',function(){
+            cc.director.loadScene("Game");
+        })
     
         //回调函数不能有参数，只能在函数内部传参了
 
@@ -108,7 +111,8 @@ cc.Class({
             this.ux_end.on(cc.Node.EventType.TOUCH_END,function(){
                 cc.director.loadScene("Game");  
             });
-        }, 0.5);
+            this.node.color=new cc.Color(121, 121, 121);
+        }, 0.4);
         
     },
 

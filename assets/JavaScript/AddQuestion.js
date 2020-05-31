@@ -10,8 +10,6 @@ cc.Class({
 
     properties: {
         back:cc.Button,
-        not_choose:cc.SpriteFrame,
-        choosed:cc.SpriteFrame,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -100,7 +98,7 @@ cc.Class({
             //     Answer1.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
             // });
 
-            /*cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
+            cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                 if(err){
                     console.log("Load xuanzhong failed!");
                 }
@@ -109,10 +107,8 @@ cc.Class({
                 Answer1.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
                 Answer1.width=Answer1.width*2.5;
                 Answer1.height=Answer1.height*2.5;
-            });*/
+            });
 
-            Answer1.getComponent(cc.Button).disabledSprite = self.choosed;
-            Answer1.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
             if(Answer1!=correct_button){
                     Answer1.getChildByName("false").opacity = 255;
             }
@@ -142,7 +138,7 @@ cc.Class({
             //     Answer2.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
             // });
 
-            /*cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
+            cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                 if(err){
                     console.log("Load xuanzhong failed!");
                 }
@@ -151,10 +147,8 @@ cc.Class({
                 Answer2.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
                 Answer2.width=Answer2.width*2;
                 Answer2.height=Answer2.height*2;
-            });*/
+            });
 
-            Answer2.getComponent(cc.Button).disabledSprite = self.choosed;
-            Answer2.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
             if(Answer2!=correct_button){
                 Answer2.getChildByName("false").opacity = 255;
             }
@@ -184,7 +178,7 @@ cc.Class({
             //     Answer3.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
             // });
 
-            /*cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
+            cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                 if(err){
                     console.log("Load xuanzhong failed!");
                 }
@@ -193,9 +187,8 @@ cc.Class({
                 Answer3.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
                 Answer3.width=Answer3.width*3;
                 Answer3.height=Answer3.height*3;
-            });*/
-            Answer3.getComponent(cc.Button).disabledSprite = self.choosed;
-            Answer3.getChildByName("Background").getChildByName("Label").color = cc.color("#FFFFFFC5");
+            });
+
 
             if(Answer3!=correct_button){
                 Answer3.getChildByName("false").opacity = 255;
@@ -236,16 +229,14 @@ cc.Class({
                 //     choose_button.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 // });
 
-                /*cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
+                cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                     if(err){
                         console.log("Load xuanzhong failed!");
                     }
                     var sprite = atlas.getSpriteFrame('btn_weixuanzhongdaan');
                     choose_button.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                     choose_button.getChildByName("Background").getChildByName("Label").color = cc.color(138,51,51);
-                });*/
-                choose_button.getComponent(cc.Button).disabledSprite = self.not_choose;
-                choose_button.getChildByName("Background").getChildByName("Label").color = cc.color(138,51,51);
+                });
                 self.turn(0);
                 correct_button.getChildByName("right").opacity = 0;
                 choose_button.getChildByName("false").opacity = 0;
@@ -285,15 +276,15 @@ cc.Class({
                 //     choose_button.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
                 // });
 
-                /*cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
+                cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
                     if(err){
                         console.log("Load xuanzhong failed!");
                     }
                     var sprite = atlas.getSpriteFrame('btn_weixuanzhongdaan');
                     choose_button.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
-                });*/
+                });
 
-                choose_button.getComponent(cc.Button).disabledSprite = self.not_choose;
+
                 Answer1.opacity = 0;
                 Answer2.opacity = 0;
                 Answer3.opacity = 0;

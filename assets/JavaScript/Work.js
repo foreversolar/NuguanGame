@@ -180,10 +180,10 @@ cc.Class({
                 var Intro = self.node.getChildByName("Intro");
                 var content = Intro.getChildByName("content").getComponent(cc.Label);
                 if(self.Get == 4){
-                    content.string = "恭喜你已经挑出了所有相同的食物！经验增加120";
+                    content.string = "你挑出了所有相同的食物！经验增加120!";
                 }
                 else{
-                    content.string = "你挑出了"+self.Get+"道相同的食物！经验增加"+self.Get+"!请继续努力！";
+                    content.string = "你只挑出了"+self.Get+"道相同的食物！经验增加"+self.Get+"!请继续努力！";
                 }
                 Intro.opacity = 255;
                 var back = Intro.getChildByName("back");

@@ -186,9 +186,12 @@ cc.Class({
                     content.string = "你只挑出了"+self.Get+"道相同的食物！经验增加"+self.Get+"!请继续努力！";
                 }
                 Intro.opacity = 255;
+                Intro.on(cc.Node.EventType.TOUCH_END,function(){
+                    cc.director.loadScene("Game");  
+                });
                 var back = Intro.getChildByName("back");
-                back.opacity = 255;
-                back.getComponent(cc.Button).interactable = true; 
+                back.opacity = 0;
+                // back.getComponent(cc.Button).interactable = true; 
             }
             //console.log(self.choosed+" "+self.choice);
         });

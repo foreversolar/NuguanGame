@@ -159,6 +159,10 @@ cc.Class({
             Answer3.getComponent(cc.Button).interactable = false;
             Answer4.getComponent(cc.Button).interactable = false;
             choose_button = Answer1;
+            self.back.node.opacity=0;
+            self.tishi.on(cc.Node.EventType.TOUCH_END,function(){
+                cc.director.loadScene("Game");  
+            });
         });
 
         Answer2.on('click', function () {
@@ -201,6 +205,10 @@ cc.Class({
             Answer4.getComponent(cc.Button).interactable = false;
             console.log("2");
             choose_button = Answer2;
+            self.back.node.opacity=0;
+            self.tishi.on(cc.Node.EventType.TOUCH_END,function(){
+                cc.director.loadScene("Game");  
+            });
         });
 
         Answer3.on('click', function () {
@@ -243,6 +251,10 @@ cc.Class({
             Answer3.getComponent(cc.Button).interactable = false;
             Answer4.getComponent(cc.Button).interactable = false;
             choose_button = Answer3;
+            self.back.node.opacity=0;
+            self.tishi.on(cc.Node.EventType.TOUCH_END,function(){
+                cc.director.loadScene("Game");  
+            });
         });
 
         Answer4.on('click', function () {
@@ -285,6 +297,10 @@ cc.Class({
             Answer3.getComponent(cc.Button).interactable = false;
             Answer4.getComponent(cc.Button).interactable = false;
             choose_button = Answer3;
+            self.back.node.opacity=0;
+            self.tishi.on(cc.Node.EventType.TOUCH_END,function(){
+                cc.director.loadScene("Game");  
+            });
         });
     },
     AddScore: function (right) {

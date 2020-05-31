@@ -75,6 +75,9 @@ cc.Class({
             that.ui.opacity=0;
             that.startGame.interactable=false;
             that.status=2;
+        });
+        this.end.node.on('click',function(){
+            cc.director.loadScene("Game");
         })
     
     },

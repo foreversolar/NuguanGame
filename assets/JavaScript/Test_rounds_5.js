@@ -18,6 +18,8 @@ cc.Class({
         choice:0,
         chooes1:0,
         choosed:false,
+        not_choosepic:cc.SpriteFrame,
+        choosepic:cc.SpriteFrame,
         sprite1:cc.SpriteFrame,
         sprite2:cc.SpriteFrame,
         sprite3:cc.SpriteFrame,
@@ -102,7 +104,7 @@ cc.Class({
                     break;
             }
             Answer1.on('click',function(){            
-                self.loadPic(Answer1);
+                Answer1.getComponent(cc.Button).disabledSprite = self.choosepic;
                 if(Answer1==correct_button){
                     self.right++;
                 }
@@ -116,7 +118,7 @@ cc.Class({
             });
     
             Answer2.on('click',function(){
-                self.loadPic(Answer2);
+                Answer2.getComponent(cc.Button).disabledSprite = self.choosepic;
                 if(Answer2==correct_button){
                     self.right++;
                 }
@@ -130,7 +132,7 @@ cc.Class({
             });
     
             Answer3.on('click',function(){
-                self.loadPic(Answer3);
+                Answer3.getComponent(cc.Button).disabledSprite = self.choosepic;
                 if(Answer3==correct_button){
                     self.right++;
                 }
@@ -178,13 +180,7 @@ cc.Class({
                         correct_button = Answer3;
                         break;
                 }
-                cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
-                    if(err){
-                        console.log("Load xuanzhong failed!");
-                    }
-                    var sprite = atlas.getSpriteFrame('btn_weixuanzhongdaan');
-                    choose_button.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
-                });
+                choose_button.getComponent(cc.Button).disabledSprite = self.not_choosepic;
                 Answer1.getComponent(cc.Button).interactable = true;
                 Answer2.getComponent(cc.Button).interactable = true;
                 Answer3.getComponent(cc.Button).interactable = true;
@@ -194,7 +190,7 @@ cc.Class({
         });
     },
 
-    loadPic:function(choose_button){
+    /*loadPic:function(choose_button){
         cc.loader.loadRes("/picture/KnowledgeCard/KnowledgeCard", cc.SpriteAtlas, function (err, atlas) {
             if(err){
                 console.log("Load xuanzhong failed!");
@@ -202,7 +198,7 @@ cc.Class({
             var sprite = atlas.getSpriteFrame('btn_xuanzhongdaan');
             choose_button.getChildByName("Background").getComponent(cc.Sprite).spriteFrame = sprite;
         });
-    },
+    },*/
 
     loadWork:function(){
         //设置相同卡片

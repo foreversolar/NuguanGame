@@ -9,9 +9,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        beizi: cc.Node,
-        tishi: cc.Node,
-        dati: cc.Node
+        back:cc.Button,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -19,9 +17,10 @@ cc.Class({
     //onLoad () {},
 
     start() {
-        this.dati.active = false;
-        this.tishi.active = false;
-        var anim = this.beizi.getComponent(cc.Animation);
+        var questioncard = this.node.getChildByName("QuestionPage").getChildByName("Panel");
+        questioncard.active = false;
+        var beizi = this.node.getChildByName("background").getChildByName("beizi");
+        var anim = beizi.getComponent(cc.Animation);
         anim.play();
     },
 });

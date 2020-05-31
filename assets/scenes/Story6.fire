@@ -1752,8 +1752,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 650,
-      "height": 160
+      "width": 476,
+      "height": 126
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1765,7 +1765,7 @@
       "ctor": "Float64Array",
       "array": [
         997,
-        643,
+        607,
         0,
         0,
         0,
@@ -1807,15 +1807,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 138,
+      "g": 51,
+      "b": 51,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 50.4
+      "width": 110,
+      "height": 63
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1867,8 +1867,8 @@
     "_useOriginalSize": false,
     "_string": "牛奶",
     "_N$string": "牛奶",
-    "_fontSize": 50,
-    "_lineHeight": 40,
+    "_fontSize": 55,
+    "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1899,7 +1899,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "b2037d18-2252-4c57-98a5-b057ba8ab062"
+      "__uuid__": "2a70b332-326f-4ac2-bde0-7d639899db62"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -1932,8 +1932,8 @@
     "clickEvents": [],
     "_N$interactable": false,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 3,
-    "transition": 3,
+    "_N$transition": 2,
+    "transition": 2,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -1976,12 +1976,24 @@
       "b": 124,
       "a": 255
     },
-    "_N$normalSprite": null,
-    "_N$pressedSprite": null,
-    "pressedSprite": null,
-    "_N$hoverSprite": null,
-    "hoverSprite": null,
-    "_N$disabledSprite": null,
+    "_N$normalSprite": {
+      "__uuid__": "2a70b332-326f-4ac2-bde0-7d639899db62"
+    },
+    "_N$pressedSprite": {
+      "__uuid__": "7946a2db-c804-43e9-9868-68d5c90934fe"
+    },
+    "pressedSprite": {
+      "__uuid__": "7946a2db-c804-43e9-9868-68d5c90934fe"
+    },
+    "_N$hoverSprite": {
+      "__uuid__": "7946a2db-c804-43e9-9868-68d5c90934fe"
+    },
+    "hoverSprite": {
+      "__uuid__": "7946a2db-c804-43e9-9868-68d5c90934fe"
+    },
+    "_N$disabledSprite": {
+      "__uuid__": "2a70b332-326f-4ac2-bde0-7d639899db62"
+    },
     "_N$target": {
       "__id__": 34
     },
@@ -2019,8 +2031,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 650,
-      "height": 160
+      "width": 476,
+      "height": 126
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2032,7 +2044,7 @@
       "ctor": "Float64Array",
       "array": [
         997,
-        451,
+        338.814,
         0,
         0,
         0,
@@ -2074,15 +2086,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 138,
+      "g": 51,
+      "b": 51,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 150,
-      "height": 50.4
+      "width": 165,
+      "height": 63
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2134,8 +2146,8 @@
     "_useOriginalSize": false,
     "_string": "冰片末",
     "_N$string": "冰片末",
-    "_fontSize": 50,
-    "_lineHeight": 40,
+    "_fontSize": 55,
+    "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -2166,7 +2178,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "b2037d18-2252-4c57-98a5-b057ba8ab062"
+      "__uuid__": "2a70b332-326f-4ac2-bde0-7d639899db62"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -2199,8 +2211,8 @@
     "clickEvents": [],
     "_N$interactable": false,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 3,
-    "transition": 3,
+    "_N$transition": 2,
+    "transition": 2,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -2243,12 +2255,24 @@
       "b": 124,
       "a": 255
     },
-    "_N$normalSprite": null,
-    "_N$pressedSprite": null,
-    "pressedSprite": null,
-    "_N$hoverSprite": null,
-    "hoverSprite": null,
-    "_N$disabledSprite": null,
+    "_N$normalSprite": {
+      "__uuid__": "2a70b332-326f-4ac2-bde0-7d639899db62"
+    },
+    "_N$pressedSprite": {
+      "__uuid__": "7946a2db-c804-43e9-9868-68d5c90934fe"
+    },
+    "pressedSprite": {
+      "__uuid__": "7946a2db-c804-43e9-9868-68d5c90934fe"
+    },
+    "_N$hoverSprite": {
+      "__uuid__": "7946a2db-c804-43e9-9868-68d5c90934fe"
+    },
+    "hoverSprite": {
+      "__uuid__": "7946a2db-c804-43e9-9868-68d5c90934fe"
+    },
+    "_N$disabledSprite": {
+      "__uuid__": "2a70b332-326f-4ac2-bde0-7d639899db62"
+    },
     "_N$target": {
       "__id__": 39
     },
@@ -2351,8 +2375,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1500,
-      "height": 200
+      "width": 687.2,
+      "height": 100
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2364,7 +2388,7 @@
       "ctor": "Float64Array",
       "array": [
         997,
-        654,
+        550.925,
         0,
         0,
         0,
@@ -2406,14 +2430,14 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 138,
+      "g": 51,
+      "b": 51,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 291.11,
+      "width": 372.5,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -2464,16 +2488,16 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": " 那可就说定了。",
-    "_N$string": " 那可就说定了。",
-    "_fontSize": 40,
+    "_string": " 那可就这么说定了",
+    "_N$string": " 那可就这么说定了",
+    "_fontSize": 45,
     "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 1,
+    "_styleFlags": 0,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -2498,7 +2522,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "fd64a5c4-862a-42b1-a2ef-58f8745ba92e"
+      "__uuid__": "33f4992c-3441-424b-8229-7d849bb8325a"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -2531,8 +2555,8 @@
     "clickEvents": [],
     "_N$interactable": false,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 3,
-    "transition": 3,
+    "_N$transition": 2,
+    "transition": 2,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -2575,12 +2599,24 @@
       "b": 124,
       "a": 255
     },
-    "_N$normalSprite": null,
-    "_N$pressedSprite": null,
-    "pressedSprite": null,
-    "_N$hoverSprite": null,
-    "hoverSprite": null,
-    "_N$disabledSprite": null,
+    "_N$normalSprite": {
+      "__uuid__": "33f4992c-3441-424b-8229-7d849bb8325a"
+    },
+    "_N$pressedSprite": {
+      "__uuid__": "125dabe9-22e1-44dc-8b09-7ad256de5b7c"
+    },
+    "pressedSprite": {
+      "__uuid__": "125dabe9-22e1-44dc-8b09-7ad256de5b7c"
+    },
+    "_N$hoverSprite": {
+      "__uuid__": "125dabe9-22e1-44dc-8b09-7ad256de5b7c"
+    },
+    "hoverSprite": {
+      "__uuid__": "125dabe9-22e1-44dc-8b09-7ad256de5b7c"
+    },
+    "_N$disabledSprite": {
+      "__uuid__": "33f4992c-3441-424b-8229-7d849bb8325a"
+    },
     "_N$target": {
       "__id__": 45
     },
@@ -2618,8 +2654,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1500,
-      "height": 200
+      "width": 687.2,
+      "height": 100
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2673,14 +2709,14 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 138,
+      "g": 51,
+      "b": 51,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 880,
+      "width": 495,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -2731,16 +2767,16 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "哎呀，看阿慧气的这样，怕她已经不太想去了呢。",
-    "_N$string": "哎呀，看阿慧气的这样，怕她已经不太想去了呢。",
-    "_fontSize": 40,
+    "_string": "怕是阿慧气得不想去了呢",
+    "_N$string": "怕是阿慧气得不想去了呢",
+    "_fontSize": 45,
     "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 1,
+    "_styleFlags": 0,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -2765,7 +2801,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "fd64a5c4-862a-42b1-a2ef-58f8745ba92e"
+      "__uuid__": "33f4992c-3441-424b-8229-7d849bb8325a"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -2798,8 +2834,8 @@
     "clickEvents": [],
     "_N$interactable": false,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 3,
-    "transition": 3,
+    "_N$transition": 2,
+    "transition": 2,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -2842,12 +2878,24 @@
       "b": 124,
       "a": 255
     },
-    "_N$normalSprite": null,
-    "_N$pressedSprite": null,
-    "pressedSprite": null,
-    "_N$hoverSprite": null,
-    "hoverSprite": null,
-    "_N$disabledSprite": null,
+    "_N$normalSprite": {
+      "__uuid__": "33f4992c-3441-424b-8229-7d849bb8325a"
+    },
+    "_N$pressedSprite": {
+      "__uuid__": "125dabe9-22e1-44dc-8b09-7ad256de5b7c"
+    },
+    "pressedSprite": {
+      "__uuid__": "125dabe9-22e1-44dc-8b09-7ad256de5b7c"
+    },
+    "_N$hoverSprite": {
+      "__uuid__": "125dabe9-22e1-44dc-8b09-7ad256de5b7c"
+    },
+    "hoverSprite": {
+      "__uuid__": "125dabe9-22e1-44dc-8b09-7ad256de5b7c"
+    },
+    "_N$disabledSprite": {
+      "__uuid__": "33f4992c-3441-424b-8229-7d849bb8325a"
+    },
     "_N$target": {
       "__id__": 50
     },
@@ -2937,9 +2985,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 57,
+      "g": 33,
+      "b": 33,
       "a": 255
     },
     "_contentSize": {

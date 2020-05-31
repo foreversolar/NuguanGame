@@ -301,6 +301,11 @@ cc.Class({
             console.log("load story8")
             cc.sys.localStorage.setItem('story', 8);
             cc.director.loadScene("Story8");
-        }else{console.log(this.rounds+' 11 '+storyP);}
+        }else if(this.rounds==11 && storyP<11){
+            console.log("load story11")
+            cc.sys.localStorage.setItem('story', 11);
+            cc.director.loadScene("Story11");
+        }
+        else{console.log(this.rounds+' 11 '+storyP);}
     }
 });

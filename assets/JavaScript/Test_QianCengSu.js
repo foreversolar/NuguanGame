@@ -9,21 +9,6 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
         bingPrefab:{
             default:null,
             type:cc.Prefab
@@ -34,17 +19,13 @@ cc.Class({
         status:0, //0-ready 1-running 2-another one 3-end;
         times:0,
         scores:0,
-        ui:cc.Node,
-        text:cc.Label,
-        startGame:cc.Button,
-        end:cc.Button,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
 
-     },
+    },
 
     spawnNewBing:function(){
         // console.log(this.status);
@@ -69,21 +50,10 @@ cc.Class({
     },
 
     start () {
-        var that=this
-        this.startGame.node.on("click",function(){
-            console.log(that.ui)
-            that.ui.opacity=0;
-            that.startGame.interactable=false;
-            that.status=2;
-        });
-        this.end.node.on('click',function(){
-            cc.director.loadScene("Game");
-        })
-    
+        this.status=2;
     },
 
     update (dt) {
-
         if(this.status==2 && this.times<20){
             this.spawnNewBing();
             this.times=this.times+1;
@@ -108,18 +78,7 @@ cc.Class({
     },
 
     endGame:function(){
-    
-        if(this.scores>4){
-            this.text.string="你在这次的后厨争霸中叠了"+this.scores+"层的千层酥，真是了不起呢！"
-        }else{
-            this.text.string="你在这次的后厨争霸中叠了"+this.scores+"层的千层酥，要多多加油哦！"
-        }
-        this.startGame.node.opacity=0;
-        this.end.node.opacity=0;
-        this.ui.opacity=255;
-        this.ui.on(cc.Node.EventType.TOUCH_END,function(){
-            cc.director.loadScene("Game");  
-        });
-        this.node.color=new cc.Color(121, 121, 121);
+        this.node.active = false;
+        this.node.parent.getComponent("Test_rounds_15").Result();
     }
 });

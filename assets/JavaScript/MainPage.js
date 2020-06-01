@@ -146,7 +146,9 @@ cc.Class({
 
         this.next_button.node.on('click', function () {
             if(self.rounds == 4&&self.level == 1){
-                cc.director.loadScene("Test");
+                cc.director.loadScene("Test_5");
+            }else if(self.rounds == 14&&self.level == 2){
+                cc.director.loadScene("Test_15");
             }
             self.ResetRound();
             cc.director.loadScene("Next");
@@ -301,6 +303,14 @@ cc.Class({
             console.log("load story8")
             cc.sys.localStorage.setItem('story', 8);
             cc.director.loadScene("Story8");
-        }else{console.log(this.rounds+' 11 '+storyP);}
+        }else if(this.rounds==9 && storyP<9){
+            console.log("load story9")
+            cc.sys.localStorage.setItem('story', 9);
+            cc.director.loadScene("Story9");
+        }else if(this.rounds==11 && storyP<11){
+            console.log("load story11")
+            cc.sys.localStorage.setItem('story', 11);
+            cc.director.loadScene("Story11");
+        }
     }
 });

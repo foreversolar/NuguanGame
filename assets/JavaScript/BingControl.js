@@ -21,7 +21,10 @@ cc.Class({
     },
 
     onLoad () {
-        this.gameControl=this.bg.getComponent("Work_QianCengSu")
+        this.gameControl=this.bg.getComponent("Work_QianCengSu");
+        if(this.gameControl == null){
+            this.gameControl=this.bg.getComponent("Test_QianCengSu");
+        }
         if(this.gameControl.status>=3){
             this.destroy();
         }
@@ -83,7 +86,8 @@ cc.Class({
             }else{
                 //console.log("good")
                 this.gameControl.addScore(1);
-                this.bg.getComponent("Work_QianCengSu").status=2;
+                //this.bg.getComponent("Work_QianCengSu").status=2;
+                this.gameControl.updateStatus(2);
             }
             this.destroy();
         }

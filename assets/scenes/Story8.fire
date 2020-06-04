@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        300.51081511320024,
+        209.57814771583418,
         0,
         0,
         0,
@@ -643,8 +643,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": " 好 友 阿 慧",
-    "_N$string": " 好 友 阿 慧",
+    "_string": " 好友阿慧",
+    "_N$string": " 好友阿慧",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,

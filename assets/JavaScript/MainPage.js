@@ -301,10 +301,22 @@ cc.Class({
             console.log("load story8")
             cc.sys.localStorage.setItem('story', 8);
             cc.director.loadScene("Story8");
+        } else if (this.rounds == 10 && storyP < 10) {
+            console.log("load story10")
+            cc.sys.localStorage.setItem('story', 10);
+            cc.director.loadScene("Story10");
         }else if(this.rounds==11 && storyP<11){
             console.log("load story11")
             cc.sys.localStorage.setItem('story', 11);
             cc.director.loadScene("Story11");
+        } else if (this.rounds == 16 && storyP < 16) {
+            console.log("load story16")
+            cc.sys.localStorage.setItem('story', 16);
+            cc.director.loadScene("Story16");
+        } else if (this.rounds == 24 && storyP < 24) {
+            console.log("load story24")
+            cc.sys.localStorage.setItem('story', 24);
+            cc.director.loadScene("Story24");
         }
         else{console.log(this.rounds+' 11 '+storyP);}
     }

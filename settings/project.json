@@ -1,10 +1,23 @@
 {
   "group-list": [
-    "default"
+    "cherry",
+    "ground",
+    "basket"
   ],
   "collision-matrix": [
     [
+      false,
+      true,
       true
+    ],
+    [
+      true,
+      false
+    ],
+    [
+      true,
+      false,
+      false
     ]
   ],
   "excluded-modules": [],

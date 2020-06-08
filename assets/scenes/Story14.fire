@@ -58,7 +58,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "autoReleaseAssets": false,
-    "_id": "febb0b7a-19f5-4613-a088-f0331e021aba"
+    "_id": "ac3cead4-4352-4a05-8ad4-b67be46ca5d0"
   },
   {
     "__type__": "cc.Node",
@@ -78,10 +78,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 61
+        "__id__": 51
       },
       {
-        "__id__": 62
+        "__id__": 52
       }
     ],
     "_prefab": null,
@@ -170,8 +170,8 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        9,
-        209.57814771583418,
+        0,
+        362.0829142873867,
         0,
         0,
         0,
@@ -249,21 +249,15 @@
       },
       {
         "__id__": 33
-      },
-      {
-        "__id__": 44
-      },
-      {
-        "__id__": 55
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 59
+        "__id__": 49
       },
       {
-        "__id__": 60
+        "__id__": 50
       }
     ],
     "_prefab": null,
@@ -289,8 +283,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -2.349,
-        -1.843,
+        0,
+        0,
         0,
         0,
         0,
@@ -312,7 +306,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "d4h817J71L6rkKOvrwSYNt"
+    "_id": "69YBiJY4lP9rpTwP9JqE/h"
   },
   {
     "__type__": "cc.Node",
@@ -383,7 +377,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "a9DkLkrW5FKJpp9gSBzC6M"
+    "_id": "7572EqziFCsLIUWjmT4koh"
   },
   {
     "__type__": "cc.Node",
@@ -445,7 +439,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "f8U/GeB31Po7o8aXbwai9O"
+    "_id": "10V+WV3WxEnYbQh0Sx/thv"
   },
   {
     "__type__": "cc.Sprite",
@@ -477,7 +471,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "e5hCR142FIUIGKVnzKX+Wq"
+    "_id": "cf1TgegHxIMJS5LAIZQo4C"
   },
   {
     "__type__": "cc.Node",
@@ -539,7 +533,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "a780ezFYNIOrqAwf2nPO2r"
+    "_id": "9aJYgPvDpNcY9KLie6oauY"
   },
   {
     "__type__": "cc.Sprite",
@@ -571,7 +565,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "886OUIb/JHFo30s6lUZZY2"
+    "_id": "3eSC20aN1BbpDT9vZTiz0f"
   },
   {
     "__type__": "cc.Node",
@@ -633,7 +627,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "53gCk2THFChL0M4ZyiP3U8"
+    "_id": "a3ZKKPEr5Pdq2Vkymruj72"
   },
   {
     "__type__": "cc.Label",
@@ -665,7 +659,7 @@
     "_N$fontFamily": "",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "cbUCywbZlPraNtO8Jd8vUL"
+    "_id": "bbN7mw38VAMYjzSS3XZZrL"
   },
   {
     "__type__": "cc.Node",
@@ -727,7 +721,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "85I+Q0patM76ftAQHMPBp5"
+    "_id": "47tL/x49ZJQaOg1GM1T/Bd"
   },
   {
     "__type__": "cc.Label",
@@ -743,8 +737,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "哎，我还以为检货是件多累的事情，结果也不过如此！那两小子有这出宫的机会都肯不要，就为了不检货。",
-    "_N$string": "哎，我还以为检货是件多累的事情，结果也不过如此！那两小子有这出宫的机会都肯不要，就为了不检货。",
+    "_string": "最近总是没有什么空余，一直也抽不出空去探望丽娘。",
+    "_N$string": "最近总是没有什么空余，一直也抽不出空去探望丽娘。",
     "_fontSize": 40,
     "_lineHeight": 45,
     "_enableWrapText": true,
@@ -759,11 +753,11 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 1,
     "_N$cacheMode": 0,
-    "_id": "4bnmhf565C3olmHMlmpHo1"
+    "_id": "bbOtcOyfJHnKQqtgXSsopC"
   },
   {
     "__type__": "cc.Node",
-    "_name": "zhousheng",
+    "_name": "Liniang",
     "_objFlags": 0,
     "_parent": {
       "__id__": 5
@@ -830,7 +824,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "d3VBBoPRBJCYarbXVKoSTn"
+    "_id": "1eRnKnWQtGCaab7Inq6FZt"
   },
   {
     "__type__": "cc.Node",
@@ -892,7 +886,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "dbCR7T0GhP244RuamV+/mU"
+    "_id": "4ddG4wTAZIVreVjvV9kWul"
   },
   {
     "__type__": "cc.Sprite",
@@ -924,11 +918,11 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "84FzjXRUhIZ71WxM5m1/na"
+    "_id": "4aaMR3XNdKA4GC0k80N5mX"
   },
   {
     "__type__": "cc.Node",
-    "_name": "figure_zhousheng",
+    "_name": "figure_Liniang",
     "_objFlags": 0,
     "_parent": {
       "__id__": 15
@@ -986,7 +980,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "afojKfq4RNS5dI/x4QTuLk"
+    "_id": "ccn0RsLy5HuYxVx3GDYnju"
   },
   {
     "__type__": "cc.Sprite",
@@ -1018,7 +1012,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "ba4qJp65RC7obTHB45HNrR"
+    "_id": "12ODilD3RLHoK8MI7hKene"
   },
   {
     "__type__": "cc.Node",
@@ -1080,7 +1074,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "09+gQAddRH9ZUdNChKzisU"
+    "_id": "89hWQ3mPxCaovXtsZDQi0X"
   },
   {
     "__type__": "cc.Label",
@@ -1096,8 +1090,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "书生周生",
-    "_N$string": "书生周生",
+    "_string": "丽娘",
+    "_N$string": "丽娘",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -1112,11 +1106,11 @@
     "_N$fontFamily": "",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "d3WvTjd21D4b+lZQcuapIB"
+    "_id": "95XPsBD0ZGxbE+twsBH2nm"
   },
   {
     "__type__": "cc.Node",
-    "_name": "zhouShengW",
+    "_name": "LiniangW",
     "_objFlags": 0,
     "_parent": {
       "__id__": 15
@@ -1174,7 +1168,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "efa1UBOsxN5aOAO8sdtMX6"
+    "_id": "7dLjkMIRpPFoY/EsKRm624"
   },
   {
     "__type__": "cc.Label",
@@ -1190,8 +1184,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
+    "_string": "哇，你们这玉露团做的也太好看了吧？是怎么做出来的呀！",
+    "_N$string": "哇，你们这玉露团做的也太好看了吧？是怎么做出来的呀！",
     "_fontSize": 40,
     "_lineHeight": 45,
     "_enableWrapText": true,
@@ -1206,7 +1200,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 1,
     "_N$cacheMode": 0,
-    "_id": "7ayNpG4P1IsbkoFklRkw4v"
+    "_id": "b98vITL5ZEJ4DWz93CAl+i"
   },
   {
     "__type__": "cc.Node",
@@ -1277,7 +1271,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "27AT3gpT9Pk4h4La8jcMvV"
+    "_id": "7dpxNsXFhGg5JUD+HMakdN"
   },
   {
     "__type__": "cc.Node",
@@ -1339,7 +1333,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "87DxJf3IpFQ6KWU+/Nm0Vf"
+    "_id": "efVag6YlxPDoYctQkJWY7M"
   },
   {
     "__type__": "cc.Sprite",
@@ -1371,7 +1365,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "c8XLjGH/VKn7tn4F8+dpMa"
+    "_id": "dcQYbTn65CLZ5qSy93A1JY"
   },
   {
     "__type__": "cc.Node",
@@ -1433,7 +1427,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "ecYJOBR1pHuJHxK95NVsAF"
+    "_id": "eaXusKtNdNGpCk+vbtQSeF"
   },
   {
     "__type__": "cc.Sprite",
@@ -1465,7 +1459,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "afcaLJ4QNIbKH4cu9KPulw"
+    "_id": "4cSTkDS3pMn5plTssTayg1"
   },
   {
     "__type__": "cc.Node",
@@ -1527,7 +1521,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "30btF2qsJB1J8A+ijLV+BK"
+    "_id": "cbwb5wiPBB/r145k3gQYnp"
   },
   {
     "__type__": "cc.Label",
@@ -1559,7 +1553,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "c4UxyyeEJMR7ZLzBvCRAsx"
+    "_id": "825jRkjb9LOqeJ+w45NgLj"
   },
   {
     "__type__": "cc.Node",
@@ -1621,7 +1615,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "34fCzfpSFCQbPst7WRBk3B"
+    "_id": "a4qHMY82lG9LN2tsRYUqjp"
   },
   {
     "__type__": "cc.Label",
@@ -1653,11 +1647,11 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 1,
     "_N$cacheMode": 0,
-    "_id": "7dphB0+wpFo77wQbTAwqFY"
+    "_id": "f4llv9SMBDBpqrEyprMuif"
   },
   {
     "__type__": "cc.Node",
-    "_name": "Option1",
+    "_name": "Option",
     "_objFlags": 0,
     "_parent": {
       "__id__": 5
@@ -1668,6 +1662,9 @@
       },
       {
         "__id__": 39
+      },
+      {
+        "__id__": 44
       }
     ],
     "_active": true,
@@ -1718,7 +1715,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "6amakJ4stDnKud1o+0TcJj"
+    "_id": "6cBPkl0dpLm7q8nutlrSkH"
   },
   {
     "__type__": "cc.Node",
@@ -1752,8 +1749,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 962,
-      "height": 140
+      "width": 687.2,
+      "height": 100
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1764,8 +1761,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        1001.482,
-        726.495,
+        997,
+        550.925,
         0,
         0,
         0,
@@ -1787,7 +1784,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "5dD5FEE3pF+Kz2pMsh7oyT"
+    "_id": "cbAqoHGKNNQYeE2EPY7acz"
   },
   {
     "__type__": "cc.Node",
@@ -1814,7 +1811,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 765,
+      "width": 45,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1849,7 +1846,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "f8Yr27hcNDtbrhhBCBvdq/"
+    "_id": "7eT3EjV8RMgrdAr9CsSn6Z"
   },
   {
     "__type__": "cc.Label",
@@ -1865,8 +1862,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "我对珠宝兴致不高，我们午时再聚如何",
-    "_N$string": "我对珠宝兴致不高，我们午时再聚如何",
+    "_string": "是",
+    "_N$string": "是",
     "_fontSize": 45,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -1881,7 +1878,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "a3bneleGpAirrAB7toOce7"
+    "_id": "668O+x1thN17FNdazoQ1V8"
   },
   {
     "__type__": "cc.Sprite",
@@ -1913,7 +1910,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "6ajdRhycxJYIv7gsHAThf6"
+    "_id": "34xsWqiTBM7YOmm0VZJD1n"
   },
   {
     "__type__": "cc.Button",
@@ -1930,7 +1927,7 @@
     "duration": 0.1,
     "zoomScale": 1.2,
     "clickEvents": [],
-    "_N$interactable": false,
+    "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 2,
     "transition": 2,
@@ -1997,7 +1994,7 @@
     "_N$target": {
       "__id__": 34
     },
-    "_id": "ba/l8zZAVOortBMsshmZPe"
+    "_id": "1aUi+bd85CtoPVjTxayRBD"
   },
   {
     "__type__": "cc.Node",
@@ -2031,8 +2028,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 962,
-      "height": 140
+      "width": 687.2,
+      "height": 100
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2043,8 +2040,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        1001.482,
-        518.426,
+        997,
+        334,
         0,
         0,
         0,
@@ -2066,7 +2063,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "83yqSxM8NNN75jK4CRJvb5"
+    "_id": "4bvYbObjhF16SdmNWNWAkB"
   },
   {
     "__type__": "cc.Node",
@@ -2093,7 +2090,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 585,
+      "width": 360,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -2128,7 +2125,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "d4/4Tp/lZMr5OEmY39yfuh"
+    "_id": "0eox5bU55PCqvQHEt96Pv1"
   },
   {
     "__type__": "cc.Label",
@@ -2144,8 +2141,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "好呀，我也兴趣，一同去吧。",
-    "_N$string": "好呀，我也兴趣，一同去吧。",
+    "_string": "佛经？难道您——",
+    "_N$string": "佛经？难道您——",
     "_fontSize": 45,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -2160,7 +2157,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "f4eiwjUf5FI7lmx2D8jlJo"
+    "_id": "3fYGZKkWNLm4+RPg9e+7gr"
   },
   {
     "__type__": "cc.Sprite",
@@ -2192,7 +2189,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "2a+t8D1SZOHr0IjJGTvRrk"
+    "_id": "c4VpcAcq1FIbnEZRsgKlot"
   },
   {
     "__type__": "cc.Button",
@@ -2209,7 +2206,7 @@
     "duration": 0.1,
     "zoomScale": 1.2,
     "clickEvents": [],
-    "_N$interactable": false,
+    "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 2,
     "transition": 2,
@@ -2276,371 +2273,27 @@
     "_N$target": {
       "__id__": 39
     },
-    "_id": "b0SV/uja9KRbVpT0g7sy/+"
+    "_id": "e9hH+pg3NBkKQ7WZlRQaBA"
   },
   {
     "__type__": "cc.Node",
-    "_name": "Option2",
+    "_name": "option3",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 5
+      "__id__": 33
     },
     "_children": [
       {
         "__id__": 45
-      },
-      {
-        "__id__": 50
       }
     ],
-    "_active": true,
-    "_components": [],
-    "_prefab": null,
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        -1021.651,
-        -475.683,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": "70ZJfbvPxKQpoqxb7mK3mH"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "option1",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 44
-    },
-    "_children": [
-      {
-        "__id__": 46
-      }
-    ],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 48
-      },
-      {
-        "__id__": 49
-      }
-    ],
-    "_prefab": null,
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 962,
-      "height": 140
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        997,
-        730.186,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": "50+z2NF3JBCpDfGh269myP"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "tip",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 45
-    },
-    "_children": [],
     "_active": true,
     "_components": [
       {
         "__id__": 47
-      }
-    ],
-    "_prefab": null,
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 138,
-      "g": 51,
-      "b": 51,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 765,
-      "height": 50.4
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        0,
-        12.37,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": "00+qG3ySJF6pHUkXqjuIPp"
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 46
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_useOriginalSize": false,
-    "_string": "是李太白当年辞别金陵所写，确是好诗",
-    "_N$string": "是李太白当年辞别金陵所写，确是好诗",
-    "_fontSize": 45,
-    "_lineHeight": 40,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_styleFlags": 0,
-    "_underlineHeight": 0,
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
-    "_N$cacheMode": 0,
-    "_id": "35WjUFgYNBFJFmAcIFShyP"
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 45
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "33f4992c-3441-424b-8229-7d849bb8325a"
-    },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_atlas": null,
-    "_id": "efE5bvK1BOXqqs4jddFpgp"
-  },
-  {
-    "__type__": "cc.Button",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 45
-    },
-    "_enabled": true,
-    "_normalMaterial": {
-      "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-    },
-    "_grayMaterial": null,
-    "duration": 0.1,
-    "zoomScale": 1.2,
-    "clickEvents": [],
-    "_N$interactable": false,
-    "_N$enableAutoGrayEffect": false,
-    "_N$transition": 2,
-    "transition": 2,
-    "_N$normalColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_N$pressedColor": {
-      "__type__": "cc.Color",
-      "r": 211,
-      "g": 211,
-      "b": 211,
-      "a": 255
-    },
-    "pressedColor": {
-      "__type__": "cc.Color",
-      "r": 211,
-      "g": 211,
-      "b": 211,
-      "a": 255
-    },
-    "_N$hoverColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "hoverColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_N$disabledColor": {
-      "__type__": "cc.Color",
-      "r": 124,
-      "g": 124,
-      "b": 124,
-      "a": 255
-    },
-    "_N$normalSprite": {
-      "__uuid__": "33f4992c-3441-424b-8229-7d849bb8325a"
-    },
-    "_N$pressedSprite": {
-      "__uuid__": "125dabe9-22e1-44dc-8b09-7ad256de5b7c"
-    },
-    "pressedSprite": {
-      "__uuid__": "125dabe9-22e1-44dc-8b09-7ad256de5b7c"
-    },
-    "_N$hoverSprite": {
-      "__uuid__": "125dabe9-22e1-44dc-8b09-7ad256de5b7c"
-    },
-    "hoverSprite": {
-      "__uuid__": "125dabe9-22e1-44dc-8b09-7ad256de5b7c"
-    },
-    "_N$disabledSprite": {
-      "__uuid__": "33f4992c-3441-424b-8229-7d849bb8325a"
-    },
-    "_N$target": {
-      "__id__": 45
-    },
-    "_id": "d2jYX0oIZFRKvSato8PuPn"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "option2",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 44
-    },
-    "_children": [
-      {
-        "__id__": 51
-      }
-    ],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 53
       },
       {
-        "__id__": 54
+        "__id__": 48
       }
     ],
     "_prefab": null,
@@ -2654,8 +2307,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 962,
-      "height": 140
+      "width": 687.2,
+      "height": 100
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2667,7 +2320,7 @@
       "ctor": "Float64Array",
       "array": [
         997,
-        517.744,
+        133.347,
         0,
         0,
         0,
@@ -2689,20 +2342,20 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "e2FZ9iibRCroas1X8/lFNI"
+    "_id": "daXQ2+jspKAqoiuadbNoWi"
   },
   {
     "__type__": "cc.Node",
     "_name": "tip",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 50
+      "__id__": 44
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 52
+        "__id__": 46
       }
     ],
     "_prefab": null,
@@ -2716,7 +2369,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 720,
+      "width": 262.51,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -2751,14 +2404,14 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "52yYSF7WpLaLrydNzZW/ZA"
+    "_id": "93m4i++4dBB4b8H9aXNuIM"
   },
   {
     "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 51
+      "__id__": 45
     },
     "_enabled": true,
     "_materials": [
@@ -2767,8 +2420,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "那位公子说了，这是李太白的诗句。",
-    "_N$string": "那位公子说了，这是李太白的诗句。",
+    "_string": "《地藏经》...",
+    "_N$string": "《地藏经》...",
     "_fontSize": 45,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -2783,14 +2436,14 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "13N1zm2whMwqBfcuwUoJUi"
+    "_id": "0fceowezpOg6Gxar+wf/nz"
   },
   {
     "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 50
+      "__id__": 44
     },
     "_enabled": true,
     "_materials": [
@@ -2815,14 +2468,14 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "01UkdsO81FkYBbUWpklXTS"
+    "_id": "f5gauwhJ9KS5wL37T+vWtg"
   },
   {
     "__type__": "cc.Button",
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 50
+      "__id__": 44
     },
     "_enabled": true,
     "_normalMaterial": {
@@ -2832,7 +2485,7 @@
     "duration": 0.1,
     "zoomScale": 1.2,
     "clickEvents": [],
-    "_N$interactable": false,
+    "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 2,
     "transition": 2,
@@ -2897,201 +2550,9 @@
       "__uuid__": "33f4992c-3441-424b-8229-7d849bb8325a"
     },
     "_N$target": {
-      "__id__": 50
+      "__id__": 44
     },
-    "_id": "33ML4BFBNMnbfmPy0zBHBG"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "beijingjieshao",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 5
-    },
-    "_children": [
-      {
-        "__id__": 56
-      }
-    ],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 58
-      }
-    ],
-    "_prefab": null,
-    "_opacity": 0,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 1543,
-      "height": 356
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        16.106,
-        -248.017,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": "67LwPT62lOpKiAzUBvaqzx"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "Label",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 55
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 57
-      }
-    ],
-    "_prefab": null,
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 57,
-      "g": 33,
-      "b": 33,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 960,
-      "height": 300
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": "17aTTkjphMV5HCH2RxQyrb"
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 56
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_useOriginalSize": false,
-    "_string": "这日工作之余，阿慧与我闲聊起来。。",
-    "_N$string": "这日工作之余，阿慧与我闲聊起来。。",
-    "_fontSize": 40,
-    "_lineHeight": 45,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_styleFlags": 1,
-    "_underlineHeight": 0,
-    "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 1,
-    "_N$cacheMode": 0,
-    "_id": "dcwApDfihG34zl2Q/Omosj"
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 55
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "6ae7b3a7-c5b1-41b5-8ba6-a92a230509ab"
-    },
-    "_type": 0,
-    "_sizeMode": 1,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_atlas": null,
-    "_id": "7fEq0Fqn5ACYqZ2L6RTczZ"
+    "_id": "65QYAdOltGfKqA/GnNmH3U"
   },
   {
     "__type__": "cc.Sprite",
@@ -3123,10 +2584,10 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "36IhAyT8hM87r1Khz7hszl"
+    "_id": "367XHJtMZJdb3Z52SOmPnk"
   },
   {
-    "__type__": "65ca2hP77ZC9YmLgq4Of3lw",
+    "__type__": "916c6kLD+lCR4r+SJq4Ddzd",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -3139,32 +2600,23 @@
     "friend": {
       "__id__": 6
     },
-    "zhousheng": {
+    "Liniang": {
       "__id__": 15
     },
     "playerName": {
       "__id__": 30
     },
-    "beijingjieshao": {
-      "__id__": 55
-    },
-    "option1": {
+    "option": {
       "__id__": 33
     },
-    "option2": {
-      "__id__": 44
-    },
-    "op1_1": {
+    "op1": {
       "__id__": 38
     },
-    "op1_2": {
+    "op2": {
       "__id__": 43
     },
-    "op2_1": {
-      "__id__": 49
-    },
-    "op2_2": {
-      "__id__": 54
+    "op3": {
+      "__id__": 48
     },
     "friendSay": {
       "__id__": 14
@@ -3172,16 +2624,15 @@
     "mySay": {
       "__id__": 32
     },
-    "zhoushengSay": {
+    "liniangSay": {
       "__id__": 23
-    },
-    "jieshao": {
-      "__id__": 57
     },
     "text": {
       "__uuid__": "665f2ed7-fd88-4d61-8090-355203a9e6a7"
     },
-    "_id": "7eakz4RKpDsKKLrDNah0Vv"
+    "i": 1,
+    "choice": 0,
+    "_id": "970Tl9kIpBpas0Txo/gQhy"
   },
   {
     "__type__": "cc.Canvas",
@@ -3196,7 +2647,7 @@
       "width": 2048,
       "height": 946
     },
-    "_fitWidth": true,
+    "_fitWidth": false,
     "_fitHeight": true,
     "_id": "59Cd0ovbdF4byw5sbjJDx7"
   },

@@ -16,10 +16,9 @@ cc.Class({
         beijingjieshao: cc.Node,
         option1:cc.Node,
         option2:cc.Node,
-        op1_1: cc.Button,
-        op1_2: cc.Button,
-        op2_1:cc.Button,
-        op2_2:cc.Button,
+        op1:cc.Button,
+        op2:cc.Button,
+        op3:cc.Button,
         friendSay:cc.Label,
         mySay: cc.Label,
         zhoushengSay:cc.Label,
@@ -131,7 +130,6 @@ cc.Class({
             op1_1.interactable = false;
             that.option1.active = false;
             that.continueDialogue1(that, false);
-            console.log("第一次选择");
         })
 
         this.op2_1.node.on("click", function () {
@@ -170,6 +168,5 @@ cc.Class({
         self.friend.opacity = 255;
         self.friendSay.string = "啊，原来如此。";
         self.node.resumeSystemEvents(true);
-        console.log("开启监听");
     }
 });

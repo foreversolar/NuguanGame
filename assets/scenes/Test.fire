@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        222.00561754594045,
+        251.13947136788784,
         0,
         0,
         0,
@@ -3556,7 +3556,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -200,
+        -196.062,
         0,
         0,
         0,
@@ -3659,7 +3659,7 @@
     "_useOriginalSize": false,
     "_string": "        经过这段时间的研习，你应该对司膳司的知识有所掌握。请完成接下来的题目，这些题目都是研习中完成过的。预祝你考核成功。",
     "_N$string": "        经过这段时间的研习，你应该对司膳司的知识有所掌握。请完成接下来的题目，这些题目都是研习中完成过的。预祝你考核成功。",
-    "_fontSize": 40,
+    "_fontSize": 35,
     "_lineHeight": 45,
     "_enableWrapText": true,
     "_N$file": null,
@@ -5530,7 +5530,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1000,
+      "width": 678,
       "height": 364
     },
     "_anchorPoint": {
@@ -5549,8 +5549,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        1.5,
+        1.5,
         1
       ]
     },
@@ -5592,8 +5592,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 800,
-      "height": 240
+      "width": 530,
+      "height": 200
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5604,8 +5604,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -400,
-        80,
+        -264.779,
+        72.124,
         0,
         0,
         0,
@@ -5645,8 +5645,8 @@
     "_useOriginalSize": false,
     "_string": "        经过这段时间的努力，你已具备了成为掌膳的资格，带领司膳司更好的发展，期待你在接下来的考试种能够拔得头筹，成功晋升。",
     "_N$string": "        经过这段时间的努力，你已具备了成为掌膳的资格，带领司膳司更好的发展，期待你在接下来的考试种能够拔得头筹，成功晋升。",
-    "_fontSize": 40,
-    "_lineHeight": 50,
+    "_fontSize": 28,
+    "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -5702,15 +5702,15 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -25.001,
+        1.888,
         -109.997,
         0,
         0,
         0,
         0,
         1,
-        1,
-        1,
+        0.6,
+        0.6,
         1
       ]
     },
@@ -5874,7 +5874,7 @@
     "_useOriginalSize": false,
     "_string": "",
     "_N$string": "",
-    "_fontSize": 20,
+    "_fontSize": 28,
     "_lineHeight": 40,
     "_enableWrapText": false,
     "_N$file": null,
@@ -5909,7 +5909,7 @@
       "__uuid__": "11c0e0c9-4c72-4df6-af20-4f598abf1e90"
     },
     "_type": 1,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",

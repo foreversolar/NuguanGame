@@ -171,7 +171,7 @@ cc.Class({
             .get({
                 success(res) {
                     if (res.data.length > 0) {
-                        self.Username = res.data[0].name;
+                        self.Username = res.data[0].nickName;
                         self.level = res.data[0].level;
                         self.health = res.data[0].health;
                         self.experience = res.data[0].experience;
@@ -184,6 +184,7 @@ cc.Class({
                         self.study_times = res.data[0].study_times;
                         self.work_times = res.data[0].work_times;
                         cc.sys.localStorage.setItem('rounds', self.rounds);
+                        cc.sys.localStorage.setItem('nickName',self.Username.substring(0,4));
                     }
                     else {
 
@@ -329,7 +330,33 @@ cc.Class({
             console.log("load story32")
             cc.sys.localStorage.setItem('story', 32);
             cc.director.loadScene("Story32");
+        }else if (this.rounds == 36 && storyP < 36) {
+            console.log("load story36")
+            cc.sys.localStorage.setItem('story', 36);
+            cc.director.loadScene("Story36");
         }
         else { console.log(this.rounds + ' 11 ' + storyP); }
+    },
+    getName:function(str){
+        var str_length = 0;
+        str_cut = new String();
+        var str_len = str.length;
+        for (var i = 0; i < str_len; i++) {
+            a = str.charAt(i);
+            str_length++;
+            if (escape(a).length > 4) {
+                //中文字符的长度经编码之后大于4  
+                str_length++;
+            }
+            str_cut = str_cut.concat(a);
+            if (str_length >= len) {
+                str_cut = str_cut.concat("...");
+                return str_cut;
+            }
+        }
+        //如果给定字符串小于指定长度，则返回源字符串；  
+        if (str_length < 3) {
+            return str;
+        }
     }
 });

@@ -58,7 +58,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "autoReleaseAssets": false,
-    "_id": "36aa0f3c-0443-4fa6-a461-6a2fdfce60b0"
+    "_id": "74553bd5-ea7e-42bf-90ad-07d2379b31c5"
   },
   {
     "__type__": "cc.Node",
@@ -78,10 +78,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 118
+        "__id__": 119
       },
       {
-        "__id__": 119
+        "__id__": 120
       }
     ],
     "_prefab": null,
@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        251.13947136788784,
+        297.04671349806245,
         0,
         0,
         0,
@@ -255,6 +255,9 @@
       },
       {
         "__id__": 117
+      },
+      {
+        "__id__": 118
       }
     ],
     "_prefab": null,
@@ -6139,6 +6142,24 @@
       "__uuid__": "f05b0e91-56b8-4a93-b44a-8e3c4f76180d"
     },
     "_id": "a8feCWwEZL9be6kg/LaXac"
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 5
+    },
+    "_enabled": true,
+    "_clip": {
+      "__uuid__": "7828d432-1f62-4e42-9d04-15b830313cca"
+    },
+    "_volume": 0.4,
+    "_mute": false,
+    "_loop": true,
+    "playOnLoad": true,
+    "preload": true,
+    "_id": "fff1icnEBIYIfb89nJ8XOj"
   },
   {
     "__type__": "cc.Canvas",

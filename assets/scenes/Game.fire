@@ -78,10 +78,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 113
+        "__id__": 114
       },
       {
-        "__id__": 114
+        "__id__": 115
       }
     ],
     "_prefab": null,
@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        268.7709893503001,
+        297.04671349806245,
         0,
         0,
         0,
@@ -282,6 +282,9 @@
       },
       {
         "__id__": 112
+      },
+      {
+        "__id__": 113
       }
     ],
     "_prefab": null,
@@ -3194,7 +3197,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
+      "width": 106.64,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -3786,7 +3789,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 58.76,
+      "width": 64,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -4068,7 +4071,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 18.76,
+      "width": 24,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -4784,7 +4787,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
+      "width": 99.96,
       "height": 56.7
     },
     "_anchorPoint": {
@@ -4878,7 +4881,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
+      "width": 99.96,
       "height": 56.7
     },
     "_anchorPoint": {
@@ -5553,6 +5556,24 @@
     "playing_times": 0,
     "storyP": 0,
     "_id": "2eLPmrcF9Afb3CfyFJUa05"
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 5
+    },
+    "_enabled": true,
+    "_clip": {
+      "__uuid__": "fdb62b9a-7fe7-4ef4-b93e-9e7e29ac7f72"
+    },
+    "_volume": 0.5,
+    "_mute": false,
+    "_loop": true,
+    "playOnLoad": true,
+    "preload": true,
+    "_id": "9a+vr8eV5DqaEDsWaUD0OE"
   },
   {
     "__type__": "cc.Canvas",

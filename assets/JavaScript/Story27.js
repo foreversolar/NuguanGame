@@ -18,6 +18,7 @@ cc.Class({
     },
 
     start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.option.active = false
         var that=this
         this.Dialogue=[

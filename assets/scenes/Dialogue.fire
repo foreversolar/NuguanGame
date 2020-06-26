@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        273.54286020177153,
+        209.57814771583418,
         0,
         0,
         0,
@@ -1010,7 +1010,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "showInEditor": false,
-    "_id": "69yCCC8CBJaYiBl3CCKsVh"
+    "_id": "fbjghI+cBDSrlakxA0U2EC"
   },
   {
     "__type__": "cc.Label",
@@ -1042,7 +1042,7 @@
     "_N$fontFamily": "华文楷体",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "12aqBdATpC271cKtioUjDk"
+    "_id": "3a+g2siK9C55WjpxY2HzsH"
   },
   {
     "__type__": "cc.RichText",
@@ -1112,6 +1112,9 @@
       "__id__": 21
     },
     "ifplaying": 1,
+    "myname": {
+      "__id__": 12
+    },
     "_id": "dckMdXtqhJFIeToBkI7q/Z"
   },
   {

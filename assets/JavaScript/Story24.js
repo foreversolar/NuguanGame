@@ -29,6 +29,7 @@ cc.Class({
     },
 
     start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.option.active = false;
         this.op1.interactable = false;
         this.op2.interactable = false;

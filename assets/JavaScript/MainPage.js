@@ -203,7 +203,11 @@ cc.Class({
                                 playing_times: self.playing_times,
                                 study_times: self.study_times,
                                 work_times: self.work_times,
-                                nickName: cc.sys.localStorage.getItem('nickName')
+                                nickName: cc.sys.localStorage.getItem('nickName'),
+                                ren: 0,
+                                fo: 0,
+                                ahui: 0,
+                                liniang: 0
                             },
                             success(res) {
                                 cc.sys.localStorage.setItem('story', 0);
@@ -311,14 +315,30 @@ cc.Class({
             console.log("load story11")
             cc.sys.localStorage.setItem('story', 11);
             cc.director.loadScene("Story11");
-        } else if (this.rounds == 16 && storyP < 16) {
+        } else if (this.rounds == 13 && storyP < 13) {
+            console.log("load story13")
+            cc.sys.localStorage.setItem('story', 13);
+            cc.director.loadScene("Story13");
+        } else if (this.rounds == 14 && storyP < 14) {
+            console.log("load story14")
+            cc.sys.localStorage.setItem('story', 14);
+            cc.director.loadScene("Story14");
+        }else if (this.rounds == 16 && storyP < 16) {
             console.log("load story16")
             cc.sys.localStorage.setItem('story', 16);
             cc.director.loadScene("Story16");
-        } else if (this.rounds == 20 && storyP < 20) {
+        } else if (this.rounds == 18 && storyP < 18) {
+            console.log("load story18")
+            cc.sys.localStorage.setItem('story', 18);
+            cc.director.loadScene("Story18");
+        }else if (this.rounds == 20 && storyP < 20) {
             console.log("load story20")
             cc.sys.localStorage.setItem('story', 20);
             cc.director.loadScene("Story20");
+        } else if (this.rounds == 23 && storyP < 23) {
+            console.log("load story23")
+            cc.sys.localStorage.setItem('story', 23);
+            cc.director.loadScene("Story23");
         } else if (this.rounds == 24 && storyP < 24) {
             console.log("load story24")
             cc.sys.localStorage.setItem('story', 24);
@@ -327,14 +347,54 @@ cc.Class({
             console.log("load story27")
             cc.sys.localStorage.setItem('story', 27);
             cc.director.loadScene("Story27");
+        } else if (this.rounds == 29 && storyP < 29) {
+            console.log("load story29")
+            cc.sys.localStorage.setItem('story', 29);
+            cc.director.loadScene("Story29");
+        } else if (this.rounds == 31 && storyP < 31) {
+            console.log("load story31")
+            cc.sys.localStorage.setItem('story', 31);
+            cc.director.loadScene("Story31");
         } else if (this.rounds == 32 && storyP < 32) {
             console.log("load story32")
             cc.sys.localStorage.setItem('story', 32);
             cc.director.loadScene("Story32");
+        } else if (this.rounds == 34 && storyP < 34) {
+            console.log("load story34")
+            cc.sys.localStorage.setItem('story', 34);
+            cc.director.loadScene("Story34");
         }else if (this.rounds == 36 && storyP < 36) {
             console.log("load story36")
             cc.sys.localStorage.setItem('story', 36);
             cc.director.loadScene("Story36");
+        } else if (this.rounds == 38 && storyP < 38) {
+            console.log("load story38")
+            cc.sys.localStorage.setItem('story', 38);
+            cc.director.loadScene("Story38");
+        } else if (this.rounds == 40 && storyP < 40) {
+            console.log("load story40")
+            cc.sys.localStorage.setItem('story', 40);
+            cc.director.loadScene("Story40");
+        } else if (this.rounds == 42 && storyP < 42) {
+            console.log("load story42")
+            cc.sys.localStorage.setItem('story', 42);
+            cc.director.loadScene("Story42");
+        } else if (this.rounds == 44 && storyP < 44) {
+            console.log("load story44")
+            cc.sys.localStorage.setItem('story', 44);
+            cc.director.loadScene("Story44");
+        } else if (this.rounds == 46 && storyP < 46) {
+            console.log("load story46")
+            cc.sys.localStorage.setItem('story', 46);
+            cc.director.loadScene("Story46");
+        } else if (this.rounds == 49 && storyP < 49) {
+            console.log("load story49")
+            cc.sys.localStorage.setItem('story', 49);
+            cc.director.loadScene("Story49");
+        } else if (this.rounds == 51 && storyP < 51) {
+            console.log("结局")
+            cc.sys.localStorage.setItem('story', 51);
+            cc.director.loadScene("Story50");
         }
         else { console.log(this.rounds + ' 11 ' + storyP); }
     },

@@ -11,7 +11,8 @@ cc.Class({
     properties: {
         DialogueList:cc.JsonAsset,
         text:cc.RichText,
-        ifplaying:1
+        ifplaying: 1,
+        myname: cc.Label
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -29,7 +30,8 @@ cc.Class({
         });
     },
 
-    start () {
+    start() {
+        this.myname.string = cc.sys.localStorage.getItem('nickName')
         var i = 0;
         var j = 0;
         var self = this;

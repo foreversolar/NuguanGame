@@ -37,6 +37,7 @@ cc.Class({
     },
 
     start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         var that=this
         this.Dialogue=[
            "不过王维大人的与崔兴宗大人同咏的诗歌倒实在是文采极佳，幸有宴中侍奉的机会，我当即抄录了下来，你且看看？",

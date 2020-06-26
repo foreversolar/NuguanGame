@@ -42,10 +42,11 @@ cc.Class({
     },
 
     start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.option.active = false
         var that=this
         this.Dialogue=[
-            "XX，为什么我连‘糖粥’这样简单的食物都做不好呀？",
+            "哎，为什么我连‘糖粥’这样简单的食物都做不好呀？",
             "是哪里做不好呢？",
             "就是，就是我做的‘糖粥’总是没有姑姑们做得有种特别的香味！",
             "你一定是忘记了__。",
@@ -59,8 +60,6 @@ cc.Class({
                 cc.director.loadScene("Game");
             }          
             if (i == 4) {
-                
-                this.me.opacity=0;
                 this.option.active = true;
                 this.option1.interactable=true;
                 this.option2.interactable=true;
@@ -180,14 +179,31 @@ cc.Class({
         var wrongResp="我用了这个的呀，啊，我想起来了，是不是要加杏仁碎？对，就是它。"
 
         this.option.active = false;
-        self.friend.opacity=255;
+        self.friend.opacity = 255;
+        self.me.opacity = 0;
         if(flag){
-            self.friendSay.string=rightResp
+            self.friendSay.string = rightResp;
+            this.AddScore();
         }else{
             self.friendSay.string=wrongResp
         }
         self.node.resumeSystemEvents(true);
-    }
+    },
 
-    // update (dt) {},
+    AddScore: function () {
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+            .get({
+                success(res) {
+                    DB.collection('UserData').doc(res.data[0]._id).update({
+                        data: {
+                            ahui: res.data[0].ahui + 1,
+                            skill: res.data[0].skill + 1,
+                        }
+                    })
+                }
+            });
+    }
 });

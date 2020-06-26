@@ -28,15 +28,15 @@ cc.Class({
         cc.director.preloadScene("Game");
     },
 
-    start () {
+    start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.option.active = false;
         var self = this;
         this.node.on('touchend',function(){      
-            if(self.i==4&&self.choice == 1){
+            if(self.i==2){
                 cc.director.loadScene("Game");
             }
             if (self.i == 1) {
-                self.fuzi.opacity=0;
                 self.node.pauseSystemEvents(false);
                 self.option.active = true;
             }
@@ -61,12 +61,42 @@ cc.Class({
     continueDialogue: function (flag) {
         if (flag) {
             this.friend.opacity = 255;
+            this.fuzi.opacity = 0;
+            this.me.opacity = 0;
             this.friendSay.string = "哎呀，别和人家开玩笑啦，这是雕酥，做起来极不容易的。";
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                fo: res.data[0].fo + 1
+                            }
+                        })
+                    }
+                });
         } else {
             this.fuzi.opacity = 255;
+            this.friend.opacity = 0;
+            this.me.opacity = 0;
             this.fuziSay.string = "哇，原来如此。";
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ren: res.data[0].ren+ 1,
+                                skill: res.data[0].skill + 1,
+                            }
+                        })
+                    }
+                });
         }
-        this.i++
         this.node.resumeSystemEvents(true);
     },
     // update (dt) {},

@@ -40,6 +40,7 @@ cc.Class({
     },
 
     start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.option.active = false
         var that=this
         this.Dialogue=[
@@ -108,8 +109,36 @@ cc.Class({
             self.friendSay.string=rightResp;
             self.friend.opacity=0;
             self.UpdateFollowStory(self);
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ahui: res.data[0].ahui + 1,
+                                ren: res.data[0].ren+1
+                            }
+                        })
+                    }
+                });
         }else{
-            self.friendSay.string=wrongResp;
+            self.friendSay.string = wrongResp;
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ahui: res.data[0].ahui - 1,
+                                fo: res.data[0].fo+ 1,
+                            }
+                        })
+                    }
+                });
         }
         self.node.resumeSystemEvents(true);
 

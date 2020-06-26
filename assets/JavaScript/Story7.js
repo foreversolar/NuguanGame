@@ -32,7 +32,8 @@ cc.Class({
         cc.director.preloadScene("Game");
     },
 
-    start () {
+    start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.option1.active = false;
         this.option2.active = false;
         this.zhousheng.opacity = 0;

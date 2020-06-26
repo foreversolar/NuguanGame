@@ -42,6 +42,7 @@ cc.Class({
     },
 
     start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.option.active = false
         var that=this
         this.Dialogue=[
@@ -68,7 +69,6 @@ cc.Class({
                 cc.director.loadScene("Game");
             }          
             if (this.i == touchpoint) {
-                this.me.opacity=0;
                 this.option.active = true;
                 this.option1.interactable=true;
                 this.option2.interactable=true;
@@ -122,11 +122,23 @@ cc.Class({
         var wrongResp="不是啦不是啦，是大蒜！"
 
         this.option.active = false;
-        self.friend.opacity=255;
+        self.friend.opacity = 255;
+        self.me.opacity = 0;
         if(flag){
             self.friendSay.string=rightResp;
-            // self.friend.opacity=0;
-            // self.UpdateFollowStory(self);
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                skill: res.data[0].skill + 1,
+                            }
+                        })
+                    }
+                });
         }else{
             self.friendSay.string=wrongResp;
         }

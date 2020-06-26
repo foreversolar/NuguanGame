@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        362.0829142873867,
+        209.57814771583418,
         0,
         0,
         0,
@@ -551,7 +551,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "a7452735-b40a-4803-920e-4ff0c523fd85"
+      "__uuid__": "7d5d6f1b-dcfa-426d-ac4e-aefe5ea03bd0"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -737,8 +737,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "XX，你听说过么？之前中宗时候有一次元宵灯会，听说不少宫女趁乱离开了宫中呢，唉。",
-    "_N$string": "XX，你听说过么？之前中宗时候有一次元宵灯会，听说不少宫女趁乱离开了宫中呢，唉。",
+    "_string": "哎，你听说过么？之前中宗时候有一次元宵灯会，听说不少宫女趁乱离开了宫中呢，唉。",
+    "_N$string": "哎，你听说过么？之前中宗时候有一次元宵灯会，听说不少宫女趁乱离开了宫中呢，唉。",
     "_fontSize": 40,
     "_lineHeight": 45,
     "_enableWrapText": true,
@@ -945,8 +945,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 439,
-      "height": 644
+      "width": 361,
+      "height": 700
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -998,7 +998,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "e3c40030-1e5e-441e-8a22-abd444bf352f"
+      "__uuid__": "13238fb9-3fab-4ffd-82f8-87b451eb4b83"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -2343,7 +2343,6 @@
       "__id__": 23
     },
     "i": 1,
-    "choice": 0,
     "_id": "c4tAjQacJG5JEULNo7UOEl"
   },
   {

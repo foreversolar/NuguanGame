@@ -29,7 +29,6 @@ cc.Class({
                 cc.director.loadScene("Game");
             } else {
                 self.option.active = true;
-                self.beijing.active = false;
             }
         });     
 

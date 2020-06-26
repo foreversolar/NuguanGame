@@ -19,7 +19,7 @@ cc.Class({
         guguSay: cc.Label,
         fuziSay:cc.Label,
         text: cc.JsonAsset,
-        liniang_haogandu: 3
+        liniang_haogandu: 0
     },
 
 
@@ -27,7 +27,17 @@ cc.Class({
         cc.director.preloadScene("Game");
     },
 
-    start () {
+    start() {
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+            .get({
+                success(res) {
+                    self.liniang_haogandu = res.data[0].liniang;
+                }
+            });
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.gugu.opacity = 0;
         this.me.opacity = 0;
         this.friend.opacity = 0;

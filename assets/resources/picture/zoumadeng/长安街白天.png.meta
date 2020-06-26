@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "1b098546-5146-4ba5-98f9-8c52f6de0727",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2048,
+  "height": 946,
+  "platformSettings": {},
+  "subMetas": {
+    "长安街白天": {
+      "ver": "1.0.4",
+      "uuid": "76eefb1d-df59-46a5-89a0-cc8402d39d01",
+      "rawTextureUuid": "1b098546-5146-4ba5-98f9-8c52f6de0727",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 2048,
+      "height": 946,
+      "rawWidth": 2048,
+      "rawHeight": 946,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -37,6 +37,7 @@ cc.Class({
     },
 
     start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         var that=this
         this.Dialogue=[
            "是呀，不过李相年岁已高，这也是...",

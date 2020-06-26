@@ -31,7 +31,8 @@ cc.Class({
         cc.director.preloadScene("Game");
     },
 
-    start () {
+    start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.option.active = false;
         Dialogue = this.text.json.rounds14;
         var self = this;
@@ -83,7 +84,6 @@ cc.Class({
                 self.liniangSay.string = Dialogue[self.i];
                 break;    
             case 10:
-                self.Liniang.opacity=0;
                 self.node.pauseSystemEvents(false);
                 self.option.active = true;
                 break;
@@ -121,8 +121,34 @@ cc.Class({
         this.Liniang.opacity = 255;
         if (flag == 1) {
             this.liniangSay.string = "唉，近来抄读经书也难以叫我心中安定。";
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                liniang: res.data[0].liniang+ 2
+                            }
+                        })
+                    }
+                });
         } else if(flag == 2){
             this.liniangSay.string = "莫要胡乱揣测。";
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                liniang: res.data[0].liniang + 1
+                            }
+                        })
+                    }
+                });
         }else{
             this.liniangSay.string = "你倒是也读佛经，唉，宫中不少人后来也都...";
         }

@@ -1,3 +1,6 @@
+import globalUtil from "util";
+
+
 cc.Class({
     extends: cc.Component,
 
@@ -117,13 +120,7 @@ cc.Class({
     },
 
     loadImg: function(container,url){
-            cc.loader.loadRes(url, function (err, texture) { 
-                if(err){
-                    console.log("Load picture failed!");
-                }
-                var sprite  = new cc.SpriteFrame(texture);
-                container.getComponent(cc.Sprite).spriteFrame = sprite;
-            });
+            globalUtil.loadImg(container,url)
     } ,
 
     bottomProcess: function(){

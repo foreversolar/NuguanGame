@@ -185,6 +185,7 @@ cc.Class({
                         self.work_times = res.data[0].work_times;
                         cc.sys.localStorage.setItem('rounds', self.rounds);
                         cc.sys.localStorage.setItem('nickName',self.Username.substring(0,4));
+                        cc.sys.localStorage.setItem('level',self.level);
                     }
                     else {
 

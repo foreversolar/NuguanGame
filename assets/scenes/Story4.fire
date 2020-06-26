@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        819.260031980079,
+        209.57814771583418,
         0,
         0,
         0,
@@ -341,7 +341,7 @@
     "_active": true,
     "_components": [],
     "_prefab": null,
-    "_opacity": 0,
+    "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -560,7 +560,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "a7452735-b40a-4803-920e-4ff0c523fd85"
+      "__uuid__": "7d5d6f1b-dcfa-426d-ac4e-aefe5ea03bd0"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -1235,7 +1235,7 @@
     "_active": true,
     "_components": [],
     "_prefab": null,
-    "_opacity": 0,
+    "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -1401,8 +1401,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 287,
-      "height": 653
+      "width": 330,
+      "height": 700
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1454,7 +1454,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "df7dcccc-e022-41f2-9e80-1749484b086c"
+      "__uuid__": "88eabdbb-1b39-429e-b3e5-75a340da3c3e"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1682,7 +1682,7 @@
     "_active": true,
     "_components": [],
     "_prefab": null,
-    "_opacity": 0,
+    "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -2218,7 +2218,7 @@
       "ctor": "Float64Array",
       "array": [
         997,
-        643,
+        820.961,
         0,
         0,
         0,
@@ -2497,7 +2497,7 @@
       "ctor": "Float64Array",
       "array": [
         997,
-        451,
+        661.743,
         0,
         0,
         0,
@@ -2776,7 +2776,7 @@
       "ctor": "Float64Array",
       "array": [
         997,
-        260,
+        494.159,
         0,
         0,
         0,
@@ -3051,7 +3051,7 @@
       "ctor": "Float64Array",
       "array": [
         -1021.651,
-        -475.683,
+        -321.138,
         0,
         0,
         0,
@@ -3120,7 +3120,7 @@
       "ctor": "Float64Array",
       "array": [
         997,
-        654,
+        597.802,
         0,
         0,
         0,
@@ -3399,7 +3399,7 @@
       "ctor": "Float64Array",
       "array": [
         997,
-        334,
+        371.465,
         0,
         0,
         0,
@@ -3841,7 +3841,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "9705c9ec-ffc6-46b5-8cf4-6f43b29af271"
+      "__uuid__": "4614ca4f-39f2-4daa-9c02-49698ac00d11"
     },
     "_type": 0,
     "_sizeMode": 1,

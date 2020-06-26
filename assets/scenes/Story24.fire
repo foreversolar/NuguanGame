@@ -277,7 +277,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 2048,
+      "width": 2040,
       "height": 946
     },
     "_anchorPoint": {
@@ -557,7 +557,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "a7452735-b40a-4803-920e-4ff0c523fd85"
+      "__uuid__": "7d5d6f1b-dcfa-426d-ac4e-aefe5ea03bd0"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -1004,7 +1004,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "a7452735-b40a-4803-920e-4ff0c523fd85"
+      "__uuid__": "aab1d5e7-0287-47be-a80e-dd8a2d9f79c9"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -1398,8 +1398,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 439,
-      "height": 644
+      "width": 290,
+      "height": 656
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1451,7 +1451,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "e3c40030-1e5e-441e-8a22-abd444bf352f"
+      "__uuid__": "00b7c2d3-0bdb-4f9f-8a2a-ec84f444a8c6"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1492,7 +1492,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 200,
+      "width": 240,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1543,8 +1543,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "隔壁桌男人",
-    "_N$string": "隔壁桌男人",
+    "_string": "隔壁桌一妇人",
+    "_N$string": "隔壁桌一妇人",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -1845,8 +1845,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 439,
-      "height": 644
+      "width": 290,
+      "height": 656
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1898,7 +1898,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "e3c40030-1e5e-441e-8a22-abd444bf352f"
+      "__uuid__": "00b7c2d3-0bdb-4f9f-8a2a-ec84f444a8c6"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1939,7 +1939,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 200,
+      "width": 320,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1990,8 +1990,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "隔壁桌女人",
-    "_N$string": "隔壁桌女人",
+    "_string": "隔壁桌女另一妇人",
+    "_N$string": "隔壁桌女另一妇人",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -3314,7 +3314,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "9705c9ec-ffc6-46b5-8cf4-6f43b29af271"
+      "__uuid__": "c2faba5f-8c4e-4336-b832-5e9858e97bbf"
     },
     "_type": 0,
     "_sizeMode": 1,

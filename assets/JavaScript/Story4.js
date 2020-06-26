@@ -48,13 +48,20 @@ cc.Class({
         cc.director.preloadScene("Game");
     },
 
-    start () {
+    start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName');
+
+        this.beijingjieshao.opacity = 0;
+        this.me.opacity = 0;
+        this.friend.opacity = 0;
+        this.gugu.opacity = 255;
+        this.dachu.opacity = 0;
         var that = this
         this.option1.active = false
         this.option2.active = false
         this.Dialogue=[
             "前几日我听说虢国夫人府上大厨邓连新制了一种甜品，特意求其教授于司膳司各位，至于能否掌握的了，就看各位的悟性了。",
-            "XX，听说虢国夫人甚是大方，今日得去若能够得几分赏赐，那可好了。",
+            "一直听说虢国夫人甚是大方，今日得去若能够得几分赏赐，那可好了。",
             "可是--",
             "（虽然虢国夫人奢侈放荡之风闻名于外，不过阿慧只自幼生在宫中，这些是不晓得的。）",
             "玩家选择",
@@ -70,7 +77,7 @@ cc.Class({
             "（这虢国夫人府如此金碧辉煌...却...）"
         ]
         
-        var i=0;
+        var i=1;
         this.node.on('touchend',function(){      
             if(i>14){
                 cc.director.loadScene("Game");
@@ -90,8 +97,6 @@ cc.Class({
             } else if (i == 3) {
                 this.mySay.string = this.Dialogue[i];
             } else if (i == 4) {
-                this.friend.opacity = 0;
-                this.me.opacity = 0;
                 this.node.pauseSystemEvents(true);
                 this.option1.active = true;
                 this.diaop1.interactable = true;
@@ -113,7 +118,6 @@ cc.Class({
                 this.dachu.opacity = 255;
                 this.dachuSay.string = this.Dialogue[i];
             } else if (i == 9) {
-                this.dachu.opacity = 0;
                 this.node.pauseSystemEvents(true);
                 this.option2.active = true;
                 this.op1.interactable = true;
@@ -227,13 +231,42 @@ cc.Class({
 
     continueDialogue1: function (self, flag) {
         var rightResp = "是这样吗！我们可得加把油呀。"
-        var wrongResp = "XX，你怎么敢说这样的话呀！我便算了，你和别人，在宫中可千万别这样放肆了。"
+        var wrongResp = "你怎么敢说这样的话呀！我便算了，你和别人，在宫中可千万别这样放肆了。"
 
+        self.gugu.opacity = 0;
+        self.me.opacity = 0;
+        self.dachu.opacity = 0;
         self.friend.opacity = 255;
         if (flag) {
             self.friendSay.string = rightResp
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ahui: res.data[0].ahui + 1
+                            }
+                        })
+                    }
+                });
         } else {
             self.friendSay.string = wrongResp
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                fo: res.data[0].fo+ 1
+                            }
+                        })
+                    }
+                });
         }
         self.node.resumeSystemEvents(true);
     },
@@ -241,10 +274,25 @@ cc.Class({
     continueDialogue2: function (self, flag) {
         var rightResp ="不错，确实如此。"
         var wrongResp ="怎么会是这个呢？"
-
+        self.gugu.opacity = 0;
+        self.me.opacity = 0;
+        self.friend.opacity = 0;
         self.dachu.opacity = 255;
         if(flag){
-            self.dachuSay.string=rightResp
+            self.dachuSay.string = rightResp
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                skill: res.data[0].skill + 1
+                            }
+                        })
+                    }
+                });
         }else{
             self.dachuSay.string=wrongResp
         }

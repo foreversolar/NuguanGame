@@ -20,6 +20,7 @@ cc.Class({
     },
 
     start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.option.active = false
         var that=this
         this.Dialogue=[
@@ -114,10 +115,10 @@ cc.Class({
         var figure=container.getChildByName("figure")
         var name=container.getChildByName("name")
         if (role==1){
-            this.setFigure(figure,"/picture/Dialogue/figure_sishan");
+            this.setFigure(figure,"/picture/Dialogue/guifei");
             name.getComponent(cc.Label).string="杨贵妃"
         }else if(role==2){
-            this.setFigure(figure,"/picture/Dialogue/figure_sishan");
+            this.setFigure(figure,"/picture/Dialogue/furen");
             name.getComponent(cc.Label).string="虢国夫人"
         }else if (role==3){
             this.setFigure(figure,"/picture/Dialogue/figure_nuli");

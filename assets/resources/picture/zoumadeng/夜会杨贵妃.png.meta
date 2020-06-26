@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "cd686083-92d1-4f98-b1c1-ccf8193d2261",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 838,
+  "height": 196,
+  "platformSettings": {},
+  "subMetas": {
+    "夜会杨贵妃": {
+      "ver": "1.0.4",
+      "uuid": "c580c570-a7bb-45b4-a37d-1cfd639d8c7b",
+      "rawTextureUuid": "cd686083-92d1-4f98-b1c1-ccf8193d2261",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -0.5,
+      "trimX": 16,
+      "trimY": 8,
+      "width": 806,
+      "height": 181,
+      "rawWidth": 838,
+      "rawHeight": 196,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

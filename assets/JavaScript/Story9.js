@@ -9,6 +9,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        playerName: cc.Label,
         me:cc.Node,
         friend: cc.Node,
         friendSay:cc.Label,
@@ -26,7 +27,8 @@ cc.Class({
         cc.director.preloadScene("Game");
     },
 
-    start () {
+    start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.option.active = false;
         var Dialogue = this.text.json.rounds9;
         var self = this; 
@@ -51,9 +53,6 @@ cc.Class({
             }
             else if(i == 5){
                 //判断问题
-                self.me.opacity = 0;
-                self.friend.opacity = 0;
-                self.friendSay.string = Dialogue[i];
                 self.node.pauseSystemEvents(true);
                 self.option.active = true;
                 self.op1.interactable = true;
@@ -113,13 +112,36 @@ cc.Class({
 
     continueDialogue: function (self, flag) {
         self.friend.opacity = 255;
-        if (flag == 1) {
-            //
+        self.me.opacity = 0;
+        self.friendSay.string = "哇，它可真好看。喏，这是我送你的“百不知”，虽然没有什么金碧珠翠，但是并不难看吧？";
+        if (flag == 1 || flag==3) {
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ren: res.data[0].ren + 1,
+                            }
+                        })
+                    }
+                });
         } else if(flag == 2){
-            //
-        }
-        else if(flag == 3){
-            //
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                fo: res.data[0].fo + 1
+                            }
+                        })
+                    }
+                });
         }
         self.node.resumeSystemEvents(true);
     },

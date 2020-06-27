@@ -29,7 +29,8 @@ cc.Class({
         cc.director.preloadScene("Game");
     },
 
-    start () {
+    start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.option1.active = false;
         this.gugu.opacity = 255;
         this.me.opacity = 0;
@@ -113,12 +114,36 @@ cc.Class({
             self.me.opacity = 0;
             self.friend.opacity = 255;
             self.friendSay.string = "好啦好啦，别卖弄啦。";
-            //技巧数值增加
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                skill: res.data[0].skill + 1,
+                            }
+                        })
+                    }
+                });
         } else {
             self.me.opacity = 0;
             self.friend.opacity = 255;
             self.friendSay.string = "真是的真是的！我嘴变臭了啦！";
-            //阿慧好感度增加
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ahui: res.data[0].ahui + 1
+                            }
+                        })
+                    }
+                });
         }
         self.node.resumeSystemEvents(true);
     }

@@ -18,6 +18,7 @@ cc.Class({
     },
 
     start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.option.active = false
         var that=this
         this.Dialogue=[
@@ -76,6 +77,36 @@ cc.Class({
     },
 
     continueDialogue:function(self,flag){
+        if (flag) {
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ahui: res.data[0].ahui + 1,
+                                ren: res.data[0].ren+ 1,
+                            }
+                        })
+                    }
+                });
+        } else {
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                fo: res.data[0].fo+ 1
+                            }
+                        })
+                    }
+                });
+        }
         this.option.active = false;
         this.friend.opacity=0;
         this.me.opacity=255;

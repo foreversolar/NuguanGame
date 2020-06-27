@@ -78,10 +78,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 71
+        "__id__": 72
       },
       {
-        "__id__": 72
+        "__id__": 73
       }
     ],
     "_prefab": null,
@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        222.00561754594045,
+        297.04671349806245,
         0,
         0,
         0,
@@ -246,6 +246,9 @@
     "_components": [
       {
         "__id__": 70
+      },
+      {
+        "__id__": 71
       }
     ],
     "_prefab": null,
@@ -3586,6 +3589,24 @@
     "_isTrimmedMode": true,
     "_atlas": null,
     "_id": "72YVtWeBdJeJLiH/UZ9eeM"
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 5
+    },
+    "_enabled": true,
+    "_clip": {
+      "__uuid__": "64ee5757-7442-4180-81c9-c7fb7f5d67d4"
+    },
+    "_volume": 0.3,
+    "_mute": false,
+    "_loop": true,
+    "playOnLoad": true,
+    "preload": true,
+    "_id": "a1FbFXYQ5JZbY/aq95I98D"
   },
   {
     "__type__": "cc.Canvas",

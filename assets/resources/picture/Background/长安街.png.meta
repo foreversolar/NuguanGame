@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "6b9e09cc-1d76-4fae-aa4b-63ab99786159",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2040,
+  "height": 946,
+  "platformSettings": {},
+  "subMetas": {
+    "长安街": {
+      "ver": "1.0.4",
+      "uuid": "c2faba5f-8c4e-4336-b832-5e9858e97bbf",
+      "rawTextureUuid": "6b9e09cc-1d76-4fae-aa4b-63ab99786159",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 2040,
+      "height": 946,
+      "rawWidth": 2040,
+      "rawHeight": 946,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

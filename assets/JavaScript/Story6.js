@@ -32,11 +32,14 @@ cc.Class({
         cc.director.preloadScene("Game");
     },
 
-    start () {
+    start() {
+        this.playerName.string = cc.sys.localStorage.getItem('nickName');
         this.option1.active = false;
         this.option2.active = false;
         var Dialogue1 = this.text.json.rounds6.dialogue1;
-        
+        this.friend.opacity = 0;
+        this.fuzi.opacity = 0;
+        this.me.opacity = 0;
         var i=0;
         this.node.on('touchend',function(){      
             if(i>24){
@@ -84,7 +87,6 @@ cc.Class({
                 }
             }
             else if(i == 17){
-                this.fuzi.opacity = 0;
                 this.node.pauseSystemEvents(true);
                 this.option1.active = true;
                 this.op1_1.interactable = true;
@@ -116,7 +118,6 @@ cc.Class({
                 this.mySay.string =  Dialogue1[i];
             }
             else if(i == 23){
-                this.me.opacity = 0;
                 this.node.pauseSystemEvents(true);
                 this.option2.active = true;
                 this.op2_1.interactable = true;
@@ -197,10 +198,38 @@ cc.Class({
         var Resp2 = "哎呀，这，算我们的不是了——"
 
         self.friend.opacity = 255;
+        self.me.opacity = 0;
+        self.fuzi.opacity = 0;
         if (flag) {
             self.friendSay.string = Resp1;
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                fo: res.data[0].fo + 1
+                            }
+                        })
+                    }
+                });
         } else {
             self.friendSay.string = Resp2;
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ren: res.data[0].ren + 1
+                            }
+                        })
+                    }
+                });
         }
         self.node.resumeSystemEvents(true);
     },
@@ -209,11 +238,39 @@ cc.Class({
         var Resp1 ="就这样？那也实在便宜这俩小子了。";
         var Resp2 ="啊，那就是你加了冰片末？这可太好了，我可就受不住那冰片窜脑袋的味道。";
 
+        self.me.opacity = 0;
+        self.fuzi.opacity = 0;
         self.friend.opacity = 255;
         if(flag){
-            self.friendSay.string=Resp1;
+            self.friendSay.string = Resp1;
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                skill: res.data[0].skill + 1,
+                            }
+                        })
+                    }
+                });
         }else{
-            self.friendSay.string=Resp2;
+            self.friendSay.string = Resp2;
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ahui: res.data[0].ahui + 1
+                            }
+                        })
+                    }
+                });
         }
         self.node.resumeSystemEvents(true);
     }

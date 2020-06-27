@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "397fb430-ee8a-4014-bddb-119860ef1dda",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 838,
+  "height": 196,
+  "platformSettings": {},
+  "subMetas": {
+    "杨相贪绸": {
+      "ver": "1.0.4",
+      "uuid": "8d70ebec-d274-4249-9219-f85db9e2667b",
+      "rawTextureUuid": "397fb430-ee8a-4014-bddb-119860ef1dda",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 16,
+      "trimY": 8,
+      "width": 806,
+      "height": 180,
+      "rawWidth": 838,
+      "rawHeight": 196,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

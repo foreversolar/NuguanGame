@@ -56,16 +56,16 @@ cc.Class({
         }, this);
 
         this.colork.on("click",function(){
-            this.colorProcess("k");
             this.colorPic="k";
+            this.colorProcess("k");
         },this)
         this.colorp.on("click",function(){
-            this.colorProcess("p");
             this.colorPic="p";
+            this.colorProcess("p");
         },this)
         this.colorr.on("click",function(){
-            this.colorProcess("r");
             this.colorPic="r";
+            this.colorProcess("r");
         },this)
 
         //Bottom

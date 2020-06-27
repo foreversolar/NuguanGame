@@ -15,13 +15,14 @@ cc.Class({
         start_test:cc.Button,
         QuestionJson:cc.JsonAsset,
         right:0,
-        Get:0,
+        //问题环节
+        Work:cc.Node,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        this.node.getChildByName("Work").active = false;
+        this.Work.active = false;
     },
 
     start () {
@@ -41,8 +42,9 @@ cc.Class({
             self.Study_Test();
             self.start_test.interactable = false;
             self.start_test.node.opacity = 0;
+            //保证不遮挡
             cc.tween(Notice)
-            .to(0.1, { position: cc.v2(0, -1000)})
+            .to(0.1, { position: cc.v2(0, 1000)})
             .start();
         });
     },
@@ -141,9 +143,9 @@ cc.Class({
         Next.on('click',function(){
             if(index == 2){
                 self.node.getChildByName("Study").opacity = 0;
-                //self.node.getChildByName("Work").opacity = 255;
+                self.node.getChildByName("Work").opacity = 255;
                 //加载工作考核
-                self.node.getChildByName("Work").active = true;
+                self.Work.active = true;
                 cc.tween(Study)
                 .to(0.1, { position: cc.v2(0, -1000)})
                 .start();
@@ -182,16 +184,15 @@ cc.Class({
         });
     },
 
-    // update (dt) {},
-
-    Result:function(){
+    Result:function(result){
         cc.tween(this.node.getChildByName("Notice"))
             .to(0, { position: cc.v2(0, 0)})
             .start();
-        this.Get = parseInt(this.node.getChildByName("Work").getComponent("Test_Yingtao").Score.getChildByName("Score").getComponent(cc.Label).string);
+        this.node.getChildByName("Work").opacity = 0;
         this.node.getChildByName("Notice").opacity = 255;
-        if(this.right == 3&&this.Get > 20){
-            this.node.getChildByName("Notice").getChildByName("Words").getComponent(cc.Label).string = "恭喜你成功通过了考核！皇天不负有心人，你靠着自己的努力成功晋升为典膳。在接下来的日子里，希望你认真练习烹饪技艺，升得典膳后方可进行精品菜肴的烹饪，加油！";
+        console.log(this.right+" "+result);
+        if(this.right == 3&&result){
+            this.node.getChildByName("Notice").getChildByName("Words").getComponent(cc.Label).string = "恭喜你成功通过了考核！皇天不负有心人，你靠着自己的努力成功晋升为掌膳，负责辅佐典膳，完成部分菜品的烹饪。在接下来的日子里，希望你认真练习烹饪技艺，升得典膳后方可进行精品菜肴的烹饪，加油！";
             this.addScore(1);
         }
         else{

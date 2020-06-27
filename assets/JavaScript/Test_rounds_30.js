@@ -21,7 +21,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        this.node.getChildByName("Work").active = false;
+        this.node.getChildByName("bg_chufang").active = false;
     },
 
     start () {
@@ -29,7 +29,7 @@ cc.Class({
         var Notice = this.node.getChildByName("Notice");
         var Study = this.node.getChildByName("Study");
         var add_tips = function(){
-            self.tips.string = "考核一共分两轮，第一轮是知识考核，第二轮是技能考核，这一次的技能考核将在樱桃园举行，只要像平常一样正常发挥，你一定可以的！！";
+            self.tips.string = "考核一共分两轮，第一轮是知识考核，第二轮是技能考核，这一次的技能考核将在厨房举行，只要像平常一样正常发挥，你一定可以的！！";
             self.start_test.node.opacity = 255;
             self.start_test.interactable = true;
         };
@@ -143,7 +143,7 @@ cc.Class({
                 self.node.getChildByName("Study").opacity = 0;
                 //self.node.getChildByName("Work").opacity = 255;
                 //加载工作考核
-                self.node.getChildByName("Work").active = true;
+                self.node.getChildByName("bg_chufang").active = true;
                 cc.tween(Study)
                 .to(0.1, { position: cc.v2(0, -1000)})
                 .start();
@@ -188,9 +188,9 @@ cc.Class({
         cc.tween(this.node.getChildByName("Notice"))
             .to(0, { position: cc.v2(0, 0)})
             .start();
-        this.Get = parseInt(this.node.getChildByName("Work").getComponent("Test_Yingtao").Score.getChildByName("Score").getComponent(cc.Label).string);
+        this.Get = this.node.getChildByName("bg_chufang").getComponent("Test_QianCengSu").scores;
         this.node.getChildByName("Notice").opacity = 255;
-        if(this.right == 3&&this.Get > 20){
+        if(this.right == 3&&this.Get > 4){
             this.node.getChildByName("Notice").getChildByName("Words").getComponent(cc.Label).string = "恭喜你成功通过了考核！皇天不负有心人，你靠着自己的努力成功晋升为典膳。在接下来的日子里，希望你认真练习烹饪技艺，升得典膳后方可进行精品菜肴的烹饪，加油！";
             this.addScore(1);
         }

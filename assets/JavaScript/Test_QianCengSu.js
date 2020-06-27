@@ -79,6 +79,6 @@ cc.Class({
 
     endGame:function(){
         this.node.active = false;
-        this.node.parent.getComponent("Test_rounds_15").Result();
+        this.node.parent.getComponent("Test_rounds_30").Result();
     }
 });

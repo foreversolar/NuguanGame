@@ -75,19 +75,19 @@ cc.Class({
 
         this.bottom1.on("click",function(){
             this.bottomProcess();
-            this.loadImg(this.in_cake,"/picture/Cake/bottom1-r");
+            this.loadImg(this.in_cake,"bottom1-r");
             this.bottomPic="bottom1";
         },this)
 
         this.bottom2.on("click",function(){
             this.bottomProcess();
-            this.loadImg(this.in_cake,"/picture/Cake/bottom2-r");
+            this.loadImg(this.in_cake,"bottom2-r");
             this.bottomPic="bottom2";
         },this)
 
         this.bottom3.on("click",function(){
             this.bottomProcess();
-            this.loadImg(this.in_cake,"/picture/Cake/bottom3-r");
+            this.loadImg(this.in_cake,"bottom3-r");
             this.bottomPic="bottom3";
         },this)
 
@@ -97,19 +97,19 @@ cc.Class({
 
         this.path1.on("click",function(){
             this.pathProcess();
-            this.loadImg(this.in_path,"/picture/Cake/path1-r");
+            this.loadImg(this.in_path,"path1-r");
             this.pathPic="path1";
         },this)
 
         this.path2.on("click",function(){
             this.pathProcess();
-            this.loadImg(this.in_path,"/picture/Cake/path2-r");
+            this.loadImg(this.in_path,"path2-r");
             this.pathPic="path2";
         },this)
 
         this.path3.on("click",function(){
             this.pathProcess();
-            this.loadImg(this.in_path,"/picture/Cake/path3-r");
+            this.loadImg(this.in_path,"path3-r");
             this.pathPic="path3";
         },this)
     },
@@ -120,7 +120,10 @@ cc.Class({
     },
 
     loadImg: function(container,url){
-            globalUtil.loadImg(container,url)
+        cc.loader.loadRes("/picture/Cake/Cake", cc.SpriteAtlas, function (err, atlas) {
+            var sprite = atlas.getSpriteFrame(url);
+            container.getComponent(cc.Sprite).spriteFrame = sprite;
+        });
     } ,
 
     bottomProcess: function(){
@@ -150,9 +153,9 @@ cc.Class({
         //完整命名：
         // picture/Cake/path3-r
         // picture/Cake/bottom3-r
-        var bottompicture="/picture/Cake/"+this.bottomPic+"-"+color;
+        var bottompicture=this.bottomPic+"-"+color;
         this.loadImg(this.in_cake,bottompicture);
-        var pathpicture="/picture/Cake/"+this.pathPic+"-"+color;
+        var pathpicture=this.pathPic+"-"+color;
         this.loadImg(this.in_path,pathpicture);
         this.endGame();
     },

@@ -4,6 +4,8 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import globalUtil from "util";
+
 
 cc.Class({
     extends: cc.Component,
@@ -16,6 +18,8 @@ cc.Class({
         work_button: cc.Button,
         next_button: cc.Button,
         Username: cc.String,
+        userNameInMainPage: cc.Label,
+        levelNameInMainPage: cc.Label,
         level: 1,
         health: 80,
         experience: 0,
@@ -49,6 +53,10 @@ cc.Class({
     start() {
         var Player_Attribute = this.node.getChildByName("Player_Attribute");
         var notice = this.node.getChildByName("notice");
+
+        var figureInMainPage = this.node.getChildByName("Nuli");
+        globalUtil.setMainSceneFigurePic(figureInMainPage);
+
         var notice_label = notice.getChildByName("label").getComponent(cc.Label);
         var notice_back_button = notice.getChildByName("Back_Button").getComponent(cc.Button);
         var self = this;
@@ -184,8 +192,8 @@ cc.Class({
                         self.study_times = res.data[0].study_times;
                         self.work_times = res.data[0].work_times;
                         cc.sys.localStorage.setItem('rounds', self.rounds);
-                        cc.sys.localStorage.setItem('nickName',self.Username.substring(0,4));
-                        cc.sys.localStorage.setItem('level',self.level);
+                        cc.sys.localStorage.setItem('nickName', self.Username.substring(0, 4));
+                        cc.sys.localStorage.setItem('level', self.level);
                     }
                     else {
 
@@ -218,6 +226,15 @@ cc.Class({
                                 //cc.sys.localStorage. setItem(' rounds',res.data[0].rounds);
                             }
                         });
+
+                        DB.collection('TestResult').add({
+                            data: {
+                                round5:-1,
+                                round15:-1,
+                                round30:-1,
+                                round45:-1,
+                            },
+                        });
                     }
                     //这里是比上面的两个数据库操作优先处理的，在第一次创建的时候会读不到数据，所以在上面再写入一次，对话加载同理
                     //console.log(cc.sys.localStorage.getItem('story'));
@@ -233,6 +250,7 @@ cc.Class({
 
         var username = Player_Attribute.getChildByName("username").getComponent(cc.Label);
         username.string = this.Username;
+        this.userNameInMainPage.string = this.Username.substring(0, 4);
 
         var money = this.node.getChildByName("money").getComponent(cc.Label);
         money.string = String(this.money);
@@ -254,7 +272,17 @@ cc.Class({
 
         var charm = Player_Attribute.getChildByName("charmbar").getComponent(cc.Sprite);
         charm.fillRange = 0.1 + this.charm / 1000;
+
+        var figure = Player_Attribute.getChildByName("Nuli");
+        globalUtil.setAttributePanelFigurePic(figure);
+
+        var position = Player_Attribute.getChildByName("position").getComponent(cc.Label);
+        position.string = globalUtil.getPositionName();
+        this.levelNameInMainPage.string = globalUtil.getPositionName();
+
+
     },
+
 
     ResetRound: function () {
         this.playing_times = 0;
@@ -323,7 +351,7 @@ cc.Class({
             console.log("load story14")
             cc.sys.localStorage.setItem('story', 14);
             cc.director.loadScene("Story14");
-        }else if (this.rounds == 16 && storyP < 16) {
+        } else if (this.rounds == 16 && storyP < 16) {
             console.log("load story16")
             cc.sys.localStorage.setItem('story', 16);
             cc.director.loadScene("Story16");
@@ -331,7 +359,7 @@ cc.Class({
             console.log("load story18")
             cc.sys.localStorage.setItem('story', 18);
             cc.director.loadScene("Story18");
-        }else if (this.rounds == 20 && storyP < 20) {
+        } else if (this.rounds == 20 && storyP < 20) {
             console.log("load story20")
             cc.sys.localStorage.setItem('story', 20);
             cc.director.loadScene("Story20");
@@ -363,7 +391,7 @@ cc.Class({
             console.log("load story34")
             cc.sys.localStorage.setItem('story', 34);
             cc.director.loadScene("Story34");
-        }else if (this.rounds == 36 && storyP < 36) {
+        } else if (this.rounds == 36 && storyP < 36) {
             console.log("load story36")
             cc.sys.localStorage.setItem('story', 36);
             cc.director.loadScene("Story36");
@@ -398,7 +426,7 @@ cc.Class({
         }
         else { console.log(this.rounds + ' 11 ' + storyP); }
     },
-    getName:function(str){
+    getName: function (str) {
         var str_length = 0;
         str_cut = new String();
         var str_len = str.length;

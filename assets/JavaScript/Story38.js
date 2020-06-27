@@ -4,6 +4,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import globalUtil from "util";
 
 cc.Class({
     extends: cc.Component,
@@ -22,6 +23,8 @@ cc.Class({
 
     onLoad () {
         cc.director.preloadScene("Game");
+        var figure = this.me.getChildByName("figure_nuli");
+        globalUtil.setDialogueFigurePic(figure)
     },
 
     start() {

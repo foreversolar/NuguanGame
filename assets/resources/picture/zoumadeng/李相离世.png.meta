@@ -1,6 +1,6 @@
 {
   "ver": "2.3.4",
-  "uuid": "792b371f-d32b-4753-ad07-f06a48262659",
+  "uuid": "153cad51-9436-4bf7-bf79-1f709562f428",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -11,10 +11,10 @@
   "height": 410,
   "platformSettings": {},
   "subMetas": {
-    "安史之乱": {
+    "李相离世": {
       "ver": "1.0.4",
-      "uuid": "10472a5e-9992-493e-ae33-be60a1565cd2",
-      "rawTextureUuid": "792b371f-d32b-4753-ad07-f06a48262659",
+      "uuid": "ed4c57bc-5de2-4dcc-9323-7d77b8298a1a",
+      "rawTextureUuid": "153cad51-9436-4bf7-bf79-1f709562f428",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,

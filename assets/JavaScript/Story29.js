@@ -4,6 +4,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import globalUtil from "util";
 
 cc.Class({
     extends: cc.Component,
@@ -27,6 +28,8 @@ cc.Class({
 
     onLoad () {
         cc.director.preloadScene("Game");
+        var figure = this.me.getChildByName("figure_nuli");
+        globalUtil.setDialogueFigurePic(figure)
     },
 
     start() {
@@ -95,11 +98,23 @@ cc.Class({
         if (flag) {
             this.fuzi.opacity = 255;
             this.fuziSay.string = "你真的是聪明极了呢！有你在，可就放心了！";
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                skill: res.data[0].skill+ 1
+                            }
+                        })
+                    }
+                });
         } else {
             this.fuzi.opacity = 255;
             this.fuziSay.string = "诶诶，等等！瑞圣奴可是柑子，你怎么给弄成别的了！";
         }
         this.node.resumeSystemEvents(true);
     },
-    // update (dt) {},
 });

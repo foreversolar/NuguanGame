@@ -1,3 +1,11 @@
+// Learn cc.Class:
+//  - https://docs.cocos.com/creator/manual/en/scripting/class.html
+// Learn Attribute:
+//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
+// Learn life-cycle callbacks:
+//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import globalUtil from "util";
+
 cc.Class({
     extends: cc.Component,
 
@@ -15,6 +23,8 @@ cc.Class({
 
     onLoad () {
         cc.director.preloadScene("Game");
+        var figure = this.me.getChildByName("figure_nuli");
+        globalUtil.setDialogueFigurePic(figure)
     },
 
     start() {
@@ -36,7 +46,6 @@ cc.Class({
                 cc.director.loadScene("Game");
             }          
             if (this.i == touchpoint) {
-                this.me.opacity=0;
                 this.option.active = true;
                 this.option1.interactable=true;
                 this.option2.interactable=true;
@@ -80,10 +89,37 @@ cc.Class({
         var AResp = "你可别乱说了，我可没这意思。";
         var BResp = "也是";
         this.friend.opacity=255;
+        this.me.opacity=0;
         if (flag){
-            this.friendSay.string==AResp;
+            this.friendSay.string == AResp;
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                fo: res.data[0].fo + 1
+                            }
+                        })
+                    }
+                });
         }else{
-            this.friendSay.string=BResp;
+            this.friendSay.string = BResp;
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ren: res.data[0].ren + 1
+                            }
+                        })
+                    }
+                });
         }
         self.node.resumeSystemEvents(true);
      },

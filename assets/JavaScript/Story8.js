@@ -4,6 +4,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import globalUtil from "util";
 
 cc.Class({
     extends: cc.Component,
@@ -37,6 +38,8 @@ cc.Class({
 
     onLoad () {
         cc.director.preloadScene("Game");
+        var figure = this.me.getChildByName("figure");
+        globalUtil.setDialogueFigurePic(figure)
     },
 
     start() {
@@ -88,18 +91,18 @@ cc.Class({
         this.option1.node.on("click",function(){
                 op2.interactable=false;
                 op1.interactable=false; 
-                that.continueDialogue(that,false,touchpoint);
+                that.continueDialogue(that,false);
         })
 
         this.option2.node.on("click",function(){
                 op2.interactable=false;
                 op1.interactable=false; 
-                that.continueDialogue(that,true,touchpoint);
+                that.continueDialogue(that,true);
         })
 
     },
 
-    continueDialogue:function(self,flag,touchpoint){
+    continueDialogue:function(self,flag){
         var rightResp="抱歉，是我一时激动。"
         var wrongResp="是哪，自然是我小题大做了。你既无意，那不提此事也罢。"
 
@@ -108,7 +111,7 @@ cc.Class({
         if(flag){
             self.friendSay.string=rightResp;
             self.friend.opacity=0;
-            self.UpdateFollowStory(self,touchpoint);
+            self.UpdateFollowStory(self);
             const DB = wx.cloud.database();
             DB.collection('UserData').where({
                 _openid: cc.sys.localStorage.getItem('openid'),
@@ -144,7 +147,7 @@ cc.Class({
 
     },
 
-    UpdateFollowStory:function(self,touchpoint){
+    UpdateFollowStory:function(self){
         self.i=0;
         self.Dialogue=[
             "今日宫中新进了一批樱桃，来时丽娘让我俩做了酪樱桃分送各宫。",

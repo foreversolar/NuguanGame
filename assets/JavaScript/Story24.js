@@ -4,6 +4,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import globalUtil from "util";
 
 cc.Class({
     extends: cc.Component,
@@ -26,6 +27,8 @@ cc.Class({
 
     onLoad () {
         cc.director.preloadScene("Game");
+        var figure = this.me.getChildByName("figure_nuli");
+        globalUtil.setDialogueFigurePic(figure)
     },
 
     start() {
@@ -118,9 +121,33 @@ cc.Class({
 
     continueDialogue1: function (self, flag) {
         if (flag) {
-            //佛数值增加
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                fo: res.data[0].fo + 1
+                            }
+                        })
+                    }
+                });
         } else {
-            //人+1
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ren: res.data[0].ren + 1
+                            }
+                        })
+                    }
+                });
         }
 
         self.me.opacity = 0;

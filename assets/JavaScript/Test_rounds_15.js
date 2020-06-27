@@ -24,6 +24,10 @@ cc.Class({
         sprite2:cc.SpriteFrame,
         sprite3:cc.SpriteFrame,
         sprite4:cc.SpriteFrame,
+        number:cc.Sprite,
+        time1:cc.SpriteFrame,
+        time2:cc.SpriteFrame,
+        time3:cc.SpriteFrame
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -219,7 +223,19 @@ cc.Class({
             }
             choice[i] = index;
         }
-        console.log(choice);
+        var i = 3;
+        this.schedule(function(){
+            if(i == 0){
+                this.number.node.parent.opacity = 0;
+            }else if(i == 1){
+                this.number.spriteFrame = this.time1;
+            }else if(i == 2){
+                this.number.spriteFrame = this.time2;
+            }else if(i == 3){
+                this.number.spriteFrame = this.time3;                
+            }
+            i--;
+        },1,4,0);
         //随机加载对应图片
         this.loadPicture(choice);
         //5s记忆
@@ -233,54 +249,6 @@ cc.Class({
         this.Select("Card8",choice,8);        
     },
 
-    /*Select:function(Button,bad){
-        var Work = this.node.getChildByName("Work");
-        var Bad_flag = false;
-        var i = 0;
-        for(i = 0;i<3;i++){
-            if(Button == "Card"+(bad[i]+1).toString()){
-                Bad_flag = true;
-                break;
-            }
-        }
-        var bad1 = Work.getChildByName("Bad1");
-        var bad2 = Work.getChildByName("Bad2");
-        var bad3 = Work.getChildByName("Bad3");
-        var card = Work.getChildByName(Button);
-        var cardButton = card.getComponent(cc.Button);
-        var self = this;
-        this.scheduleOnce(function(){
-            cardButton.interactable = true;
-            bad1.opacity = 0;
-            bad2.opacity = 0;
-            bad3.opacity = 0;
-        },3);
-        cardButton.node.on('click',function(){
-            cardButton.interactable = false;
-            self.Opened++;
-            if(Bad_flag){
-                self.Get++;
-                switch(i){
-                case 0:
-                    bad1.opacity = 255;
-                    break;
-                case 1:
-                    bad2.opacity = 255;
-                    break;
-                case 2:
-                    bad3.opacity = 255;
-                    break;
-                }
-            }
-            if(self.Opened==3){
-                self.closeALL();
-                self.scheduleOnce(function(){
-                    self.Result();
-                },2);
-            }
-        });
-    },*/
-    
     Select:function(Button,choice,index){
         //获取每个按钮
         var card = this.node.getChildByName("Work").getChildByName(Button);

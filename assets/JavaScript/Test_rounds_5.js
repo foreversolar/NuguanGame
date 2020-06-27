@@ -190,7 +190,7 @@ cc.Class({
             .start();
         this.Get = parseInt(this.node.getChildByName("Work").getComponent("Test_Yingtao").Score.getChildByName("Score").getComponent(cc.Label).string);
         this.node.getChildByName("Notice").opacity = 255;
-        if(this.right == 3&&this.Get > 20){
+        if(this.right == 3&&this.Get > 15){
             this.node.getChildByName("Notice").getChildByName("Words").getComponent(cc.Label).string = "恭喜你成功通过了考核！皇天不负有心人，你靠着自己的努力成功晋升为典膳。在接下来的日子里，希望你认真练习烹饪技艺，升得典膳后方可进行精品菜肴的烹饪，加油！";
             this.addScore(1);
         }

@@ -18,6 +18,10 @@ cc.Class({
         sprite2:cc.SpriteFrame,
         sprite3:cc.SpriteFrame,
         sprite4:cc.SpriteFrame,
+        number:cc.Sprite,
+        time1:cc.SpriteFrame,
+        time2:cc.SpriteFrame,
+        time3:cc.SpriteFrame
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -55,6 +59,19 @@ cc.Class({
             Intro.getChildByName("back").getComponent(cc.Button).interactable = false;
             startButton.node.opacity = 0;
             startButton.interactable = false;
+            var i = 3;
+            self.schedule(function(){
+                if(i == 3){
+                    self.number.spriteFrame = self.time3;                           
+                }else if(i == 2){
+                    self.number.spriteFrame = self.time2;
+                }else if(i == 1){
+                    self.number.spriteFrame = self.time1;
+                }else if(i == 0){
+                    self.number.node.parent.opacity = 0;         
+                }
+                i--;
+            },1,3,0);
             self.Select("Card1",choice,1);
             self.Select("Card2",choice,2);
             self.Select("Card3",choice,3);

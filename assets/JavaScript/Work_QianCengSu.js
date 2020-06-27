@@ -108,7 +108,7 @@ cc.Class({
     },
 
     endGame:function(){
-    
+        this.AddScore(this.scores);
         if(this.scores>4){
             this.text.string="你在这次的后厨争霸中叠了"+this.scores+"层的千层酥，真是了不起呢！"
         }else{
@@ -121,5 +121,22 @@ cc.Class({
             cc.director.loadScene("Game");  
         });
         this.node.color=new cc.Color(121, 121, 121);
+    },
+
+    AddScore:function(right){
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+        .get({
+            success(res) {
+                DB.collection('UserData').doc(res.data[0]._id).update({
+                    data:{
+                        experience:res.data[0].experience+right*30,
+                        work_times:res.data[0].work_times+1,
+                    }
+                })
+            }
+        });
     }
 });

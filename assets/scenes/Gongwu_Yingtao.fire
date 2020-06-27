@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        356.0338846707288,
+        324.7595264191645,
         0,
         0,
         0,
@@ -886,7 +886,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "45c5cde0-fec4-4594-801b-c3fa50d94909"
+      "__uuid__": "942df827-c935-412c-bfbe-b58d392c91dd"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1059,8 +1059,8 @@
     "_useOriginalSize": false,
     "_string": "0",
     "_N$string": "0",
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 60,
+    "_lineHeight": 60,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1100,8 +1100,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 22.25,
-      "height": 50.4
+      "width": 33.37,
+      "height": 75.6
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1112,8 +1112,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        0,
+        -24.135,
+        54.072,
         0,
         0,
         0,
@@ -1156,7 +1156,7 @@
       }
     ],
     "_prefab": null,
-    "_opacity": 0,
+    "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -1166,8 +1166,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 100
+      "width": 200,
+      "height": 200
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1178,8 +1178,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        838.628,
-        328.266,
+        868.314,
+        43.626,
         0,
         0,
         0,
@@ -1218,7 +1218,9 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": null,
+    "_spriteFrame": {
+      "__uuid__": "06474403-d378-4bc9-951a-7f74cc1a5d7c"
+    },
     "_type": 0,
     "_sizeMode": 0,
     "_fillType": 0,
@@ -1413,7 +1415,7 @@
       "width": 2048,
       "height": 946
     },
-    "_fitWidth": false,
+    "_fitWidth": true,
     "_fitHeight": true,
     "_id": "59Cd0ovbdF4byw5sbjJDx7"
   },

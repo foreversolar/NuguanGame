@@ -141,7 +141,17 @@ cc.Class({
         this.work_button.node.on('click', function () {
             if (self.work_times == 0) {
                 self.scheduleOnce(function () {
-                    cc.director.loadScene("Gongwu_Kapian");
+                    var url = "";
+                    if(self.level == 1){
+                        url = "Gongwu_Yingtao";
+                    }else if(self.level == 2){
+                        url = "Gongwu_Kapian";
+                    }else if(self.level == 3){
+                        url = "Work_QianCengSu";
+                    }else if(self.level == 4){
+                        url = "Work_Cake";
+                    }
+                    cc.director.loadScene(url);
                 });
             }
             else {
@@ -154,19 +164,25 @@ cc.Class({
 
         this.next_button.node.on('click', function () {
             if (self.rounds == 4 || self.rounds == 14 || self.rounds == 29 || self.rounds == 44) {
-	if(self.level == 1){
-	cc.director.loadScene("Test_5");
-	}else if(self.level == 2){
-	cc.director.loadScene("Test_15");
-	}else if(self.level == 3){
-	cc.director.loadScene("Test_30");
-	}else if(self.level == 4){
-	cc.director.loadScene("Test_45");
-	}
-               
+                if(self.level == 1){
+                cc.director.loadScene("Test_5");
+                }else if(self.level == 2){
+                cc.director.loadScene("Test_15");
+                }else if(self.level == 3){
+                cc.director.loadScene("Test_30");
+                }else if(self.level == 4){
+                cc.director.loadScene("Test_45");
+                }
             }
             self.ResetRound();
-            cc.director.loadScene("Next");
+            if (this.rounds == 50) {
+                console.log("结局")
+                cc.sys.localStorage.setItem('story', 51);
+                cc.director.loadScene("Story50"); 
+            }
+            else{
+                cc.director.loadScene("Next");
+            }
         });
     },
 
@@ -428,11 +444,7 @@ cc.Class({
             console.log("load story49")
             cc.sys.localStorage.setItem('story', 49);
             cc.director.loadScene("Story49");
-        } else if (this.rounds == 51 && storyP < 51) {
-            console.log("结局")
-            cc.sys.localStorage.setItem('story', 51);
-            cc.director.loadScene("Story50");
-        }
+        } 
         //else { console.log(this.rounds + ' 11 ' + storyP); }
     },
     getName: function (str) {

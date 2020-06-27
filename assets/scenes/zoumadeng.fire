@@ -115,6 +115,9 @@
       },
       {
         "__id__": 95
+      },
+      {
+        "__id__": 96
       }
     ],
     "_prefab": null,
@@ -204,7 +207,7 @@
       "array": [
         0,
         0,
-        819.260031980079,
+        424.352447854375,
         0,
         0,
         0,
@@ -4606,5 +4609,23 @@
       "__id__": 85
     },
     "_id": "38jOq+MLRIkqT+0ZYL4Q97"
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "_clip": {
+      "__uuid__": "f9daebed-73c5-43cd-b451-4692ccec3175"
+    },
+    "_volume": 1,
+    "_mute": false,
+    "_loop": true,
+    "playOnLoad": true,
+    "preload": true,
+    "_id": "eb+00udSBDAZJCPrpQ8oZk"
   }
 ]

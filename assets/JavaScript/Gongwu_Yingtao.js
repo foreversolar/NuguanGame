@@ -104,9 +104,10 @@ cc.Class({
     },
 
     endGame:function(){
+        var get = this.basket.getComponent("Basket").score;
+        this.AddScore(get);
         this.node.color = "#696969";
         this.UI.active = true;
-        var get = this.basket.getComponent("Basket").score;
         this.basket.active = false;
         this.UI.getChildByName("text").getComponent(cc.Label).string = "你们摘了"+get+"个樱桃";
         this.UI.on('touchend',function(){
@@ -118,4 +119,20 @@ cc.Class({
             this.endGame();
         }
     },
+    AddScore:function(right){
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+        .get({
+            success(res) {
+                DB.collection('UserData').doc(res.data[0]._id).update({
+                    data:{
+                        experience:res.data[0].experience+right*5,
+                        work_times:res.data[0].work_times+1,
+                    }
+                })
+            }
+        });
+    }
 });

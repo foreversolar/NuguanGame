@@ -194,6 +194,7 @@ cc.Class({
     },
 
     endGame:function(){
+        this.AddScore(10);
         this.color_selector.getComponent(cc.Button).interactable=false;
         this.setBgColor(121)
         this.startBtn.opacity=0
@@ -234,6 +235,23 @@ cc.Class({
         this.bottom_selector.color=new cc.Color(c,c,c);
         this.color_selector.color=new cc.Color(c,c,c);
         this.path_selector.color=new cc.Color(c,c,c);
+    },
+
+    AddScore:function(right){
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+        .get({
+            success(res) {
+                DB.collection('UserData').doc(res.data[0]._id).update({
+                    data:{
+                        experience:res.data[0].experience+right*30,
+                        work_times:res.data[0].work_times+1,
+                    }
+                })
+            }
+        });
     }
 
     // update (dt) {},

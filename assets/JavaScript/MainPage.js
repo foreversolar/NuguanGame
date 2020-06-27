@@ -153,8 +153,17 @@ cc.Class({
         });
 
         this.next_button.node.on('click', function () {
-            if (self.rounds == 4 && self.level == 1) {
-                cc.director.loadScene("Test");
+            if (self.rounds == 4 || self.rounds == 14 || self.rounds == 29 || self.rounds == 44) {
+	if(self.level == 1){
+	cc.director.loadScene("Test_5");
+	}else if(self.level == 2){
+	cc.director.loadScene("Test_15");
+	}else if(self.level == 3){
+	cc.director.loadScene("Test_30");
+	}else if(self.level == 4){
+	cc.director.loadScene("Test_45");
+	}
+               
             }
             self.ResetRound();
             cc.director.loadScene("Next");
@@ -424,7 +433,7 @@ cc.Class({
             cc.sys.localStorage.setItem('story', 51);
             cc.director.loadScene("Story50");
         }
-        else { console.log(this.rounds + ' 11 ' + storyP); }
+        //else { console.log(this.rounds + ' 11 ' + storyP); }
     },
     getName: function (str) {
         var str_length = 0;

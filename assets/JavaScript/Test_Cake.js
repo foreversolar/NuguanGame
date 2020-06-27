@@ -1,6 +1,3 @@
-
-import globalUtil from "util";
-
 cc.Class({
     extends: cc.Component,
 
@@ -29,26 +26,13 @@ cc.Class({
         in_cake:cc.Node,
         in_path:cc.Node,
         in_color:"red",
-
         tip:cc.Label,
-        
-        startBtn:cc.Node,
-        Box:cc.Node,
-        leaveBtn:cc.Node
     },
 
     onLoad () {
-        this.setTips()
+        this.setTips();
         this.bottomPic="";
         this.pathPic="";
-
-        this.startBtn.on("click", function () {
-            this.startGame()
-        }, this);
-
-        this.leaveBtn.on("click",function(){
-            cc.director.loadScene("Game");  
-        },this);
 
         //Color
         this.color_selector.on("click", function () {
@@ -56,7 +40,6 @@ cc.Class({
         }, this);
 
         this.colork.on("click",function(){
-
             this.colorPic="k";
             this.colorProcess("k");
         },this)
@@ -76,19 +59,19 @@ cc.Class({
 
         this.bottom1.on("click",function(){
             this.bottomProcess();
-            this.loadImg(this.in_cake,"bottom1-r");
+            this.loadImg(this.in_cake,"/picture/Cake/bottom1-r");
             this.bottomPic="bottom1";
         },this)
 
         this.bottom2.on("click",function(){
             this.bottomProcess();
-            this.loadImg(this.in_cake,"bottom2-r");
+            this.loadImg(this.in_cake,"/picture/Cake/bottom2-r");
             this.bottomPic="bottom2";
         },this)
 
         this.bottom3.on("click",function(){
             this.bottomProcess();
-            this.loadImg(this.in_cake,"bottom3-r");
+            this.loadImg(this.in_cake,"/picture/Cake/bottom3-r");
             this.bottomPic="bottom3";
         },this)
 
@@ -98,33 +81,31 @@ cc.Class({
 
         this.path1.on("click",function(){
             this.pathProcess();
-            this.loadImg(this.in_path,"path1-r");
+            this.loadImg(this.in_path,"/picture/Cake/path1-r");
             this.pathPic="path1";
         },this)
 
         this.path2.on("click",function(){
             this.pathProcess();
-            this.loadImg(this.in_path,"path2-r");
+            this.loadImg(this.in_path,"/picture/Cake/path2-r");
             this.pathPic="path2";
         },this)
 
         this.path3.on("click",function(){
             this.pathProcess();
-            this.loadImg(this.in_path,"path3-r");
+            this.loadImg(this.in_path,"/picture/Cake/path3-r");
             this.pathPic="path3";
         },this)
     },
 
-    start () {
-
-
-    },
-
     loadImg: function(container,url){
-        cc.loader.loadRes("/picture/Cake/Cake", cc.SpriteAtlas, function (err, atlas) {
-            var sprite = atlas.getSpriteFrame(url);
-            container.getComponent(cc.Sprite).spriteFrame = sprite;
-        });
+            cc.loader.loadRes(url, function (err, texture) { 
+                if(err){
+                    console.log("Load picture failed!");
+                }
+                var sprite  = new cc.SpriteFrame(texture);
+                container.getComponent(cc.Sprite).spriteFrame = sprite;
+            });
     } ,
 
     bottomProcess: function(){
@@ -147,6 +128,7 @@ cc.Class({
         this.colorr.getComponent(cc.Button).interactable=true;
         this.color.opacity=255;
     },
+
     colorProcess:function(color){
         this.color.opacity=0;
         this.color_selector.getComponent(cc.Button).interactable=false;
@@ -154,9 +136,9 @@ cc.Class({
         //完整命名：
         // picture/Cake/path3-r
         // picture/Cake/bottom3-r
-        var bottompicture=this.bottomPic+"-"+color;
+        var bottompicture="/picture/Cake/"+this.bottomPic+"-"+color;
         this.loadImg(this.in_cake,bottompicture);
-        var pathpicture=this.pathPic+"-"+color;
+        var pathpicture="/picture/Cake/"+this.pathPic+"-"+color;
         this.loadImg(this.in_path,pathpicture);
         this.endGame();
     },
@@ -177,57 +159,22 @@ cc.Class({
 
     checkResult:function(){
         if (this.type==1){
+            console.log(this.bottomPic+this.pathPic+this.colorPic)
             return this.bottomPic=="bottom3" &&  this.pathPic=="path1" && this.colorPic=="r";
         }else if (this.type==2){
+            console.log(this.bottomPic+this.pathPic+this.colorPic)
             return this.bottomPic=="bottom2" &&  this.pathPic=="path2" && this.colorPic=="k";
         }else{
+            console.log(this.bottomPic+this.pathPic+this.colorPic)
             return this.bottomPic=="bottom1" &&  this.pathPic=="path3" && this.colorPic=="p";
         }
     },
 
-    startGame:function(){
-        this.bottom_selector.getComponent(cc.Button).interactable=true;
-        this.setBgColor(255)
-        this.startBtn.getComponent(cc.Button).interactable=false;
-        this.leaveBtn.getComponent(cc.Button).interactable=false;
-        this.Box.opacity=0;
-    },
-
     endGame:function(){
-        this.color_selector.getComponent(cc.Button).interactable=false;
-        this.setBgColor(121)
-        this.startBtn.opacity=0
-        this.leaveBtn.opacity=0
-        this.Box.opacity=255;
-        this.Box.getChildByName("message").getComponent(cc.Label).string=this.ResultTips();
-        this.bg.on(cc.Node.EventType.TOUCH_END,function(){
-            cc.director.loadScene("Game");  
-        });
-    },
-
-    ResultTips:function(){
         var result=this.checkResult();
-        var resultTips="";
-        var cakeTips="";
-        console.log(result)
-
-        if (this.type==1){
-            cakeTips="唯有牡丹真国色,正红艳冠群芳默"
-        }else if (this.type==2){
-            cakeTips="梅花最肯破寒风,春来樱桃好姿容"
-        }else{
-            cakeTips="蔓藤攀升子孙广，莲子登科入宫堂"
-        }
-
-        if (result) {
-            resultTips="贵妃娘娘很喜欢你制作的糕点，" + cakeTips + ", 看来你已经领会到了。" 
-        }else{
-            resultTips="贵妃娘娘看起来不是十分满意，" + cakeTips + ", 还需要多多领会哦。"
-        }
-
-        return resultTips
+        this.node.active = false;
+        this.node.parent.getComponent("Test_rounds_45").Result(result);
     },
-
 
     setBgColor:function(c){
         this.bg.color=new cc.Color(c,c,c);

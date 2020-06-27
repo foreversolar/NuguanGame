@@ -13,18 +13,15 @@ cc.Class({
         Cherry2:cc.Prefab,
         Cherry3:cc.Prefab,
         basket:cc.Node,
-        UI:cc.Node,
-        startbutton:cc.Button,
-        endbutton:cc.Button,
         Score:cc.Node,
-        get:0,
+        create:0,
         number:0,
+        get:0,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        cc.director.preloadScene('Game');
         this.cherrypool1 = new cc.NodePool();
         this.cherrypool2 = new cc.NodePool();
         this.cherrypool3 = new cc.NodePool();
@@ -39,32 +36,19 @@ cc.Class({
         }
     },
 
-    start () {
-        this.basket.active = false;
-        var self = this;
-        this.startbutton.node.on('touchend',function(){
-            self.UI.active = false;
-            self.basket.active = true;
-            self.Score.opacity = 255;
-            self.startGame();
-            self.startbutton.node.active = false;
-            self.endbutton.node.active = false;
-            self.node.color = "ffffff";
-        });
-        this.endbutton.node.on('touchend',function(){
-            cc.director.loadScene('Game');
-        });
-    },
-
-    startGame:function(){
+    start(){
         var self = this;
         var interval = 1;
         var repeat = this.number;
-        var delay = 1;
+        var delay = 0.85;
         var type = 0;
         this.schedule(function(){
             type = Math.floor(Math.random()*3);//0-3
             self.addCherry(type);
+            self.create++;
+            if(self.create == repeat){
+                self.endGame();
+            }
         },interval,repeat,delay);
     },
 
@@ -104,15 +88,10 @@ cc.Class({
     },
 
     endGame:function(){
-        this.node.color = "#696969";
-        this.UI.active = true;
-        var get = this.basket.getComponent("Basket").score;
-        this.basket.active = false;
-        this.UI.getChildByName("text").getComponent(cc.Label).string = "你们摘了"+get+"个樱桃";
-        this.UI.on('touchend',function(){
-            cc.director.loadScene('Game');
-        });
+        this.node.active = false;
+        this.node.parent.getComponent("Test_rounds_5").Result();
     },
+
     update (dt) {
         if(this.get == this.number+1){
             this.endGame();

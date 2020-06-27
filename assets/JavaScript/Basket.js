@@ -11,6 +11,8 @@ cc.Class({
     properties: {
         Score:cc.Label,
         score:0,
+        bg:cc.Node,
+        basketPic:cc.SpriteFrame,
     },
 
     start () {
@@ -28,7 +30,13 @@ cc.Class({
     },
     //other：对方的碰撞组件，self，自身的碰撞组件
     onCollisionEnter: function (other, self) {
-        //console.log('on collision enter');
+        if(this.bg.getComponent("Gongwu_Yingtao") == null){
+            this.bg.getComponent("Test_Yingtao").get++;
+        }
+        else{
+            this.bg.getComponent("Gongwu_Yingtao").get++;              
+        }
+        this.node.getComponent(cc.Sprite).spriteFrame = this.basketPic;
         switch(other.node.name){
         case "cherry1":
             this.score+=2;
@@ -47,3 +55,4 @@ cc.Class({
     },
     // update (dt) {},
 });
+

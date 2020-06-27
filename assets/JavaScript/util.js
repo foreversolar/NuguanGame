@@ -1,6 +1,6 @@
 var globalUtil = {
 
-    // container应该是node节点，url以“/picture/...”开始定位
+    // container应该是node节点，url以“/picture/...”开始定位，不用写png
     loadImg: function(container,url){
             cc.loader.loadRes(url, function (err, texture) { 
                 if(err){
@@ -23,18 +23,18 @@ var globalUtil = {
     
     },
 
-    setDialogueFigurePic: function (container,scene) {
+    setDialogueFigurePic: function (container) {
         var level = cc.sys.localStorage.getItem('level')
         if (level ==2 ){
-
+            this.loadImg(container,"/picture/Dialogue/掌半身_对话")
         }else if (level ==3 ){
-
+            this.loadImg(container,"/picture/Dialogue/典半身_对话")
         }else if (level ==4 ){
-
+            this.loadImg(container,"/picture/Dialogue/司半身_对话")
         }else if (level ==5 ){
-
+            this.loadImg(container,"/picture/Dialogue/宫半身_对话")
         }else{
-
+            this.loadImg(container,"/picture/Dialogue/figure_nuli")
         }
     },
 

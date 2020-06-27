@@ -192,8 +192,6 @@ cc.Class({
             }
             self.Opened++;
             if(self.Opened==8){
-                //self.AddScore(self.Get);
-                console.log(self.Get);
                 var Intro = self.node.getChildByName("Intro");
                 var content = Intro.getChildByName("content").getComponent(cc.Label);
                 if(self.Get == 4){

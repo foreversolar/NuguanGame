@@ -141,7 +141,17 @@ cc.Class({
         this.work_button.node.on('click', function () {
             if (self.work_times == 0) {
                 self.scheduleOnce(function () {
-                    cc.director.loadScene("Gongwu_Kapian");
+                    var url = "";
+                    if(self.level == 1){
+                        url = "Gongwu_Yingtao";
+                    }else if(self.level == 2){
+                        url = "Gongwu_Kapian";
+                    }else if(self.level == 3){
+                        url = "Work_QianCengSu";
+                    }else if(self.level == 4){
+                        url = "Work_Cake";
+                    }
+                    cc.director.loadScene(url);
                 });
             }
             else {

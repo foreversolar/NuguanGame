@@ -223,7 +223,7 @@ cc.Class({
                         success(res) {
                                 DB.collection('TestResult').doc(res.data[0]._id).update({
                                     data:{
-                                        level:cc.sys.localStorage.getItem('level'),
+                                        round30:cc.sys.localStorage.getItem('level'),
                                     }
                                 })
                         }

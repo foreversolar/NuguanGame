@@ -175,7 +175,7 @@ cc.Class({
                 }
             }
             self.ResetRound();
-            if (this.rounds == 50) {
+            if (self.rounds == 50) {
                 console.log("结局")
                 cc.sys.localStorage.setItem('story', 51);
                 cc.director.loadScene("Story50"); 
@@ -240,7 +240,8 @@ cc.Class({
                                 ren: 0,
                                 fo: 0,
                                 ahui: 0,
-                                liniang: 0
+                                liniang: 0,
+                                finish_Question:0
                             },
                             success(res) {
                                 cc.sys.localStorage.setItem('story', 0);
@@ -317,17 +318,17 @@ cc.Class({
         DB.collection('UserData').where({
             _openid: cc.sys.localStorage.getItem('openid'),
         })
-            .get({
-                success(res) {
-                    DB.collection('UserData').doc(res.data[0]._id).update({
-                        data: {
-                            playing_times: 0,
-                            study_times: 0,
-                            work_times: 0,
-                        }
-                    });
-                }
-            });
+        .get({
+            success(res) {
+                DB.collection('UserData').doc(res.data[0]._id).update({
+                    data: {
+                        playing_times: 0,
+                        study_times: 0,
+                        work_times: 0,
+                    }
+                });
+            }
+        });    
     },
 
     StoryPlay: function () {

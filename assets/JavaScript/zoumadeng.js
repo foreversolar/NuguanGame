@@ -197,9 +197,59 @@ cc.Class({
             } else if (i == 10) {
                 self.bg10.active = false;
                 self.bg11.active = true;
+            }else if (i == 11) {
+                //清空数据
+                self.restart();
             }
-
             i++;
         });
+    },
+
+    restart:function(){
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+            .get({
+                success(res) {
+                        DB.collection('UserData').update({
+                            data: {
+                                level: 1,
+                                health: 80,
+                                experience: 0,
+                                skill: 0,
+                                knowledge: 0,
+                                charm: 0,
+                                money: 0,
+                                rounds: 1,
+                                work_times: 0,
+                                study_times: 0,
+                                playing_times: 0,
+                                storyP: 0,
+                                teshu1: 0,
+                                teshu2: 0,
+                                teshu3: 0,
+                                teshu4: 0,
+                                nickName: cc.sys.localStorage.getItem('nickName'),
+                                ren: 0,
+                                fo: 0,
+                                ahui: 0,
+                                liniang: 0,
+                                finish_Question:0,
+                            },
+                            success(res) {
+                                cc.sys.localStorage.setItem('story', 0);
+                            }
+                        });
+                        DB.collection('TestResult').add({
+                            data: {
+                                round5:-1,
+                                round15:-1,
+                                round30:-1,
+                             round45:-1,
+                            },                                    
+                        });    
+                }
+            });
     }
 });

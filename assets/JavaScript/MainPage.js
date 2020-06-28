@@ -234,7 +234,6 @@ cc.Class({
 
                         DB.collection('UserData').add({
                             data: {
-                                name: "AddName",
                                 level: self.level,
                                 health: self.health,
                                 experience: self.experience,
@@ -251,6 +250,7 @@ cc.Class({
                                 fo: 0,
                                 ahui: 0,
                                 liniang: 0,
+                                finish_Question:0,
                                 teshu1: 0,
                                 teshu2: 0,
                                 teshu3: 0,
@@ -331,17 +331,17 @@ cc.Class({
         DB.collection('UserData').where({
             _openid: cc.sys.localStorage.getItem('openid'),
         })
-            .get({
-                success(res) {
-                    DB.collection('UserData').doc(res.data[0]._id).update({
-                        data: {
-                            playing_times: 0,
-                            study_times: 0,
-                            work_times: 0,
-                        }
-                    });
-                }
-            });
+        .get({
+            success(res) {
+                DB.collection('UserData').doc(res.data[0]._id).update({
+                    data: {
+                        playing_times: 0,
+                        study_times: 0,
+                        work_times: 0,
+                    }
+                });
+            }
+        });    
     },
 
     StoryPlay: function () {

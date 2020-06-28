@@ -91,18 +91,18 @@ cc.Class({
         this.option1.node.on("click",function(){
                 op2.interactable=false;
                 op1.interactable=false; 
-                that.continueDialogue(that,false);
+                that.continueDialogue(that,false,touchpoint);
         })
 
         this.option2.node.on("click",function(){
                 op2.interactable=false;
                 op1.interactable=false; 
-                that.continueDialogue(that,true);
+                that.continueDialogue(that,true,touchpoint);
         })
 
     },
 
-    continueDialogue:function(self,flag){
+    continueDialogue:function(self,flag,touchpoint){
         var rightResp="抱歉，是我一时激动。"
         var wrongResp="是哪，自然是我小题大做了。你既无意，那不提此事也罢。"
 
@@ -111,7 +111,7 @@ cc.Class({
         if(flag){
             self.friendSay.string=rightResp;
             self.friend.opacity=0;
-            self.UpdateFollowStory(self);
+            self.UpdateFollowStory(self,touchpoint);
             const DB = wx.cloud.database();
             DB.collection('UserData').where({
                 _openid: cc.sys.localStorage.getItem('openid'),
@@ -147,7 +147,7 @@ cc.Class({
 
     },
 
-    UpdateFollowStory:function(self){
+    UpdateFollowStory:function(self,touchpoint){
         self.i=0;
         self.Dialogue=[
             "今日宫中新进了一批樱桃，来时丽娘让我俩做了酪樱桃分送各宫。",

@@ -28,10 +28,15 @@ cc.Class({
         liniang: 0,
         ren: 0,
         fo: 0,
-        level: 1
+        level: 1,
+        restartPanel:cc.Node,
+        Yes:cc.Button,
     },
 
     onLoad() {
+        this.Yes.on('click',function(){
+            cc.director.loadScene("Start");
+        });
         this.level = cc.sys.localStorage.getItem("level")
         this.bg1.active = true;
         this.bg2.active = false;
@@ -199,6 +204,8 @@ cc.Class({
                 self.bg11.active = true;
             }else if (i == 11) {
                 //清空数据
+                self.restartPanel.opacity = 255;
+                self.Yes.interactable = true;
                 self.restart();
             }
             i++;

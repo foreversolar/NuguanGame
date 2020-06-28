@@ -458,6 +458,10 @@ cc.Class({
             console.log("load story49")
             cc.sys.localStorage.setItem('story', 49);
             cc.director.loadScene("Story49");
+        } else if (this.rounds == 51 && storyP < 51) {
+            console.log("load story50")
+            cc.sys.localStorage.setItem('story', 50);
+            cc.director.loadScene("Story50");
         } 
         //else { console.log(this.rounds + ' 11 ' + storyP); }
     },

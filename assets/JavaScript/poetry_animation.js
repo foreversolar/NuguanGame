@@ -45,16 +45,17 @@ cc.Class({
         self.dati.active = false;
         self.tishi.active = true;
 
-        console.log(self.dati.active);
-        console.log(self.tishi.active);
+        var index = Math.floor(Math.random()*10);
+        //console.log(self.dati.active);
+        //console.log(self.tishi.active);
 
         cc.loader.loadRes('Poetry', function (err, jsonAsset) {
             if (err) {
                 console.log("Load json failed!");
             }
             QuestionAsset = jsonAsset.json;
-
-            self.text = QuestionAsset.Poetry[1];
+            
+            self.text = QuestionAsset.Poetry[index];
             self.LoadQuestion();
         });
 

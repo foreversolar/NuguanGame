@@ -17,6 +17,8 @@ cc.Class({
         basket:cc.Node,
         basket_speed:0,
         yingtao:cc.Prefab,
+        result:cc.Node,
+        badResult:cc.Node,
         score:cc.Node,
         status:0,       //0-ready 1-running 2-end;
         times:0,        //生成数量
@@ -108,9 +110,9 @@ cc.Class({
 
     endGame:function(){
         if(this.times>20){
-            this.text.string="你接到了"+this.times+"个樱桃，真是了不起呢！"
+            this.text.string="你接到了许多成色良好的樱桃，樱桃宴上的酪樱桃令皇上和大臣们赞不绝口。"
         }else{
-            this.text.string="你接到了"+this.times+"个樱桃，要多多加油哦！"
+            this.text.string="你采回来的樱桃成色不佳，樱桃宴上大臣们大失所望。"
         }
         this.startbutton.node.opacity=0;
         this.cancel.node.opacity=0;

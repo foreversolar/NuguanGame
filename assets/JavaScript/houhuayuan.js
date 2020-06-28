@@ -26,7 +26,7 @@ cc.Class({
 
         this.node.on('touchend', function () {
             if (self.over == 1) {
-                cc.director.loadScene("Game");
+                cc.director.loadScene("Next");
             } else {
                 self.option.active = true;
             }
@@ -48,8 +48,38 @@ cc.Class({
         self.option.active = false;
         if (flag) {
             self.label.string = "但,这娘娘们用的东西我可不敢戴着，还是等过几天找个出宫的机会给当了，换些银两在身上比较合适。";
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                teshu2: 1,
+                                money: res.data[0].money + 100,
+                                experience: res.data[0].experience +2
+                            }
+                        })
+                    }
+                });
         } else {
             self.label.string = "所幸交给了姑姑，竟是贵妃娘娘的簪子，否则可就大事不妙了，物归原主，还得了些赏赐，也还快活！";
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                teshu2: 1,
+                                money: res.data[0].money + 200,
+                                experience: res.data[0].experience + 2
+                            }
+                        })
+                    }
+                });
         }
     }
 });

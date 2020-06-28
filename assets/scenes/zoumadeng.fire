@@ -207,7 +207,7 @@
       "array": [
         0,
         0,
-        324.7595264191645,
+        209.57814771583418,
         0,
         0,
         0,
@@ -1574,10 +1574,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "958d16a8-fbf0-4797-991c-09bfcb4b8d46"
+      "__uuid__": "ed4c57bc-5de2-4dcc-9323-7d77b8298a1a"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -1732,8 +1732,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "天宝十一载，君不幸晋升失败。不久，丽娘离宫，她往感业寺修行。同年，李相去世，而圣人却依旧以声色自娱。",
-    "_N$string": "天宝十一载，君不幸晋升失败。不久，丽娘离宫，她往感业寺修行。同年，李相去世，而圣人却依旧以声色自娱。",
+    "_string": "天宝十一载，君不幸晋升失败。不久，丽娘离宫，前往感业寺修行。同年，李相去世，而圣人却依旧以声色自娱。",
+    "_N$string": "天宝十一载，君不幸晋升失败。不久，丽娘离宫，前往感业寺修行。同年，李相去世，而圣人却依旧以声色自娱。",
     "_fontSize": 60,
     "_lineHeight": 80,
     "_enableWrapText": true,
@@ -3069,8 +3069,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 804,
-      "height": 178
+      "width": 806,
+      "height": 181
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3122,10 +3122,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "742af9a0-ef18-409f-ba8d-437ace3f5acc"
+      "__uuid__": "561a9f1c-fe91-4695-b66b-456feba685d6"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -3899,7 +3899,7 @@
       "__uuid__": "10472a5e-9992-493e-ae33-be60a1565cd2"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -4230,8 +4230,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 804,
-      "height": 178
+      "width": 806,
+      "height": 181
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4283,10 +4283,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "742af9a0-ef18-409f-ba8d-437ace3f5acc"
+      "__uuid__": "a9bb3495-a19e-4571-b2f7-cf4cde972f4c"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -4498,7 +4498,7 @@
     "node": {
       "__id__": 85
     },
-    "_enabled": false,
+    "_enabled": true,
     "_materials": [
       {
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
@@ -4507,10 +4507,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "a61fc7d8-ddd6-4b8f-a103-c5d55891136c"
+      "__uuid__": "b4e26892-29e2-4a94-b8e3-ad3f883c1921"
     },
     "_type": 0,
-    "_sizeMode": 0,
+    "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -4536,7 +4536,7 @@
       "width": 2048,
       "height": 946
     },
-    "_fitWidth": true,
+    "_fitWidth": false,
     "_fitHeight": true,
     "_id": "59Cd0ovbdF4byw5sbjJDx7"
   },
@@ -4584,14 +4584,23 @@
     "bg3": {
       "__id__": 21
     },
+    "bg3label": {
+      "__id__": 26
+    },
     "bg4": {
       "__id__": 29
+    },
+    "bg4label": {
+      "__id__": 34
     },
     "bg5": {
       "__id__": 37
     },
     "bg6": {
       "__id__": 45
+    },
+    "bg6label": {
+      "__id__": 50
     },
     "bg7": {
       "__id__": 53
@@ -4602,12 +4611,22 @@
     "bg9": {
       "__id__": 69
     },
+    "bg9label": {
+      "__id__": 74
+    },
     "bg10": {
       "__id__": 77
     },
     "bg11": {
       "__id__": 85
     },
+    "bg11label": {
+      "__id__": 90
+    },
+    "liniang": 0,
+    "ren": 0,
+    "fo": 0,
+    "level": 1,
     "_id": "38jOq+MLRIkqT+0ZYL4Q97"
   },
   {

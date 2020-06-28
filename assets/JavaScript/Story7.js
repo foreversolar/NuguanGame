@@ -4,6 +4,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import globalUtil from "util";
 
 cc.Class({
     extends: cc.Component,
@@ -30,6 +31,9 @@ cc.Class({
 
     onLoad () {
         cc.director.preloadScene("Game");
+
+        var figure=this.me.getChildByName("figure");
+        globalUtil.setDialogueFigurePic(figure)
     },
 
     start() {
@@ -58,8 +62,6 @@ cc.Class({
                     this.mySay.string = Dialogue[i];
                 }
             }else if (i == 3) {
-                this.me.opacity = 0;
-                this.friend.opacity = 0;
                 this.node.pauseSystemEvents(true);
                 this.op1_1.interactable = true;
                 this.op1_2.interactable = true;
@@ -79,7 +81,6 @@ cc.Class({
                 this.friend.opacity = 255;
                 this.friendSay.string = Dialogue[i];
             } else if (i == 13) {
-                this.friend.opacity = 0;
                 this.node.pauseSystemEvents(true);
                 this.op2_1.interactable = true;
                 this.op2_2.interactable = true;
@@ -153,20 +154,31 @@ cc.Class({
         if (flag) {
             //无属性值
         } else {
-            //阿慧好感度增加
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ahui: res.data[0].ahui + 1
+                            }
+                        })
+                    }
+                });
         }
-
+        this.me.opacity = 0;
+        this.friend.opacity = 0;
+        this.zhousheng.opacity = 0;
         self.beijingjieshao.opacity = 255;
         self.jieshao.string = "一段时间后....";
         self.node.resumeSystemEvents(true);
     },
 
     continueDialogue2: function (self, flag) {
-        if (flag) {
-            //无属性值
-        } else {
-            //周生好感度增加
-        }
+        this.me.opacity = 0;
+        this.zhousheng.opacity = 0;
         self.friend.opacity = 255;
         self.friendSay.string = "啊，原来如此。";
         self.node.resumeSystemEvents(true);

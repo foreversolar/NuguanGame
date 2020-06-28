@@ -19,10 +19,49 @@ cc.Class({
 
     start() {
 
-        this.label1.opacity = 255;
-        this.label2.opacity = 0; 
+        var judge = Math.floor(Math.random() * 2); 
+
+        if (judge == 0) {
+            this.label1.opacity = 255;
+            this.label2.opacity = 0;
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                teshu1: 1,
+                                money: res.data[0].money - 300,
+                                charm: res.data[0].charm - 5
+                            }
+                        })
+                    }
+                });
+        } else {
+            this.label1.opacity = 0;
+            this.label2.opacity = 255;
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                teshu1: 1,
+                                money: res.data[0].money - 200,
+                                charm: res.data[0].charm +3
+                            }
+                        })
+                    }
+                });
+        }
+
+
         this.node.on('touchend', function () {
-            cc.director.loadScene("Game");
+            cc.director.loadScene("Next");
         });
     },
 });

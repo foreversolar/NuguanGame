@@ -86,8 +86,8 @@ cc.Class({
                         type: 'text',
                         text: '开始游戏',
                         style: {
-                          left: 350,
-                          top: 230,
+                          left: 365,
+                          top: 300,
                           width: 200,
                           height: 40,
                           lineHeight: 40,
@@ -101,7 +101,7 @@ cc.Class({
                       button.onTap((res) => {
                         console.log(res)
                         button.destroy()
-                        cc.sys.localStorage.setItem('nickName', res.userInfo.nickName);
+                          cc.sys.localStorage.setItem('nickName', res.userInfo.nickName.substring(0, 4));
                         cc.director.loadScene("Start");
                       })
                 }

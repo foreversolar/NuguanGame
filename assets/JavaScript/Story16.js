@@ -4,6 +4,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import globalUtil from "util";
 
 cc.Class({
     extends: cc.Component,
@@ -19,24 +20,18 @@ cc.Class({
         guguSay: cc.Label,
         fuziSay:cc.Label,
         text: cc.JsonAsset,
-        liniang_haogandu: 0
+        liniang:0
     },
 
 
     onLoad () {
         cc.director.preloadScene("Game");
+        var figure = this.me.getChildByName("figure_nuli");
+        globalUtil.setDialogueFigurePic(figure)
+        
     },
 
     start() {
-        const DB = wx.cloud.database();
-        DB.collection('UserData').where({
-            _openid: cc.sys.localStorage.getItem('openid'),
-        })
-            .get({
-                success(res) {
-                    self.liniang_haogandu = res.data[0].liniang;
-                }
-            });
         this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.gugu.opacity = 0;
         this.me.opacity = 0;
@@ -45,89 +40,99 @@ cc.Class({
 
         var Dialogue;
         var i = 1;
-        if (this.liniang_haogandu == 0) {
-            Dialogue = this.text.json.rounds16.dialogue1;
-            this.fuzi.opacity = 255;
-            this.fuziSay.string = Dialogue[0];
-            this.node.on('touchend', function () {
-                if (i > 4) {
-                    cc.director.loadScene("Game");
-                } else if (i == 1) {
-                    this.fuzi.opacity = 0;
-                    this.me.opacity = 255;
-                    this.mySay.string = Dialogue[i]
-                } else if (i == 2) {
-                    this.fuzi.opacity = 255;
-                    this.me.opacity = 0;
-                    this.fuziSay.string = Dialogue[i]
-                } else if (i == 3) {
-                    this.fuzi.opacity = 0;
-                    this.friend.opacity = 255;
-                    this.friendSay.string = Dialogue[i]
-                } else if (i == 4) {
-                    this.friend.opacity = 0;
-                    this.me.opacity = 255;
-                    this.mySay.string = Dialogue[i]
-                }
+        var self = this;
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+            .get({
+                success(res) {
+                    self.liniang = res.data[0].liniang;
+                    if (self.liniang == 0) {
+                        Dialogue = self.text.json.rounds16.dialogue1;
+                        self.fuzi.opacity = 255;
+                        self.fuziSay.string = Dialogue[0];
+                        self.node.on('touchend', function () {
+                            if (i > 4) {
+                                cc.director.loadScene("Game");
+                            } else if (i == 1) {
+                                self.fuzi.opacity = 0;
+                                self.me.opacity = 255;
+                                self.mySay.string = Dialogue[i]
+                            } else if (i == 2) {
+                                self.fuzi.opacity = 255;
+                                self.me.opacity = 0;
+                                self.fuziSay.string = Dialogue[i]
+                            } else if (i == 3) {
+                                self.fuzi.opacity = 0;
+                                self.friend.opacity = 255;
+                                self.friendSay.string = Dialogue[i]
+                            } else if (i == 4) {
+                                self.friend.opacity = 0;
+                                self.me.opacity = 255;
+                                self.mySay.string = Dialogue[i]
+                            }
 
-                i++;
-            }, this)
-        } else if (this.liniang_haogandu == 1 || this.liniang_haogandu == 2) {
-            Dialogue = this.text.json.rounds16.dialogue2;
-            this.friend.opacity = 255;
-            this.friendSay.string = Dialogue[0];
-            this.node.on('touchend', function () {
-                if (i > 6) {
-                    cc.director.loadScene("Game");
-                } else if (i % 2 == 1) {
-                    this.friend.opacity = 0;
-                    this.me.opacity = 255;
-                    this.mySay.string = Dialogue[i]
-                } else if (i % 2 == 0) {
-                    this.friend.opacity = 255;
-                    this.me.opacity = 0;
-                    this.friendSay.string = Dialogue[i]
-                }
+                            i++;
+                        }, self)
+                    } else if (self.liniang == 1) {
+                        Dialogue = self.text.json.rounds16.dialogue2;
+                        self.friend.opacity = 255;
+                        self.friendSay.string = Dialogue[0];
+                        self.node.on('touchend', function () {
+                            if (i > 6) {
+                                cc.director.loadScene("Game");
+                            } else if (i % 2 == 1) {
+                                self.friend.opacity = 0;
+                                self.me.opacity = 255;
+                                self.mySay.string = Dialogue[i]
+                            } else if (i % 2 == 0) {
+                                self.friend.opacity = 255;
+                                self.me.opacity = 0;
+                                self.friendSay.string = Dialogue[i]
+                            }
 
-                i++;
-            }, this)
-        } else {
-            Dialogue = this.text.json.rounds16.dialogue3;
-            this.gugu.opacity = 255;
-            this.guguSay.string = Dialogue[0];
-            this.node.on('touchend', function () {
-                if (i > 6) {
-                    cc.director.loadScene("Game");
-                } else if (i < 5) {
-                    if (i % 2 == 1) {
-                        this.gugu.opacity = 0;
-                        this.me.opacity = 255;
-                        this.mySay.string = Dialogue[i]
-                    } else if (i % 2 == 0) {
-                        this.gugu.opacity = 255;
-                        this.me.opacity = 0;
-                        this.guguSay.string = Dialogue[i]
+                            i++;
+                        }, self)
+                    } else {
+                        Dialogue = self.text.json.rounds16.dialogue3;
+                        self.gugu.opacity = 255;
+                        self.guguSay.string = Dialogue[0];
+                        self.node.on('touchend', function () {
+                            if (i > 6) {
+                                cc.director.loadScene("Game");
+                            } else if (i < 5) {
+                                if (i % 2 == 1) {
+                                    self.gugu.opacity = 0;
+                                    self.me.opacity = 255;
+                                    self.mySay.string = Dialogue[i]
+                                } else if (i % 2 == 0) {
+                                    self.gugu.opacity = 255;
+                                    self.me.opacity = 0;
+                                    self.guguSay.string = Dialogue[i]
+                                }
+                            } else if (i == 5) {
+                                self.gugu.opacity = 0;
+                                self.friend.opacity = 255
+                                self.friendSay.string = Dialogue[i]
+                            } else if (i == 6) {
+                                self.gugu.opacity = 255;
+                                self.friend.opacity = 0;
+                                self.guguSay.string = Dialogue[i]
+                            } else if (i == 7) {
+                                self.gugu.opacity = 0;
+                                self.me.opacity = 255;
+                                self.mySay.string = Dialogue[i]
+                            } else if (i == 8) {
+                                self.me.opacity = 0;
+                                self.friend.opacity = 255;
+                                self.friendSay.string = Dialogue[i]
+                            }
+
+                            i++;
+                        }, this)
                     }
-                } else if (i == 5) {
-                    this.gugu.opacity = 0;
-                    this.friend.opacity = 255
-                    this.friendSay.string = Dialogue[i]
-                } else if (i == 6) {
-                    this.gugu.opacity = 255;
-                    this.friend.opacity = 0;
-                    this.guguSay.string = Dialogue[i]
-                } else if (i == 7) {
-                    this.gugu.opacity = 0;
-                    this.me.opacity = 255;
-                    this.mySay.string = Dialogue[i]
-                } else if (i == 8) {
-                    this.me.opacity = 0;
-                    this.friend.opacity = 255;
-                    this.friendSay.string = Dialogue[i]
                 }
-
-                i++;
-            }, this)
-        }
+            });
     }
 });

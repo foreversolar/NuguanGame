@@ -1,3 +1,11 @@
+// Learn cc.Class:
+//  - https://docs.cocos.com/creator/manual/en/scripting/class.html
+// Learn Attribute:
+//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
+// Learn life-cycle callbacks:
+//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import globalUtil from "util";
+
 cc.Class({
     extends: cc.Component,
 
@@ -16,7 +24,8 @@ cc.Class({
 
     onLoad () {
         cc.director.preloadScene("Game");
-        this.playerName.string=cc.sys.localStorage.getItem('nickName')
+        var figure = this.me.getChildByName("figure");
+        globalUtil.setDialogueFigurePic(figure)
     },
 
     start() {
@@ -104,9 +113,35 @@ cc.Class({
         var AResp = "在巨胡饼当中每一层夹上羊肉，以胡椒作为佐料，再把酥油用以调香，放入炉中烤制。这就是古楼子了，嗯，并非是小户人家可以吃得到的，不过也足可以显出豪迈之风了。";
         var BResp = "羊肚切丝而制，堆叠成花，既精致又不乏西域之风味。";
         if (flag){
-            this.mySay.string==AResp;
+            this.mySay.string == AResp;
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                fo: res.data[0].fo + 1
+                            }
+                        })
+                    }
+                });
         }else{
-            this.mySay.string=BResp;
+            this.mySay.string = BResp;
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ren: res.data[0].ren + 1
+                            }
+                        })
+                    }
+                });
         }
         self.node.resumeSystemEvents(true);
      },

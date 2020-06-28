@@ -12,6 +12,7 @@ cc.Class({
 
     properties: {
         player_button: cc.Button,
+        head:cc.Node,
         pa_back_button: cc.Button,
         stuty_button: cc.Button,
         yule_button: cc.Button,
@@ -32,6 +33,10 @@ cc.Class({
         study_times: 0,
         playing_times: 0,
         storyP: 0,
+        teshu1: 0,
+        teshu2: 0,
+        teshu3: 0,
+        teshu4: 0
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -56,6 +61,8 @@ cc.Class({
 
         var figureInMainPage = this.node.getChildByName("Nuli");
         globalUtil.setMainSceneFigurePic(figureInMainPage);
+        globalUtil.setHeadPic(this.head);
+
 
         var notice_label = notice.getChildByName("label").getComponent(cc.Label);
         var notice_back_button = notice.getChildByName("Back_Button").getComponent(cc.Button);
@@ -110,19 +117,6 @@ cc.Class({
             }
         });
 
-        menu.getChildByName("qiancengsu").on('click', function () {
-            if (self.playing_times < 4) {
-                self.scheduleOnce(function () {
-                    cc.director.loadScene("Work_QianCengSu");
-                });
-            }
-            else {
-                //弹窗
-                notice.opacity = 255;
-                notice_back_button.interactable = true;
-                notice_label.string = "这个回合你已经进行过足够多的娱乐了，娱乐需适度！";
-            }
-        });
 
         menu.getChildByName("canggou").on('click', function () {
             if (self.playing_times < 4) {
@@ -175,12 +169,24 @@ cc.Class({
                 }
             }
             self.ResetRound();
+            var judge = Math.floor(Math.random() * 5); 
             if (self.rounds == 50) {
                 console.log("结局")
                 cc.sys.localStorage.setItem('story', 51);
-                cc.director.loadScene("Story50"); 
-            }
-            else{
+                cc.director.loadScene("Story50");
+            } else if (judge==0) {
+                if (self.teshu1 == 0 && self.money >= 400) {
+                    cc.director.loadScene("huilu");
+                } else if (self.teshu2 == 0) {
+                    cc.director.loadScene("houhuayuan");
+                } else if (self.teshu3 == 0) {
+                    cc.director.loadScene("touchi");
+                } else if (self.teshu4 == 0) {
+                    cc.director.loadScene("zhuashu");
+                } else {
+                    cc.director.loadScene("Next");
+                }
+            }else {
                 cc.director.loadScene("Next");
             }
         });
@@ -216,6 +222,10 @@ cc.Class({
                         self.playing_times = res.data[0].playing_times;
                         self.study_times = res.data[0].study_times;
                         self.work_times = res.data[0].work_times;
+                        self.teshu1 = res.data[0].teshu1;
+                        self.teshu2 = res.data[0].teshu2;
+                        self.teshu3 = res.data[0].teshu3;
+                        self.teshu4 = res.data[0].teshu4;
                         cc.sys.localStorage.setItem('rounds', self.rounds);
                         cc.sys.localStorage.setItem('nickName', self.Username.substring(0, 4));
                         cc.sys.localStorage.setItem('level', self.level);
@@ -241,7 +251,11 @@ cc.Class({
                                 fo: 0,
                                 ahui: 0,
                                 liniang: 0,
-                                finish_Question:0
+                                finish_Question:0,
+                                teshu1: 0,
+                                teshu2: 0,
+                                teshu3: 0,
+                                teshu4: 0
                             },
                             success(res) {
                                 cc.sys.localStorage.setItem('story', 0);

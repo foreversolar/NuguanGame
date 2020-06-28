@@ -430,7 +430,7 @@ cc.Class({
         this.node.getChildByName("Notice").opacity = 255;
         console.log( " "+this.right+" "+this.Get);
         if(this.right == 3&&this.Get == 4){
-            this.node.getChildByName("Notice").getChildByName("Words").getComponent(cc.Label).string = "恭喜你成功通过了考核！皇天不负有心人，你靠着自己的努力成功晋升为掌膳，负责辅佐典膳，完成部分菜品的烹饪。在接下来的日子里，希望你认真练习烹饪技艺，升得典膳后方可进行精品菜肴的烹饪，加油！";
+            this.node.getChildByName("Notice").getChildByName("Words").getComponent(cc.Label).string = "恭喜你成功通过了考核！皇天不负有心人，你靠着自己的努力成功晋升为典膳，负责辅佐司膳，完成部分菜品的烹饪。在接下来的日子里，希望你认真练习烹饪技艺，升得典膳后方可进行精品菜肴的烹饪，加油！";
             this.addScore(1);
         }
         else{
@@ -449,13 +449,27 @@ cc.Class({
         .get({
             success(res) {
                 if(result == 1){
+                    cc.sys.localStorage.setItem('level', res.data[0].level+1);
                     DB.collection('UserData').doc(res.data[0]._id).update({
                         data:{
                             level:res.data[0].level+1,
                         }
                     })
-                }
+                    DB.collection('TestResult').where({
+                        _openid: cc.sys.localStorage.getItem('openid'),
+                    })
+                    .get({
+                        success(res) {
+                                DB.collection('TestResult').doc(res.data[0]._id).update({
+                                    data:{
+                                        level:cc.sys.localStorage.getItem('level'),
+                                    }
+                                })
+                        }
+                    });
+                }   
             }
+            
         });
     }
 });

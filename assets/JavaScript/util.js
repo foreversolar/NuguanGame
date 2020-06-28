@@ -36,6 +36,20 @@ var globalUtil = {
         }
     },
 
+    setHeadPic: function (container) {
+        var level = cc.sys.localStorage.getItem('level')
+        if (level ==2 ){
+            this.loadImg(container,"/picture/Dialogue/掌头")
+        }else if (level ==3 ){
+            this.loadImg(container,"/picture/Dialogue/典头")
+        }else if (level ==4 ){
+            this.loadImg(container,"/picture/Dialogue/司头")
+        }else if (level ==5 ){
+            this.loadImg(container,"/picture/Dialogue/宫头")
+        }
+    },
+
+
     setDialogueFigurePic: function (container) {
         var level = cc.sys.localStorage.getItem('level')
         if (level ==2 ){

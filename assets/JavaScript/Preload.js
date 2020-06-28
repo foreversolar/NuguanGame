@@ -86,8 +86,8 @@ cc.Class({
                         type: 'text',
                         text: '开始游戏',
                         style: {
-                          left: 350,
-                          top: 230,
+                          left: 365,
+                          top: 300,
                           width: 200,
                           height: 40,
                           lineHeight: 40,

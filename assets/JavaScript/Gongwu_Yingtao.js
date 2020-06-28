@@ -14,6 +14,8 @@ cc.Class({
         Cherry3:cc.Prefab,
         basket:cc.Node,
         UI:cc.Node,
+        result:cc.Node,
+        badResult:cc.Node,
         startbutton:cc.Button,
         endbutton:cc.Button,
         Score:cc.Node,
@@ -105,14 +107,25 @@ cc.Class({
 
     endGame:function(){
         var get = this.basket.getComponent("Basket").score;
-        this.AddScore(get);
         this.node.color = "#696969";
         this.UI.active = true;
         this.basket.active = false;
-        this.UI.getChildByName("text").getComponent(cc.Label).string = "你们摘了"+get+"个樱桃";
+
+        var tip=""
+        if(this.times>20){
+            tip="\n      你接到了许多成色良好的樱桃，樱桃宴上的酪樱桃令皇上和大臣们赞不绝口。"
+            this.result.opacity=255;
+        }else{
+            tip="\n      你采回来的樱桃成色不佳，樱桃宴上大臣们大失所望。"
+            this.badResult.opacity=255;
+
+        }
+        this.UI.getChildByName("text").getComponent(cc.Label).string = tip;
+
         this.UI.on('touchend',function(){
             cc.director.loadScene('Game');
         });
+        this.AddScore(get);
     },
     update (dt) {
         if(this.get == this.number+1){

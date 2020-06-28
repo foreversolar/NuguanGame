@@ -1,6 +1,6 @@
 {
   "ver": "2.3.4",
-  "uuid": "792b371f-d32b-4753-ad07-f06a48262659",
+  "uuid": "3ff78e72-fb81-4e70-a967-be807d6912a1",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -11,18 +11,18 @@
   "height": 410,
   "platformSettings": {},
   "subMetas": {
-    "安史之乱": {
+    "人物志": {
       "ver": "1.0.4",
-      "uuid": "10472a5e-9992-493e-ae33-be60a1565cd2",
-      "rawTextureUuid": "792b371f-d32b-4753-ad07-f06a48262659",
+      "uuid": "a9bb3495-a19e-4571-b2f7-cf4cde972f4c",
+      "rawTextureUuid": "3ff78e72-fb81-4e70-a967-be807d6912a1",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
-      "offsetX": -1.5,
+      "offsetX": -0.5,
       "offsetY": -1.5,
-      "trimX": 31,
+      "trimX": 33,
       "trimY": 18,
-      "width": 1681,
+      "width": 1679,
       "height": 377,
       "rawWidth": 1746,
       "rawHeight": 410,

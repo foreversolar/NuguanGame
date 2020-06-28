@@ -101,7 +101,7 @@ cc.Class({
                       button.onTap((res) => {
                         console.log(res)
                         button.destroy()
-                        cc.sys.localStorage.setItem('nickName', res.userInfo.nickName);
+                          cc.sys.localStorage.setItem('nickName', res.userInfo.nickName.substring(0, 4));
                         cc.director.loadScene("Start");
                       })
                 }

@@ -4,6 +4,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import globalUtil from "util";
 
 cc.Class({
     extends: cc.Component,
@@ -29,6 +30,9 @@ cc.Class({
 
     onLoad () {
         cc.director.preloadScene("Game");
+        var figure = this.me.getChildByName("figure_nuli");
+        globalUtil.setDialogueFigurePic(figure);
+
     },
 
     start() {
@@ -52,107 +56,116 @@ cc.Class({
         this.mySay.string = Dialogue[0];
 
 
-        var j;
-        if (this.ahuihaogandu >= 0 && this.ahuihaogandu < 4) {
-            j = 20;
-        } else if (this.ahuihaogandu >= 4 && this.ahuihaogandu < 9) {
-            j = 20;
-        } else {
-            j = 18;
-        }
-
         var self = this;
+        const DB = wx.cloud.database();
+        DB.collection('UserData').where({
+            _openid: cc.sys.localStorage.getItem('openid'),
+        })
+            .get({
+                success(res) {
+                    self.ahuihaogandu = res.data[0].ahui;
 
-        this.node.on('touchend', function () {
-            if (i > j) {
-                cc.director.loadScene("Game");
-            } else if (i <= 6) {
-                if (i % 2 == 1) {
-                    this.fuzi.opacity = 255;
-                    this.me.opacity = 0;
-                    this.friend.opacity = 0;
-                    this.fuziSay.string = Dialogue[i]
-                } else {
-                    this.fuzi.opacity = 0;
-                    this.me.opacity = 255;
-                    this.friend.opacity = 0;
-                    this.mySay.string = Dialogue[i]
-                    if (i == 6) {
-                        cc.loader.loadRes("picture/Background/长安街白天", function (err, texture) {
-                            if (err) {
-                                console.log("Load picture failed!");
+                    var j;
+                    if (self.ahuihaogandu >= 0 && self.ahuihaogandu < 4) {
+                        j = 20;
+                    } else if (self.ahuihaogandu >= 4 && self.ahuihaogandu < 9) {
+                        j = 20;
+                    } else {
+                        j = 18;
+                    }
+
+                    self.node.on('touchend', function () {
+                        if (i > j) {
+                            cc.director.loadScene("Game");
+                        } else if (i <= 6) {
+                            if (i % 2 == 1) {
+                                self.fuzi.opacity = 255;
+                                self.me.opacity = 0;
+                                self.friend.opacity = 0;
+                                self.fuziSay.string = Dialogue[i]
+                            } else {
+                                self.fuzi.opacity = 0;
+                                self.me.opacity = 255;
+                                self.friend.opacity = 0;
+                                self.mySay.string = Dialogue[i]
+                                if (i == 6) {
+                                    cc.loader.loadRes("picture/Background/长安街白天", function (err, texture) {
+                                        if (err) {
+                                            console.log("Load picture failed!");
+                                        }
+                                        var sprite = new cc.SpriteFrame(texture);
+                                        self.back.getComponent(cc.Sprite).spriteFrame = sprite;
+                                    });
+                                }
                             }
-                            var sprite = new cc.SpriteFrame(texture);
-                            self.back.getComponent(cc.Sprite).spriteFrame = sprite;
-                        });
-                    }
+                        } else if (i == 7) {
+                            self.fuzi.opacity = 0;
+                            self.me.opacity = 0;
+                            self.friend.opacity = 0;
+                            self.luren.opacity = 255;
+                            self.lurenSay.string = Dialogue[i]
+                        } else if (i >= 8 && i <= 15) {
+                            if (i % 2 == 1) {
+                                self.luren.opacity = 0;
+                                self.fuzi.opacity = 0;
+                                self.me.opacity = 0;
+                                self.friend.opacity = 255;
+                                self.friendSay.string = Dialogue[i]
+                            } else {
+                                self.luren.opacity = 0;
+                                self.fuzi.opacity = 0;
+                                self.me.opacity = 255;
+                                self.friend.opacity = 0;
+                                self.mySay.string = Dialogue[i]
+                            }
+                        } else if (i >= 16) {
+                            if (self.ahuihaogandu >= 0 && self.ahuihaogandu < 4) {
+                                if (i % 2 == 0) {
+                                    self.fuzi.opacity = 0;
+                                    self.me.opacity = 0;
+                                    self.friend.opacity = 255;
+                                    self.friendSay.string = Dialogue1[i - 16]
+                                } else {
+                                    self.fuzi.opacity = 0;
+                                    self.me.opacity = 255;
+                                    self.friend.opacity = 0;
+                                    self.mySay.string = Dialogue1[i - 16]
+                                }
+                            } else if (self.ahuihaogandu >= 4 && self.ahuihaogandu < 9) {
+                                if (i == 20) {
+                                    self.option.active = true;
+                                    self.option1.interactable = true;
+                                    self.option2.interactable = true;
+                                    self.node.pauseSystemEvents(true);
+                                } else if (i % 2 == 1) {
+                                    self.fuzi.opacity = 0;
+                                    self.me.opacity = 0;
+                                    self.friend.opacity = 255;
+                                    self.friendSay.string = Dialogue2[i - 16]
+                                } else {
+                                    self.fuzi.opacity = 0;
+                                    self.me.opacity = 255;
+                                    self.friend.opacity = 0;
+                                    self.mySay.string = Dialogue2[i - 16]
+                                }
+                            } else {
+                                if (i % 2 == 0) {
+                                    self.fuzi.opacity = 0;
+                                    self.me.opacity = 0;
+                                    self.friend.opacity = 255;
+                                    self.friendSay.string = Dialogue3[i - 16]
+                                } else {
+                                    self.fuzi.opacity = 0;
+                                    self.me.opacity = 255;
+                                    self.friend.opacity = 0;
+                                    self.mySay.string = Dialogue3[i - 16]
+                                }
+                            }
+                        }
+                        i++;
+                    }, self);
                 }
-            } else if (i == 7) {
-                this.fuzi.opacity = 0;
-                this.me.opacity = 0;
-                this.friend.opacity = 0;
-                this.luren.opacity = 255;
-                this.lurenSay.string = Dialogue[i]
-            }else if (i >=8 && i<=15) {
-                if (i % 2 == 1) {
-                    this.luren.opacity = 0;
-                    this.fuzi.opacity = 0;
-                    this.me.opacity = 0;
-                    this.friend.opacity = 255;
-                    this.friendSay.string = Dialogue[i]
-                } else {
-                    this.luren.opacity = 0;
-                    this.fuzi.opacity = 0;
-                    this.me.opacity = 255;
-                    this.friend.opacity = 0;
-                    this.mySay.string = Dialogue[i]
-                }
-            } else if (i >= 16) {
-                if (this.ahuihaogandu >= 0 && this.ahuihaogandu < 4) {
-                    if (i % 2 == 0) {
-                        this.fuzi.opacity = 0;
-                        this.me.opacity = 0;
-                        this.friend.opacity = 255;
-                        this.friendSay.string = Dialogue1[i-16]
-                    } else {
-                        this.fuzi.opacity = 0;
-                        this.me.opacity = 255;
-                        this.friend.opacity = 0;
-                        this.mySay.string = Dialogue1[i-16]
-                    }
-                } else if (this.ahuihaogandu >= 4 && this.ahuihaogandu < 9) {
-                    if (i == 20) {
-                        this.option.active = true;
-                        this.option1.interactable = true;
-                        this.option2.interactable = true;
-                        this.node.pauseSystemEvents(true);
-                    }else if (i % 2 == 1) {
-                        this.fuzi.opacity = 0;
-                        this.me.opacity = 0;
-                        this.friend.opacity = 255;
-                        this.friendSay.string = Dialogue2[i - 16]
-                    } else {
-                        this.fuzi.opacity = 0;
-                        this.me.opacity = 255;
-                        this.friend.opacity = 0;
-                        this.mySay.string = Dialogue2[i - 16]
-                    }
-                } else {
-                    if (i % 2 == 0) {
-                        this.fuzi.opacity = 0;
-                        this.me.opacity = 0;
-                        this.friend.opacity = 255;
-                        this.friendSay.string = Dialogue3[i - 16]
-                    } else {
-                        this.fuzi.opacity = 0;
-                        this.me.opacity = 255;
-                        this.friend.opacity = 0;
-                        this.mySay.string = Dialogue3[i - 16]
-                    }
-                }
-            }
-            i++;
-        }, this);
+            });
 
         var that = this;
 

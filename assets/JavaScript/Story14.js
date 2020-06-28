@@ -4,6 +4,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import globalUtil from "util";
 
 cc.Class({
     extends: cc.Component,
@@ -29,12 +30,14 @@ cc.Class({
 
     onLoad () {
         cc.director.preloadScene("Game");
+        var figure = this.me.getChildByName("figure_nuli");
+        globalUtil.setDialogueFigurePic(figure)
     },
 
     start() {
         this.playerName.string = cc.sys.localStorage.getItem('nickName')
         this.option.active = false;
-        Dialogue = this.text.json.rounds14;
+        var Dialogue = this.text.json.rounds14;
         var self = this;
         this.node.on('touchend',function(){      
             switch(self.i){

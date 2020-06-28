@@ -4,6 +4,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import globalUtil from "util";
 
 cc.Class({
     extends: cc.Component,
@@ -23,6 +24,8 @@ cc.Class({
 
     onLoad () {
         cc.director.preloadScene("Game");
+        var figure = this.me.getChildByName("figure_nuli");
+        globalUtil.setDialogueFigurePic(figure)
     },
 
     start() {
@@ -92,11 +95,35 @@ cc.Class({
         var Resp2 = "你想必也猜到了吧。我打算藏一些碎金在鱼腹之中，他若是贪食不孝，自会吞金而死，若是供奉于我父母灵前，待鱼肉腐败，那也不需多少时间，自然金子就归他了。"
         if (flag) {
             self.friendSay.string = Resp1;
-            //阿慧好感度加2   
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ahui: res.data[0].ahui+ 2
+                            }
+                        })
+                    }
+                });
         } else {
             self.friendSay.string = Resp2;
-
-            //阿慧好感度加1，技巧加1
+            const DB = wx.cloud.database();
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                ahui: res.data[0].ahui + 1,
+                                skill: res.data[0].skill+1
+                            }
+                        })
+                    }
+                });
         }
         self.me.opacity = 0;
         self.friend.opacity = 255;

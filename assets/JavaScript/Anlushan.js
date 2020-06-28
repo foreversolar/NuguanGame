@@ -13,8 +13,7 @@ cc.Class({
         Ans2:cc.Button,
         Ans3: cc.Button,
         option: cc.Node,
-        beijing: cc.Node,
-        over:0,
+        beijing: cc.Node
     },
 
     onLoad() {
@@ -25,27 +24,23 @@ cc.Class({
         var self = this;
 
         this.node.on('touchend', function () {
-            if (self.over == 1) {
-                cc.director.loadScene("Game");
-            } else {
-                self.option.active = true;
-            }
+            self.option.active = true;
         });     
 
         this.Ans1.node.on('click',function(){
             self.option.active = false;
+            cc.director.loadScene("Game");
             self.ChangeAttribute(1);
-            self.over = 1;
         });
         this.Ans2.node.on('click',function(){
             self.option.active = false;
+            cc.director.loadScene("Game");
             self.ChangeAttribute(2);
-            self.over = 1;
         });
         this.Ans3.node.on('click',function(){
             self.option.active = false;
+            cc.director.loadScene("Game");
             self.ChangeAttribute(3);
-            self.over = 1;
         });
     },
 

@@ -1,6 +1,6 @@
 {
   "ver": "2.3.4",
-  "uuid": "792b371f-d32b-4753-ad07-f06a48262659",
+  "uuid": "0544052b-1b46-4c93-8637-0ad59703e800",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -11,18 +11,18 @@
   "height": 410,
   "platformSettings": {},
   "subMetas": {
-    "安史之乱": {
+    "挚友告别": {
       "ver": "1.0.4",
-      "uuid": "10472a5e-9992-493e-ae33-be60a1565cd2",
-      "rawTextureUuid": "792b371f-d32b-4753-ad07-f06a48262659",
+      "uuid": "561a9f1c-fe91-4695-b66b-456feba685d6",
+      "rawTextureUuid": "0544052b-1b46-4c93-8637-0ad59703e800",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
-      "offsetX": -1.5,
+      "offsetX": -0.5,
       "offsetY": -1.5,
-      "trimX": 31,
+      "trimX": 33,
       "trimY": 18,
-      "width": 1681,
+      "width": 1679,
       "height": 377,
       "rawWidth": 1746,
       "rawHeight": 410,

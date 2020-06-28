@@ -136,16 +136,23 @@ cc.Class({
             if (self.work_times == 0) {
                 self.scheduleOnce(function () {
                     var url = "";
-                    if(self.level == 1){
+                    if (self.level == 1) {
                         url = "Gongwu_Yingtao";
-                    }else if(self.level == 2){
+                        cc.director.loadScene(url);
+                    } else if (self.level == 2) {
                         url = "Gongwu_Kapian";
-                    }else if(self.level == 3){
+                        cc.director.loadScene(url);
+                    } else if (self.level == 3) {
                         url = "Work_QianCengSu";
-                    }else if(self.level == 4){
+                        cc.director.loadScene(url);
+                    } else if (self.level == 4) {
                         url = "Work_Cake";
+                        cc.director.loadScene(url);
+                    } else {
+                        notice.opacity = 255;
+                        notice_back_button.interactable = true;
+                        notice_label.string = "司内一切事宜皆好，请尚食放心";
                     }
-                    cc.director.loadScene(url);
                 });
             }
             else {
@@ -173,7 +180,7 @@ cc.Class({
             if (self.rounds == 50) {
                 console.log("结局")
                 cc.sys.localStorage.setItem('story', 51);
-                cc.director.loadScene("Story50");
+                cc.director.loadScene("zoumadeng");
             } else if (judge==0) {
                 if (self.teshu1 == 0 && self.money >= 400) {
                     cc.director.loadScene("huilu");

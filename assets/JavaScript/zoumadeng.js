@@ -34,9 +34,7 @@ cc.Class({
     },
 
     onLoad() {
-        this.Yes.on('click',function(){
-            cc.director.loadScene("Start");
-        });
+        cc.director.preloadScene('Start');
         this.level = cc.sys.localStorage.getItem("level")
         this.bg1.active = true;
         this.bg2.active = false;
@@ -170,8 +168,8 @@ cc.Class({
         var self = this;
         var i = 1;
         this.node.on('touchend', function () {
-            if (i>10) {
-                cc.director.loadScene("Game");
+            if (i>11) {
+                cc.director.loadScene("Start");
             } else if(i==1){
                 self.bg1.active = false;
                 self.bg2.active = true;
@@ -206,7 +204,10 @@ cc.Class({
                 //清空数据
                 self.restartPanel.opacity = 255;
                 self.Yes.interactable = true;
-                self.restart();
+                i--;
+                self.Yes.node.on('click', function () {
+                    self.restart();
+                });
             }
             i++;
         });
@@ -219,7 +220,7 @@ cc.Class({
         })
             .get({
                 success(res) {
-                        DB.collection('UserData').update({
+                    DB.collection('UserData').doc(res.data[0]._id).update({
                             data: {
                                 level: 1,
                                 health: 80,
@@ -246,6 +247,8 @@ cc.Class({
                             },
                             success(res) {
                                 cc.sys.localStorage.setItem('story', 0);
+                                cc.director.loadScene("Start");
+                                console.log("清空数据")
                             }
                         });
                         DB.collection('TestResult').add({

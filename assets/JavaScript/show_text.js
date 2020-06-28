@@ -13,9 +13,8 @@ cc.Class({
 
     properties: {
         text:cc.Label,
-        button:cc.Button,
         Json_word:cc.JsonAsset,
-        flag:false,
+        flag:0,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -30,13 +29,12 @@ cc.Class({
         var self = this;
         this.showText1();
         this.node.on('touchend',function(){
-            if(self.flag == true){
-                self.showText(self.button);
-                self.flag = false;
+            if(self.flag == 1){
+                self.showText();
+                self.flag = 0;
+            }else if(self.flag == 2){
+                cc.director.loadScene("Dialogue");
             }
-        });
-        this.button.node.on('click', function () {
-            cc.director.loadScene("Dialogue");
         });
     },
 
@@ -58,7 +56,7 @@ cc.Class({
         },interval,repeat,delay);
     },
 
-    showText:function(button){
+    showText:function(){
         var str = this.Json_word.json.StartText[1];
         var index= 0;
         var interval = 0.05;
@@ -67,7 +65,7 @@ cc.Class({
         this.text.string = "";
         this.schedule(function(){
             if(index == str.length-1){
-               button.interactable = true;
+               this.flag = 2;
             }
             this.text.string += str[index];
             index++;

@@ -234,7 +234,6 @@ cc.Class({
 
                         DB.collection('UserData').add({
                             data: {
-                                name: "AddName",
                                 level: self.level,
                                 health: self.health,
                                 experience: self.experience,

@@ -16,6 +16,7 @@ cc.Class({
         QuestionJson:cc.JsonAsset,
         right:0,
         Get:0,
+        times:0,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -139,7 +140,7 @@ cc.Class({
         });
 
         Next.on('click',function(){
-            if(index == 2){
+            if(self.times == 2){
                 self.node.getChildByName("Study").opacity = 0;
                 //self.node.getChildByName("Work").opacity = 255;
                 //加载工作考核
@@ -151,6 +152,7 @@ cc.Class({
             else{
                 //修改下一题信息
                 index = Math.floor(Math.random()*((10-index)/2))+index+1;
+                self.times++;
                 text = self.QuestionJson.json.Question[index];
                 //sentence =  text.Question +'\n'+ text.Answer[0] +'\n'+ text.Answer[1] +'\n'+ text.Answer[2];
                 sentence =  text.Question;

@@ -12,6 +12,7 @@ cc.Class({
 
     properties: {
         player_button: cc.Button,
+        head:cc.Node,
         pa_back_button: cc.Button,
         stuty_button: cc.Button,
         yule_button: cc.Button,
@@ -60,6 +61,8 @@ cc.Class({
 
         var figureInMainPage = this.node.getChildByName("Nuli");
         globalUtil.setMainSceneFigurePic(figureInMainPage);
+        globalUtil.setHeadPic(this.head);
+
 
         var notice_label = notice.getChildByName("label").getComponent(cc.Label);
         var notice_back_button = notice.getChildByName("Back_Button").getComponent(cc.Button);
@@ -114,19 +117,6 @@ cc.Class({
             }
         });
 
-        menu.getChildByName("qiancengsu").on('click', function () {
-            if (self.playing_times < 4) {
-                self.scheduleOnce(function () {
-                    cc.director.loadScene("Work_QianCengSu");
-                });
-            }
-            else {
-                //弹窗
-                notice.opacity = 255;
-                notice_back_button.interactable = true;
-                notice_label.string = "这个回合你已经进行过足够多的娱乐了，娱乐需适度！";
-            }
-        });
 
         menu.getChildByName("canggou").on('click', function () {
             if (self.playing_times < 4) {

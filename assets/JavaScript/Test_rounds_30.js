@@ -191,7 +191,7 @@ cc.Class({
         this.Get = this.node.getChildByName("bg_chufang").getComponent("Test_QianCengSu").scores;
         this.node.getChildByName("Notice").opacity = 255;
         if(this.right == 3&&this.Get > 4){
-            this.node.getChildByName("Notice").getChildByName("Words").getComponent(cc.Label).string = "恭喜你成功通过了考核！皇天不负有心人，你靠着自己的努力成功晋升为典膳。在接下来的日子里，希望你认真练习烹饪技艺，升得典膳后方可进行精品菜肴的烹饪，加油！";
+            this.node.getChildByName("Notice").getChildByName("Words").getComponent(cc.Label).string = "恭喜你成功通过了考核！皇天不负有心人，你靠着自己的努力成功晋升为司膳。在接下来的日子里，希望你认真练习厨艺，定制精品菜肴 ，加油！";
             this.addScore(1);
         }
         else{
@@ -210,13 +210,27 @@ cc.Class({
         .get({
             success(res) {
                 if(result == 1){
+                    cc.sys.localStorage.setItem('level', res.data[0].level+1);
                     DB.collection('UserData').doc(res.data[0]._id).update({
                         data:{
                             level:res.data[0].level+1,
                         }
                     })
-                }
+                    DB.collection('TestResult').where({
+                        _openid: cc.sys.localStorage.getItem('openid'),
+                    })
+                    .get({
+                        success(res) {
+                                DB.collection('TestResult').doc(res.data[0]._id).update({
+                                    data:{
+                                        level:cc.sys.localStorage.getItem('level'),
+                                    }
+                                })
+                        }
+                    });
+                }   
             }
+            
         });
     }
 });

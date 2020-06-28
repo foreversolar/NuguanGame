@@ -65,7 +65,10 @@ cc.Class({
         //         })
         //     }
         // });
-        that.rounds=cc.sys.localStorage.getItem('rounds')+1;
+        that.rounds=cc.sys.localStorage.getItem('rounds');
+        if(that.rounds<50){
+            that.rounds++;
+        }
         cc.sys.localStorage.setItem('rounds', that.rounds);
         const DB = wx.cloud.database();
         DB.collection('UserData').where({

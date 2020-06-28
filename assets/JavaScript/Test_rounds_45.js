@@ -198,7 +198,11 @@ cc.Class({
             this.addScore(1);
         }
         else{
-            this.node.getChildByName("Notice").getChildByName("Words").getComponent(cc.Label).string =  "很遗憾你未能通过考核！宫中制度严格，容不得半分马虎，希望你能打起十二分的精气神，认真研习，吃得苦中苦，方为人上人，希望下次考核的时候不要再错失良机。";
+            if(result)
+                this.node.getChildByName("Notice").getChildByName("Words").getComponent(cc.Label).string =  "很遗憾你未能通过考核！你答对了"+this.right+"道题目，蛋糕合格完成。宫中制度严格，容不得半分马虎，希望你能打起十二分的精气神，认真研习，吃得苦中苦，方为人上人，希望下次考核的时候不要再错失良机。";
+            else
+                this.node.getChildByName("Notice").getChildByName("Words").getComponent(cc.Label).string =  "很遗憾你未能通过考核！你答对了"+this.right+"道题目，蛋糕完成的不好。宫中制度严格，容不得半分马虎，希望你能打起十二分的精气神，认真研习，吃得苦中苦，方为人上人，希望下次考核的时候不要再错失良机。";
+            this.addScore(1);//错了也晋级
         }
         this.node.getChildByName("Notice").on('touchend',function(){
             cc.director.loadScene('Next');

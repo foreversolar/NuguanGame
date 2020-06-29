@@ -76,6 +76,7 @@ cc.Class({
 
                     self.node.on('touchend', function () {
                         if (i > j) {
+                            cc.sys.localStorage.setItem('story', 46);
                             cc.director.loadScene("Game");
                         } else if (i <= 6) {
                             if (i % 2 == 1) {

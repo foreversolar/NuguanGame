@@ -43,9 +43,12 @@ cc.Class({
         ]
         var touchpoint=9;
         
-        this.i=0;
+        this.i = 1;
+        this.me.opacity = 255;
+        this.friend.opacity = 0;
         this.node.on('touchend',function(){      
-            if(this.i==this.Dialogue.length){
+            if (this.i == this.Dialogue.length) {
+                cc.sys.localStorage.setItem('story', 27);
                 cc.director.loadScene("Game");
             }          
             if (this.i == touchpoint) {
@@ -117,6 +120,7 @@ cc.Class({
                     }
                 });
         }
+        cc.sys.localStorage.setItem('story', 27);
         cc.director.loadScene("Game");
      },
 });

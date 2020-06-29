@@ -29,16 +29,19 @@ cc.Class({
 
         this.Ans1.node.on('click',function(){
             self.option.active = false;
+            cc.sys.localStorage.setItem('story', 2);
             cc.director.loadScene("Game");
             self.ChangeAttribute(1);
         });
         this.Ans2.node.on('click',function(){
             self.option.active = false;
+            cc.sys.localStorage.setItem('story', 2);
             cc.director.loadScene("Game");
             self.ChangeAttribute(2);
         });
         this.Ans3.node.on('click',function(){
             self.option.active = false;
+            cc.sys.localStorage.setItem('story', 2);
             cc.director.loadScene("Game");
             self.ChangeAttribute(3);
         });

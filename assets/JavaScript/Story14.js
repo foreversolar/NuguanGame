@@ -95,8 +95,9 @@ cc.Class({
                 self.Liniang.opacity = 0;
                 self.friendSay.string = Dialogue[self.i];
                 break;    
-            default:
-                cc.director.loadScene("Game");
+                default:
+                    cc.sys.localStorage.setItem('story', 14);
+                    cc.director.loadScene("Game");
             }
             self.i++;
         }); 

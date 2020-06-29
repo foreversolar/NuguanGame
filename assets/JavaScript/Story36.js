@@ -57,7 +57,8 @@ cc.Class({
                 this.voice.opacity=0;
             }
 
-            if(this.i==this.Dialogue.length){
+            if (this.i == this.Dialogue.length) {
+                cc.sys.localStorage.setItem('story', 36);
                 cc.director.loadScene("Game");
             }          
             if (this.i == touchpoint) {
@@ -112,7 +113,9 @@ cc.Class({
         this.option.active = false;
         var AResp = "在巨胡饼当中每一层夹上羊肉，以胡椒作为佐料，再把酥油用以调香，放入炉中烤制。这就是古楼子了，嗯，并非是小户人家可以吃得到的，不过也足可以显出豪迈之风了。";
         var BResp = "羊肚切丝而制，堆叠成花，既精致又不乏西域之风味。";
-        if (flag){
+        if (flag) {
+            this.friend.opacity = 0;
+            this.me.opacity = 255;
             this.mySay.string == AResp;
             const DB = wx.cloud.database();
             DB.collection('UserData').where({
@@ -127,7 +130,9 @@ cc.Class({
                         })
                     }
                 });
-        }else{
+        } else {
+            this.friend.opacity = 0;
+            this.me.opacity = 255;
             this.mySay.string = BResp;
             const DB = wx.cloud.database();
             DB.collection('UserData').where({

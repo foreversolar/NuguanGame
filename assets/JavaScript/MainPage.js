@@ -52,6 +52,10 @@ cc.Class({
         cc.director.preloadScene("YuLe_QuShuiLiuShang", function () {
             cc.log("qushuiliusahng scene preloaded");
         });
+
+        if(cc.sys.localStorage.getItem('level')==4){
+            cc.director.preloadScene("Work_Cake");
+        };
         //this.rounds=cc.sys.localStorage.getItem('rounds');
     },
 

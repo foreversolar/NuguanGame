@@ -158,7 +158,10 @@ cc.Class({
         this.loadImg(this.in_cake,bottompicture);
         var pathpicture=this.pathPic+"-"+color;
         this.loadImg(this.in_path,pathpicture);
-        this.endGame();
+        this.scheduleOnce(function () {
+            this.endGame();
+        }, 0.4);
+
     },
     
     setTips:function(){

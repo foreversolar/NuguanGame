@@ -56,6 +56,7 @@ cc.Class({
                             self.mySay.string = Dialogue.dia2[0]
                             self.node.on('touchend', function () {
                                 if (i > 3) {
+                                    cc.sys.localStorage.setItem('story', 50);
                                     cc.director.loadScene("zoumadeng");
                                 } else {
                                     self.mySay.string = Dialogue.dia2[i]
@@ -74,6 +75,7 @@ cc.Class({
                             self.mySay.string = Dialogue.dia1[0]
                             self.node.on('touchend', function () {
                                 if (i > 3) {
+                                    cc.sys.localStorage.setItem('story', 50);
                                     cc.director.loadScene("zoumadeng");
                                 } else {
                                     self.mySay.string = Dialogue.dia1[i]

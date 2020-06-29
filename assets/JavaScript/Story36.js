@@ -57,7 +57,8 @@ cc.Class({
                 this.voice.opacity=0;
             }
 
-            if(this.i==this.Dialogue.length){
+            if (this.i == this.Dialogue.length) {
+                cc.sys.localStorage.setItem('story', 36);
                 cc.director.loadScene("Game");
             }          
             if (this.i == touchpoint) {

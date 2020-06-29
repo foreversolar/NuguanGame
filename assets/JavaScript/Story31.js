@@ -38,7 +38,8 @@ cc.Class({
         this.mySay.string = Dialogue[0];
 
         this.node.on('touchend',function(){      
-            if(i>4){
+            if (i > 4) {
+                cc.sys.localStorage.setItem('story', 31);
                 cc.director.loadScene("Game");
             }else if (i%2==0) {
                 this.me.opacity = 255;

@@ -1,4 +1,4 @@
-// Learn cc.Class:
+ // Learn cc.Class:
 //  - https://docs.cocos.com/creator/manual/en/scripting/class.html
 // Learn Attribute:
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
@@ -53,7 +53,8 @@ cc.Class({
         
         this.i=0;
         this.node.on('touchend',function(){      
-            if(this.i==this.Dialogue.length){
+            if (this.i == this.Dialogue.length) {
+                cc.sys.localStorage.setItem('story', 13);
                 cc.director.loadScene("Game");
             }          
             if (this.i == touchpoint) {

@@ -54,6 +54,7 @@ cc.Class({
                         self.fuziSay.string = Dialogue[0];
                         self.node.on('touchend', function () {
                             if (i > 4) {
+                                cc.sys.localStorage.setItem('story', 16);
                                 cc.director.loadScene("Game");
                             } else if (i == 1) {
                                 self.fuzi.opacity = 0;
@@ -81,6 +82,7 @@ cc.Class({
                         self.friendSay.string = Dialogue[0];
                         self.node.on('touchend', function () {
                             if (i > 6) {
+                                cc.sys.localStorage.setItem('story', 16);
                                 cc.director.loadScene("Game");
                             } else if (i % 2 == 1) {
                                 self.friend.opacity = 0;
@@ -100,6 +102,7 @@ cc.Class({
                         self.guguSay.string = Dialogue[0];
                         self.node.on('touchend', function () {
                             if (i > 6) {
+                                cc.sys.localStorage.setItem('story', 16);
                                 cc.director.loadScene("Game");
                             } else if (i < 5) {
                                 if (i % 2 == 1) {

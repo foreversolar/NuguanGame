@@ -247,18 +247,27 @@ cc.Class({
                             },
                             success(res) {
                                 cc.sys.localStorage.setItem('story', 0);
+                                cc.sys.localStorage.setItem('rounds', 1);
                                 cc.director.loadScene("Start");
                                 console.log("清空数据")
                             }
-                        });
-                        DB.collection('TestResult').add({
-                            data: {
-                                round5:-1,
-                                round15:-1,
-                                round30:-1,
-                             round45:-1,
-                            },                                    
-                        });    
+                    });
+
+                    DB.collection('TestResult').where({
+                        _openid: cc.sys.localStorage.getItem('openid'),
+                    })
+                        .get({
+                            success(res) {
+                                DB.collection('TestResult').doc(res.data[0]._id).update({
+                                    data: {
+                                        round5: -1,
+                                        round15: -1,
+                                        round30: -1,
+                                        round45: -1,
+                                    }, 
+                                });
+                            }
+                        });   
                 }
             });
     }

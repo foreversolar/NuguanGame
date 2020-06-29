@@ -46,7 +46,8 @@ cc.Class({
         this.me.opacity = 0;
         var i=0;
         this.node.on('touchend',function(){      
-            if(i>24){
+            if (i > 24) {
+                cc.sys.localStorage.setItem('story', 6);
                 cc.director.loadScene("Game");
             }
             if(i<8){

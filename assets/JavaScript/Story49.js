@@ -38,6 +38,7 @@ cc.Class({
 
         this.node.on('touchend', function () {
             if (i > 9) {
+                cc.sys.localStorage.setItem('story', 49);
                 cc.director.loadScene("Game");
             }else if (i % 2 == 0) {
                 this.fuzi.opacity = 255;

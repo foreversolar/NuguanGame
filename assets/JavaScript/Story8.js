@@ -59,7 +59,8 @@ cc.Class({
         
         this.i=0;
         this.node.on('touchend',function(){      
-            if(this.i==this.Dialogue.length+1){
+            if (this.i == this.Dialogue.length + 1) {
+                cc.sys.localStorage.setItem('story', 8);
                 cc.director.loadScene("Game");
             }          
             if (this.i == touchpoint) {

@@ -179,8 +179,7 @@ cc.Class({
             var judge = Math.floor(Math.random() * 5); 
             if (self.rounds == 50) {
                 console.log("结局")
-                cc.sys.localStorage.setItem('story', 51);
-                cc.director.loadScene("zoumadeng");
+                cc.director.loadScene("Story50");
             } else if (judge==0) {
                 if (self.teshu1 == 0 && self.money >= 400) {
                     cc.director.loadScene("huilu");

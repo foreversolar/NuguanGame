@@ -66,7 +66,7 @@ cc.Class({
         //     }
         // });
         that.rounds=cc.sys.localStorage.getItem('rounds');
-        if(that.rounds<51){
+        if(that.rounds<50){
             that.rounds++;
         }
         cc.sys.localStorage.setItem('rounds', that.rounds);

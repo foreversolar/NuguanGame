@@ -115,6 +115,7 @@ cc.Class({
                 break;
             case 3:
                 correct_button = Answer3;
+                break;
             case 4:
                 correct_button = Answer4;
                 break;
@@ -141,6 +142,7 @@ cc.Class({
                     self.tishi.getChildByName("tishi").setPosition(-355.715, 12);
                     self.tishi_text.string = "很遗憾，你在众人面前失了颜面，魅力值扣除10。";
                 }, 0.5);
+                self.AddScore(0);
             }
             else {
                 correct_button.getChildByName("right").opacity = 255;
@@ -153,7 +155,7 @@ cc.Class({
                     self.tishi.getChildByName("tishi").setPosition(-355.715,12);
                     self.tishi_text.string = "恭喜你，你果然是才貌双全，魅力值增加20，学识增加15。";
                 }, 0.5);
-                //self.AddScore(1);
+                self.AddScore(1);
             }
             Answer1.getComponent(cc.Button).interactable = false;
             Answer2.getComponent(cc.Button).interactable = false;
@@ -186,6 +188,7 @@ cc.Class({
                     self.tishi.getChildByName("tishi").setPosition(-355.715, 12);
                     self.tishi_text.string = "很遗憾，你在众人面前失了颜面，魅力值扣除10。";
                 }, 0.5);
+                self.AddScore(0);
             }
             else {
                 correct_button.getChildByName("right").opacity = 255;
@@ -233,6 +236,7 @@ cc.Class({
                     self.tishi.getChildByName("tishi").setPosition(-355.715, 12);
                     self.tishi_text.string = "很遗憾，你在众人面前失了颜面，魅力值扣除10。";
                 }, 0.5);
+                self.AddScore(0);
             }
             else {
                 correct_button.getChildByName("right").opacity = 255;
@@ -279,6 +283,7 @@ cc.Class({
                     self.tishi.getChildByName("tishi").setPosition(-355.715, 12);
                     self.tishi_text.string = "很遗憾，你在众人面前失了颜面，魅力值扣除10。";
                 }, 0.5);
+                self.AddScore(0);
             }
             else {
                 correct_button.getChildByName("right").opacity = 255;
@@ -305,21 +310,37 @@ cc.Class({
         });
     },
     AddScore: function (right) {
-        console.log("1");
         const DB = wx.cloud.database();
-        DB.collection('UserData').where({
-            _openid: cc.sys.localStorage.getItem('openid'),
-        })
-        .get({
-            success(res) {
-                DB.collection('UserData').doc(res.data[0]._id).update({
-                    data:{
-                        charm:res.data[0].charm+right*20,
-                        knowledge:res.data[0].knowledge+right*15,
-                        playing_times:res.data[0].playing_times+1,
+        if (right==0) {
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                charm: res.data[0].charm - 10,
+                                playing_times: res.data[0].playing_times + 1,
+                            }
+                        })
                     }
-                })
-            }
-        });
+                });
+        } else {
+            DB.collection('UserData').where({
+                _openid: cc.sys.localStorage.getItem('openid'),
+            })
+                .get({
+                    success(res) {
+                        DB.collection('UserData').doc(res.data[0]._id).update({
+                            data: {
+                                charm: res.data[0].charm + right * 20,
+                                knowledge: res.data[0].knowledge + right * 15,
+                                playing_times: res.data[0].playing_times + 1,
+                            }
+                        })
+                    }
+                });
+        }
+        
     }
 });

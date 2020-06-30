@@ -99,6 +99,7 @@ cc.Class({
                 var sprite = atlas.getSpriteFrame("btn_张开的手");
                 button.node.getComponent(cc.Sprite).spriteFrame = sprite;
             });
+            self.AddScore(0);
             this.text.string = "哈哈，不在这里！";
         }
 
